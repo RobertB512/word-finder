@@ -1,16 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="stylesheet" href="./styles/styles.css">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+			crossorigin="anonymous" />
+		<link rel="stylesheet" href="./styles/styles.css" />
 
-  <title>Word finder</title>
-</head>
-<body>
-  <h1>hello world</h1>
+		<title>Word finder</title>
+	</head>
+	<body>
+		<header>
+			<h1>Word Finder</h1>
+			<p class="header-description">
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
+				similique architecto quibusdam, modi id eius voluptatem laborum!
+				Pariatur quod quos suscipit fuga sint non perspiciatis alias quis
+				placeat reiciendis animi modi explicabo maxime, labore voluptates
+				reprehenderit dolore necessitatibus tenetur neque molestias. Mollitia
+				hic reprehenderit molestias commodi, illum autem expedita eaque porro
+				dignissimos fuga possimus quod, saepe aspernatur. Magnam dolor
+				laboriosam et voluptate explicabo fugiat perspiciatis fuga fugit,
+				impedit exercitationem, placeat quam quibusdam nostrum, neque molestiae.
+			</p>
+		</header>
 
-  <script src="./scripts/script.js"></script>
-</body>
+		<section class="how-top-play">
+			<h2>How to play</h2>
+			<article class="instructions-container">
+				<p class="instructions">
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+					eveniet consectetur cum quasi! Quis rem, cum maiores nulla eos iste?
+					Molestias, id veritatis sequi sed culpa, praesentium architecto, a
+					pariatur saepe animi recusandae rem voluptas nulla? Voluptatem
+					dignissimos expedita neque laudantium debitis eius ad corrupti illo,
+					eaque mollitia nihil doloribus ut magni tempore adipisci sunt quaerat.
+					Quos vitae laudantium mollitia dolorem voluptate accusamus error quia
+					et alias esse. Rem, ratione. Debitis quam quisquam sequi labore
+					incidunt fugit temporibus harum officiis quae nostrum perferendis eos,
+					est modi officia consequatur tenetur veritatis, sed cupiditate? Eaque,
+					officiis dolor non amet placeat laudantium adipisci?
+				</p>
+				<section class="examples">
+					<h3>Examples</h3>
+					<article class="example-1 example">
+						<p class="example-explanation">
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis
+							vero optio saepe earum at commodi inventore aspernatur nesciunt
+							harum doloremque!
+						</p>
+						<h4>Valid words</h4>
+						<ul class="exampe-valid example-list">
+							<li>hello</li>
+							<li>again</li>
+							<li>world</li>
+						</ul>
+						<h4>Invalid words</h4>
+						<ul class="example-invalid example-list">
+							<li>She</li>
+							<li>sells</li>
+							<li>seashells</li>
+						</ul>
+					</article>
+
+					<article class="example-2 example">
+						<p class="example-explanation">
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis
+							vero optio saepe earum at commodi inventore aspernatur nesciunt
+							harum doloremque!
+						</p>
+						<h4>Valid words</h4>
+						<ul class="exampe-valid example-list">
+							<li>quick</li>
+							<li>brown</li>
+							<li>fox</li>
+						</ul>
+						<h4>Invalid words</h4>
+						<ul class="example-invalid example-list">
+							<li>jack</li>
+							<li>in</li>
+							<li>the box</li>
+						</ul>
+					</article>
+				</section>
+			</article>
+		</section>
+
+		<section>
+			<h2>Play game</h2>
+			<article class="game-area">
+				<h3 class="game-word">SOLDIER</h3>
+				<div class="input-group">
+					<form class="word-entery-form" action="">
+						<label class="word-entery-lbl" for="word-entery">Enter word</label>
+						<input
+							class="word-entery-input"
+							id="word-entery"
+							type="text"
+							required />
+						<button class="submit-word">submit</button>
+					</form>
+				</div>
+
+				<article class="guessed-words-section"></article>
+			</article>
+		</section>
+
+		<script src="./scripts/script.js"></script>
+	</body>
 </html>
