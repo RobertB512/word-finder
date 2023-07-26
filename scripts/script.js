@@ -5,7 +5,7 @@ const addUserWord = async guessedWord => {
 
 	if (guessedWord && wordList.indexOf(guessedWord) === -1) {
 		console.log("valid word");
-		const userWord = guessedWord;
+		const userWord = guessedWord.toUpperCase();
 		wordList.push(guessedWord);
 		console.log("words", wordList);
 		console.log("guessedWord is", userWord);
