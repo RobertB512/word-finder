@@ -62,7 +62,7 @@ const checkWord = async wordToVerify => {
 			checkWordInGameWord(theWord.toUpperCase());
 		} else {
 			console.log("ERROR: might not be a valid word");
-			displayErrorMsg(`${wordToVerify} may not be a valid word`);
+			displayErrorMsg(`${wordToVerify} may not be a word`);
 		}
 	} catch (error) {
 		console.log("failed fetch:", error);
@@ -70,12 +70,15 @@ const checkWord = async wordToVerify => {
 };
 
 const getWordFromUser = async () => {
+	const gameWord = document.querySelector(".game-word").textContent;
 	const wordEntryForm = document.querySelector(".word-entry-form");
 	const wordEntryInput = document.querySelector(".word-entry-input");
 
 	wordEntryForm.addEventListener("submit", e => {
 		e.preventDefault();
-		checkWord(wordEntryInput.value);
+		wordEntryInput.value.toUpperCase() === gameWord
+			? displayErrorMsg(`${gameWord} doesn't count`)
+			: checkWord(wordEntryInput.value);
 	});
 };
 
