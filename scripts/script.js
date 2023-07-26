@@ -1,15 +1,21 @@
+const wordList = [];
+
 const addUserWord = async guessedWord => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
 
-	if (guessedWord) {
+	if (guessedWord && wordList.indexOf(guessedWord) === -1) {
 		console.log("valid word");
 		const userWord = guessedWord;
+		wordList.push(guessedWord);
+		console.log("words", wordList);
 		console.log("guessedWord is", userWord);
 		let goodWord = document.createElement("p");
 		goodWord.classList.add("good-word");
 		goodWord.textContent = userWord;
 		console.log("goodWord is", goodWord);
 		guessedWordsSection.append(goodWord);
+	} else if (!(wordList.indexOf(guessedWord) === -1)) {
+		console.log("This word is already in the list");
 	}
 };
 
