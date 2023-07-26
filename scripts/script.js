@@ -5,7 +5,7 @@ const addUserWord = async guessedWord => {
 
 	if (guessedWord && wordList.indexOf(guessedWord) === -1) {
 		console.log("valid word");
-		const userWord = guessedWord.toUpperCase();
+		const userWord = guessedWord;
 		wordList.push(guessedWord);
 		console.log("words", wordList);
 		console.log("guessedWord is", userWord);
@@ -19,6 +19,27 @@ const addUserWord = async guessedWord => {
 	}
 };
 
+const checkWordInGameWord = async userWord => {
+	const gameWord = document.querySelector(".game-word").textContent;
+	let wordStatus = false;
+	console.log(`is ${userWord} in ${gameWord}`);
+
+	for (let letter of userWord) {
+    console.log(`checking letter ${letter}`);
+		if (!(gameWord.indexOf(letter) === -1)) {
+			console.log("entered if");
+			wordStatus = true;
+		} else {
+			console.log("entered else");
+			wordStatus = false;
+			break;
+		}
+	}
+	wordStatus
+		? addUserWord(userWord)
+		: console.log(`One or more letters in ${userWord} aren't in ${gameWord}`);
+};
+
 const checkWord = async wordToVerify => {
 	const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToVerify}`;
 	try {
@@ -27,7 +48,7 @@ const checkWord = async wordToVerify => {
 			const data = await response.json();
 			const theWord = await data[0].word;
 			console.log("here is the word:", theWord);
-			addUserWord(theWord);
+			checkWordInGameWord(theWord.toUpperCase());
 		} else {
 			console.log("ERROR: might not be a valid word");
 		}
