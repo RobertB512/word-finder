@@ -1,5 +1,10 @@
 const wordList = [];
 
+const displayErrorMsg = async errorMsg => {
+	const errorLbl = document.querySelector(".error-msg-lbl");
+	errorMsg ? (errorLbl.textContent = errorMsg) : (errorMsg.textContent = "");
+};
+
 const addUserWord = async guessedWord => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
 
@@ -15,7 +20,8 @@ const addUserWord = async guessedWord => {
 		console.log("goodWord is", goodWord);
 		guessedWordsSection.append(goodWord);
 	} else if (!(wordList.indexOf(guessedWord) === -1)) {
-		console.log("This word is already in the list");
+		// console.log("This word is already in the list");
+    displayErrorMsg(`${guessedWord} is already in the list`)
 	}
 };
 
@@ -25,7 +31,7 @@ const checkWordInGameWord = async userWord => {
 	console.log(`is ${userWord} in ${gameWord}`);
 
 	for (let letter of userWord) {
-    console.log(`checking letter ${letter}`);
+		console.log(`checking letter ${letter}`);
 		if (!(gameWord.indexOf(letter) === -1)) {
 			console.log("entered if");
 			wordStatus = true;
@@ -37,7 +43,8 @@ const checkWordInGameWord = async userWord => {
 	}
 	wordStatus
 		? addUserWord(userWord)
-		: console.log(`One or more letters in ${userWord} aren't in ${gameWord}`);
+		: displayErrorMsg(`One or more letters in ${userWord} aren't in ${gameWord}`)
+    
 };
 
 const checkWord = async wordToVerify => {
@@ -51,6 +58,7 @@ const checkWord = async wordToVerify => {
 			checkWordInGameWord(theWord.toUpperCase());
 		} else {
 			console.log("ERROR: might not be a valid word");
+      displayErrorMsg(`${wordToVerify} may not be a valid word`)
 		}
 	} catch (error) {
 		console.log("failed fetch:", error);
