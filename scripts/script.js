@@ -1,5 +1,13 @@
 const wordList = [];
 
+const generateRandomWord = () => {
+  const gameWord = document.querySelector(".game-word")
+  const wordList = ["soldier", "hospital", "Christmas", "cauliflower", "hippopotamus", "boulevard", "bicuspid", "typewriter", "homework", "extravagant", "xylophone", "pterodactyl"]
+  const randomWord = Math.floor(Math.random() * wordList.length)
+  console.log(randomWord)
+  gameWord.textContent = wordList[randomWord].toUpperCase()
+}
+
 const displayErrorMsg = async errorMsg => {
 	const errorLbl = document.querySelector(".error-msg-lbl");
 	errorMsg ? (errorLbl.textContent = errorMsg) : (errorMsg.textContent = "");
@@ -82,4 +90,5 @@ const getWordFromUser = async () => {
 	});
 };
 
+generateRandomWord();
 getWordFromUser();
