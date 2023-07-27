@@ -19,7 +19,7 @@ const addUserWord = async guessedWord => {
 		console.log("words", wordList);
 		console.log("guessedWord is", userWord);
 		let goodWord = document.createElement("p");
-		goodWord.classList.add("good-word");
+		goodWord.classList.add("good-word", "mb-1");
 		goodWord.textContent = userWord;
 		console.log("goodWord is", goodWord);
 		guessedWordsSection.append(goodWord);
