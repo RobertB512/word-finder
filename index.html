@@ -87,15 +87,18 @@
 		<section class="row border-bottom border-white mb-5">
 			<h2 class="mb-5">Play game</h2>
 			<article class="game-area">
-				<p>The word is...</p>
-				<h3 class="text-uppercase mb-5 game-word">SOLDIER</h3>
+				<div class="mb-5 game-word-area">
+					<p>The word is...</p>
+					<h3 class="text-uppercase game-word"></h3>
+					<p>Refresh or reload the page to get a new word</p>
+				</div>
 				<div class="input-area">
 					<form class="m-auto word-entry-form" action="">
 						<label class="d-block text-start word-entry-lbl" for="word-entry"
 							>Enter word</label
 						>
 						<input
-							class="p-2 m-3 from-control text-bg-dark rounded-pill border border-white word-entry-input"
+							class="p-2 m-3 from-control text-uppercase text-bg-dark rounded-pill border border-white word-entry-input"
 							id="word-entry"
 							type="text"
 							required />
@@ -107,6 +110,10 @@
 						<p class="text-danger error-msg-lbl"></p>
 					</div>
 				</div>
+
+				<p class="text-start fs-6 mb-4 game-progress">
+					Total words found: <span class="fs-4 total-words-found"></span>
+				</p>
 
 				<article class="guessed-words-section"></article>
 			</article>

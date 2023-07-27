@@ -1,12 +1,26 @@
 const wordList = [];
 
 const generateRandomWord = () => {
-  const gameWord = document.querySelector(".game-word")
-  const wordList = ["soldier", "hospital", "Christmas", "cauliflower", "hippopotamus", "boulevard", "bicuspid", "typewriter", "homework", "extravagant", "xylophone", "pterodactyl"]
-  const randomWord = Math.floor(Math.random() * wordList.length)
-  console.log(randomWord)
-  gameWord.textContent = wordList[randomWord].toUpperCase()
-}
+	const gameWord = document.querySelector(".game-word");
+	const gameWordList = [
+		"soldier",
+		"hospital",
+		"Christmas",
+		"cauliflower",
+		"hippopotamus",
+		"boulevard",
+		"bicuspid",
+		"typewriter",
+		"homework",
+		"extravagant",
+		"xylophone",
+		"pterodactyl",
+	];
+
+	const randomWord = Math.floor(Math.random() * gameWordList.length);
+	console.log(randomWord);
+	gameWord.textContent = gameWordList[randomWord].toUpperCase();
+};
 
 const displayErrorMsg = async errorMsg => {
 	const errorLbl = document.querySelector(".error-msg-lbl");
@@ -19,6 +33,7 @@ const displayErrorMsg = async errorMsg => {
 
 const addUserWord = async guessedWord => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
+	const totalWordsFound = document.querySelector(".total-words-found");
 
 	if (guessedWord && wordList.indexOf(guessedWord) === -1) {
 		console.log("valid word");
@@ -35,6 +50,8 @@ const addUserWord = async guessedWord => {
 		// console.log("This word is already in the list");
 		displayErrorMsg(`${guessedWord} is already in the list`);
 	}
+	console.log("test wordList length", wordList.length);
+  totalWordsFound.textContent = wordList.length.toString()
 };
 
 const checkWordInGameWord = async userWord => {
@@ -70,7 +87,7 @@ const checkWord = async wordToVerify => {
 			checkWordInGameWord(theWord.toUpperCase());
 		} else {
 			console.log("ERROR: might not be a valid word");
-			displayErrorMsg(`${wordToVerify} may not be a word`);
+			displayErrorMsg(`${wordToVerify.toUpperCase()} may not be a word`);
 		}
 	} catch (error) {
 		console.log("failed fetch:", error);

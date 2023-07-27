@@ -7,6 +7,10 @@ form {
   width: fit-content;
 }
 
+.progress {
+  background-color: transparent;
+}
+
 .guessed-words-section {
   -moz-column-width: 10rem;
   -moz-column-gap: 2rem;
