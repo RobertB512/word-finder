@@ -33,7 +33,7 @@ const displayErrorMsg = async errorMsg => {
 
 const addUserWord = async guessedWord => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
-	const totalWordsFound = document.querySelector(".total-words-found");
+  const totalWordsFound = document.querySelector(".total-words-found");
 
 	if (guessedWord && wordList.indexOf(guessedWord) === -1) {
 		console.log("valid word");
@@ -42,7 +42,7 @@ const addUserWord = async guessedWord => {
 		console.log("words", wordList);
 		console.log("guessedWord is", userWord);
 		let goodWord = document.createElement("p");
-		goodWord.classList.add("good-word", "mb-1");
+		goodWord.classList.add("mb-1", "good-word");
 		goodWord.textContent = userWord;
 		console.log("goodWord is", goodWord);
 		guessedWordsSection.append(goodWord);
@@ -51,8 +51,38 @@ const addUserWord = async guessedWord => {
 		displayErrorMsg(`${guessedWord} is already in the list`);
 	}
 	console.log("test wordList length", wordList.length);
-  totalWordsFound.textContent = wordList.length.toString()
+	totalWordsFound.textContent = wordList.length.toString();
+	// wordList.length > 0
+	// 	? (totalWordsFound.textContent = wordList.length.toString())
+	// 	: (totalWordsFound.textContent = "0");
 };
+
+const strictCheckWordInGameWord = (userWord) => {
+  const gameWord = document.querySelector(".game-word").textContent;
+	let wordStatus = false;
+  const gameWordCopy = gameWord.split("")
+  console.log("gameWordCopy", gameWordCopy)
+
+  for (let letter of userWord) {
+    if (!(gameWordCopy.indexOf(letter) === -1)) {
+			console.log("entered if");
+      const letterPosition = gameWordCopy.indexOf(letter)
+      gameWordCopy.splice(letterPosition, 1)
+      console.log("removing letters", gameWordCopy)
+			wordStatus = true;
+		} else {
+			console.log("entered else");
+			wordStatus = false;
+			break;
+		}
+  }
+
+  wordStatus
+		? addUserWord(userWord)
+		: displayErrorMsg(
+				`One or more letters in ${userWord} aren't in ${gameWord}, or you used some letters too much`
+		  );
+}
 
 const checkWordInGameWord = async userWord => {
 	const gameWord = document.querySelector(".game-word").textContent;
@@ -84,7 +114,7 @@ const checkWord = async wordToVerify => {
 			const data = await response.json();
 			const theWord = await data[0].word;
 			console.log("here is the word:", theWord);
-			checkWordInGameWord(theWord.toUpperCase());
+			strictCheckWordInGameWord(theWord.toUpperCase());
 		} else {
 			console.log("ERROR: might not be a valid word");
 			displayErrorMsg(`${wordToVerify.toUpperCase()} may not be a word`);
@@ -102,7 +132,7 @@ const getWordFromUser = async () => {
 	wordEntryForm.addEventListener("submit", e => {
 		e.preventDefault();
 		wordEntryInput.value.toUpperCase() === gameWord
-			? displayErrorMsg(`${gameWord} doesn't count`)
+			? displayErrorMsg(`${gameWord} doesn't count...`)
 			: checkWord(wordEntryInput.value);
 	});
 };
