@@ -1,12 +1,37 @@
-# word-finder
+# Word Finder
 
 ## How to play
 
-This is a game where you need to find as many words as you can in a given word. You can take as many, or as few letter from the given word as you want, using each letter, at most, as many times as it appears in the given word. Reordering the letters to make words is allowed, and necessary.
+This is a game where you find as many words as you can in a word given to you. You can use as many, or as few of the letters in the given word as you want.
 
-    NOTE: at this point (6/27/23), each letter can be used as many times you want, as long as the letters still form a word.
+There are two levels in this game, easy and normal. In easy, you can use each letter as many times as you want. In normal, you can only use each letter, at most, as many times as it appears in the given word.
+
 ## Examples
 
-Let's say you are given the word "typewriter". You goal is to find as many words as you can in "typewriter", reordering the letters is allowed. Examples of valid words are: type, writer, trip, tip, pet, wipe, tree, weep. Examples of invalid words are: typewriter (you can't use the given word as a word), toy (typewriter has no o), pipe (typewriter only has one p).
+### Easy mode examples
 
-Another example is "castling". Valid words: cast, tin, sing, gain. Invalid words: castling (you can't use the given word as a word), castle (no e in castling), gass (castling only has one s).
+Let's say you are given the word **typewriter**. You goal is to find as many words as you can in **typewriter**, reordering the letters is allowed and necessary. Let's take a look at some examples.
+
+#### Valid examples
+
+- type (type is a word, and each letter is in the given word)
+- tire (tire is a word, and each letter is in the given word)
+- prep (prep is a word, and each letter is in the given word)
+
+#### Invalid examples
+
+- We're (punctuation not allowed)
+- typewriter (you can't use the given word as a word)
+
+### Normal mode
+
+Let's use a different word, **castling**.
+
+#### Valid examples
+
+- cast (cast is a word, and each letter is in the given word)
+- sting (sting is a word, and each letter is in the given word)
+
+#### Invalid examples
+
+- stings (the given word only has one s, not two)
