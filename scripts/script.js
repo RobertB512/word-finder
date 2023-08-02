@@ -1,4 +1,6 @@
 const wordList = [];
+let gameMode;
+
 
 const generateRandomWord = () => {
 	const gameWord = document.querySelector(".game-word");
@@ -57,10 +59,10 @@ const addUserWord = async guessedWord => {
 	// 	: (totalWordsFound.textContent = "0");
 };
 
-const handleWordStatus = (wordStatus, userWord, errorMsg) =>
+const handleWordStatus = async (wordStatus, userWord, errorMsg) =>
 	wordStatus ? addUserWord(userWord) : displayErrorMsg(errorMsg);
 
-const strictCheckWordInGameWord = userWord => {
+const strictCheckWordInGameWord = async userWord => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	const gameWordCopy = gameWord.split("");
@@ -84,6 +86,28 @@ const strictCheckWordInGameWord = userWord => {
 
 	handleWordStatus(wordStatus, userWord, errorMsg);
 };
+
+const handleLevelSelection = () => {
+  const easyLevel = document.querySelector(".easy-level")
+  const normalLevel = document.querySelector(".normal-level")
+  gameMode = strictCheckWordInGameWord
+
+  easyLevel.addEventListener("click", () => {
+    easyLevel.classList.add("active")
+    normalLevel.classList.remove("active")
+    gameMode = checkWordInGameWord
+    console.log("easy mode on")
+  })
+
+  normalLevel.addEventListener("click", () => {
+    normalLevel.classList.add("active")
+    easyLevel.classList.remove("active")
+    gameMode = strictCheckWordInGameWord
+    console.log("normal mode on")
+  })
+
+  return gameMode
+}
 
 const checkWordInGameWord = async userWord => {
 	const gameWord = document.querySelector(".game-word").textContent;
@@ -114,7 +138,8 @@ const checkWord = async wordToVerify => {
 			const data = await response.json();
 			const theWord = await data[0].word;
 			console.log("here is the word:", theWord);
-			strictCheckWordInGameWord(theWord.toUpperCase());
+			// strictCheckWordInGameWord(theWord.toUpperCase());
+      gameMode(theWord.toUpperCase())
 		} else {
 			console.log("ERROR: might not be a valid word");
 			displayErrorMsg(`${wordToVerify.toUpperCase()} may not be a word`);
@@ -137,5 +162,6 @@ const getWordFromUser = async () => {
 	});
 };
 
+handleLevelSelection()
 generateRandomWord();
 getWordFromUser();
