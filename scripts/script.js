@@ -1,6 +1,5 @@
-const wordList = [];
+let wordList = [];
 let gameMode;
-
 
 const generateRandomWord = () => {
 	const gameWord = document.querySelector(".game-word");
@@ -33,6 +32,15 @@ const displayErrorMsg = async errorMsg => {
 	}, 5000);
 };
 
+const resetGame = () => {
+	document.querySelector(".guessed-words-section").textContent = "";
+	document.querySelector(".total-words-found").textContent = "";
+
+	wordList = [];
+	generateRandomWord();
+	console.log("reset game");
+};
+
 const addUserWord = async guessedWord => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
 	const totalWordsFound = document.querySelector(".total-words-found");
@@ -46,7 +54,6 @@ const addUserWord = async guessedWord => {
 		let goodWord = document.createElement("p");
 		goodWord.classList.add("mb-1", "good-word");
 		goodWord.textContent = userWord;
-		console.log("goodWord is", goodWord);
 		guessedWordsSection.append(goodWord);
 	} else if (!(wordList.indexOf(guessedWord) === -1)) {
 		// console.log("This word is already in the list");
@@ -66,14 +73,12 @@ const strictCheckWordInGameWord = async userWord => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	const gameWordCopy = gameWord.split("");
-	console.log("gameWordCopy", gameWordCopy);
 
 	for (let letter of userWord) {
 		if (!(gameWordCopy.indexOf(letter) === -1)) {
 			console.log("entered if");
 			const letterPosition = gameWordCopy.indexOf(letter);
 			gameWordCopy.splice(letterPosition, 1);
-			console.log("removing letters", gameWordCopy);
 			wordStatus = true;
 		} else {
 			console.log("entered else");
@@ -83,31 +88,32 @@ const strictCheckWordInGameWord = async userWord => {
 	}
 
 	const errorMsg = `One or more letters in ${userWord} aren't in ${gameWord}, or you used some letters too much`;
-
 	handleWordStatus(wordStatus, userWord, errorMsg);
 };
 
 const handleLevelSelection = () => {
-  const easyLevel = document.querySelector(".easy-level")
-  const normalLevel = document.querySelector(".normal-level")
-  gameMode = strictCheckWordInGameWord
+	const easyLevel = document.querySelector(".easy-level");
+	const normalLevel = document.querySelector(".normal-level");
+	gameMode = strictCheckWordInGameWord;
 
-  easyLevel.addEventListener("click", () => {
-    easyLevel.classList.add("active")
-    normalLevel.classList.remove("active")
-    gameMode = checkWordInGameWord
-    console.log("easy mode on")
-  })
+	easyLevel.addEventListener("click", () => {
+		resetGame();
+		easyLevel.classList.add("active");
+		normalLevel.classList.remove("active");
+		gameMode = checkWordInGameWord;
+		console.log("easy mode on");
+	});
 
-  normalLevel.addEventListener("click", () => {
-    normalLevel.classList.add("active")
-    easyLevel.classList.remove("active")
-    gameMode = strictCheckWordInGameWord
-    console.log("normal mode on")
-  })
+	normalLevel.addEventListener("click", () => {
+		resetGame();
+		normalLevel.classList.add("active");
+		easyLevel.classList.remove("active");
+		gameMode = strictCheckWordInGameWord;
+		console.log("normal mode on");
+	});
 
-  return gameMode
-}
+	return gameMode;
+};
 
 const checkWordInGameWord = async userWord => {
 	const gameWord = document.querySelector(".game-word").textContent;
@@ -125,9 +131,9 @@ const checkWordInGameWord = async userWord => {
 		}
 	}
 
-  const errorMsg = `One or more letters in ${userWord} aren't in ${gameWord}`
+	const errorMsg = `One or more letters in ${userWord} aren't in ${gameWord}`;
 
-  handleWordStatus(wordStatus, userWord, errorMsg)
+	handleWordStatus(wordStatus, userWord, errorMsg);
 };
 
 const checkWord = async wordToVerify => {
@@ -139,7 +145,7 @@ const checkWord = async wordToVerify => {
 			const theWord = await data[0].word;
 			console.log("here is the word:", theWord);
 			// strictCheckWordInGameWord(theWord.toUpperCase());
-      gameMode(theWord.toUpperCase())
+			gameMode(theWord.toUpperCase());
 		} else {
 			console.log("ERROR: might not be a valid word");
 			displayErrorMsg(`${wordToVerify.toUpperCase()} may not be a word`);
@@ -159,9 +165,11 @@ const getWordFromUser = async () => {
 		wordEntryInput.value.toUpperCase() === gameWord
 			? displayErrorMsg(`${gameWord} doesn't count...`)
 			: checkWord(wordEntryInput.value);
+
+    wordEntryInput.value = ""
 	});
 };
 
-handleLevelSelection()
+handleLevelSelection();
 generateRandomWord();
 getWordFromUser();
