@@ -33,7 +33,7 @@ const displayErrorMsg = async errorMsg => {
 
 const addUserWord = async guessedWord => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
-  const totalWordsFound = document.querySelector(".total-words-found");
+	const totalWordsFound = document.querySelector(".total-words-found");
 
 	if (guessedWord && wordList.indexOf(guessedWord) === -1) {
 		console.log("valid word");
@@ -57,32 +57,33 @@ const addUserWord = async guessedWord => {
 	// 	: (totalWordsFound.textContent = "0");
 };
 
-const strictCheckWordInGameWord = (userWord) => {
-  const gameWord = document.querySelector(".game-word").textContent;
-	let wordStatus = false;
-  const gameWordCopy = gameWord.split("")
-  console.log("gameWordCopy", gameWordCopy)
+const handleWordStatus = (wordStatus, userWord, errorMsg) =>
+	wordStatus ? addUserWord(userWord) : displayErrorMsg(errorMsg);
 
-  for (let letter of userWord) {
-    if (!(gameWordCopy.indexOf(letter) === -1)) {
+const strictCheckWordInGameWord = userWord => {
+	const gameWord = document.querySelector(".game-word").textContent;
+	let wordStatus = false;
+	const gameWordCopy = gameWord.split("");
+	console.log("gameWordCopy", gameWordCopy);
+
+	for (let letter of userWord) {
+		if (!(gameWordCopy.indexOf(letter) === -1)) {
 			console.log("entered if");
-      const letterPosition = gameWordCopy.indexOf(letter)
-      gameWordCopy.splice(letterPosition, 1)
-      console.log("removing letters", gameWordCopy)
+			const letterPosition = gameWordCopy.indexOf(letter);
+			gameWordCopy.splice(letterPosition, 1);
+			console.log("removing letters", gameWordCopy);
 			wordStatus = true;
 		} else {
 			console.log("entered else");
 			wordStatus = false;
 			break;
 		}
-  }
+	}
 
-  wordStatus
-		? addUserWord(userWord)
-		: displayErrorMsg(
-				`One or more letters in ${userWord} aren't in ${gameWord}, or you used some letters too much`
-		  );
-}
+	const errorMsg = `One or more letters in ${userWord} aren't in ${gameWord}, or you used some letters too much`;
+
+	handleWordStatus(wordStatus, userWord, errorMsg);
+};
 
 const checkWordInGameWord = async userWord => {
 	const gameWord = document.querySelector(".game-word").textContent;
@@ -99,11 +100,10 @@ const checkWordInGameWord = async userWord => {
 			break;
 		}
 	}
-	wordStatus
-		? addUserWord(userWord)
-		: displayErrorMsg(
-				`One or more letters in ${userWord} aren't in ${gameWord}`
-		  );
+
+  const errorMsg = `One or more letters in ${userWord} aren't in ${gameWord}`
+
+  handleWordStatus(wordStatus, userWord, errorMsg)
 };
 
 const checkWord = async wordToVerify => {
