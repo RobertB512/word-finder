@@ -16,83 +16,127 @@
 		<header class="row border-bottom border-white mb-5">
 			<h1 class="text-uppercase">Word Finder</h1>
 			<p class="header-description">
-				Welcome to <strong>Word Finder</strong>. This is a game of finding words
+				Welcome to <strong>Word Finder</strong>! This is a game of finding words
 				in an already existing word. How many can you find?
 			</p>
 		</header>
 
 		<section class="row border-bottom border-white mb-4 how-top-play">
 			<h2>How to play</h2>
-			<article class="instructions-container">
-				<p class="instructions">
+			<article class="intorduction-container">
+				<p>
 					In this game, you form words by rearranging letters from a word that's
-					given to you. Normally, from the way I played it at least, each letter
-					can only be used as many times as it appears. In this game you can use
-					each letter as many times as you want, as long it still forms a word
-					of course.
+					given to you.
 				</p>
-				<section class="examples">
-					<h3 class="mb-4">Examples</h3>
-					<article class="mb-4 example-1 example">
-						<h4>Valid words</h4>
-						<p class="example-explanation">
-							Want some examples on how to play? Look no further, you're here!
-							Want to skip to the game? just keep scrolling until you get to the
-							text field with a button.
-						</p>
-						<p>
-							Let's say the word is
-							<span class="text-uppercase fw-bold example-given-word"
-								>ostrich</span
-							>. Some valid examples would be:
-						</p>
-						<ul class="list-unstyled exampe-valid example-list">
-							<li class="d-inline-block pe-4 fs-4 example-answer-word">
-								✅ rich
-							</li>
-							<li class="d-inline-block pe-4 fs-4 example-answer-word">
-								✅ hitch
-							</li>
-							<li class="d-inline-block pe-4 fs-4 example-answer-word">
-								✅ sits
-							</li>
-							<li class="d-inline-block fs-4 example-answer-word">✅ I</li>
-						</ul>
-					</article>
-
-					<article class="mb-4 example-2 example">
-						<h4>invalid words</h4>
-						<p class="example-explanation">
-							Let's take a look at some invalid examples
-						</p>
-						<p>
-							Let's say the word is
-							<span class="text-uppercase fw-bold example-given-word"
-								>plotting</span
-							>. Invalid examples would be:
-						</p>
-						<ul class="list-unstyled exampe-valid example-list">
-							<li class="d-inline-block pe-4 fs-4 example-answer-word">
-								❌ ping-pong (hyphans aren't allowed)
-							</li>
-							<li class="d-inline-block fs-4 example-answer-word">
-								❌ plotting (come on, that would just be giving you a word...)
-							</li>
-						</ul>
-					</article>
-				</section>
+				<p>
+					There are two levels in this game, easy and normal. In easy you can
+					use each letter as many times as you want. In normal, you can only use
+					each letter, at most, as many times as it appears in the word. Normal makes
+					things more challenging, but also might make things more fun!
+				</p>
+				<p>
+					You can change your level at anytime, but be warned, by changing the
+					level you'll loose your progress and get a new word. There is a chance
+					though you will get the same word again.
+				</p>
 			</article>
+
+			<section class="examples">
+				<h3 class="mb-4">Examples</h3>
+				<p class="example-explanation">
+					Want some examples on how to play? Look no further, you're here! Want
+					to skip to the game? just keep scrolling until you get to the text
+					field with a button.
+				</p>
+
+				<article class="mb-4 example-1 example">
+					<h4>Valid words</h4>
+					<p>
+						Let's say the word is
+						<span class="text-uppercase fw-bold example-given-word"
+							>ostrich</span
+						>. Some valid examples would be:
+					</p>
+
+					<h5>For easy mode:</h5>
+
+					<ul class="list-unstyled exampe-valid example-list">
+						<li class="d-inline-block pe-4 fs-4 example-answer-word">
+							✅ rich (rich is a word)
+						</li>
+						<li class="d-inline-block pe-4 fs-4 example-answer-word">
+							✅ hitch (ostrich has an h)
+						</li>
+						<li class="d-inline-block pe-4 fs-4 example-answer-word">
+							✅ sits (ostrich has an s)
+						</li>
+					</ul>
+
+          <h5>For normal mode:</h5>
+          
+          <ul class="list-unstyled exampe-valid example-list">
+						<li class="d-inline-block pe-4 fs-4 example-answer-word">
+							✅ hits (hits is a word)
+						</li>
+						<li class="d-inline-block pe-4 fs-4 example-answer-word">
+							✅ riot (riot is a word)
+						</li>
+						<li class="d-inline-block pe-4 fs-4 example-answer-word">
+							✅ shirt (shirt is a word)
+						</li>
+					</ul>
+
+				</article>
+
+				<article class="mb-4 example-2 example">
+					<h4>invalid words</h4>
+          <p>
+						Let's say the word is
+						<span class="text-uppercase fw-bold example-given-word"
+							>crocodile</span
+						>. Some invalid examples would be:
+					</p>
+
+          <h5>For easy mode:</h5>
+
+					<ul class="list-unstyled exampe-valid example-list">
+						<li class="d-inline-block pe-4 fs-4 example-answer-word">
+							❌ I'd (punctuation not allowed)
+						</li>
+						<li class="d-inline-block pe-4 fs-4 example-answer-word">
+							❌ cruel (each letter must be in the word)
+						</li>
+						<li class="d-inline-block fs-4 example-answer-word">
+							❌ crocodile (come on, that would just be giving you a word...)
+						</li>
+					</ul>
+
+          <h5>For normal mode:</h5>
+
+          <ul class="list-unstyled exampe-valid example-list">
+						<li class="d-inline-block pe-4 fs-4 example-answer-word">
+							❌ creed (crocodile only has one e)
+						</li>
+					</ul>
+
+				</article>
+			</section>
 		</section>
 
 		<section class="row border-bottom border-white mb-5">
 			<h2 class="mb-5">Play game</h2>
 			<article class="game-area">
-        <h3 class="mb-3">Game modes:</h3>
-        <div class="mb-4 game-mode-group">
-          <button class="btn btn-dark px-3 py-1 border-2 border-white me-3 text-uppercase easy-level">easy</button>
-          <button class="btn btn-dark active px-3 py-1 border-2 border-white text-uppercase normal-level">normal</button>
-
-        </div>
+				<h3 class="mb-3">Game modes:</h3>
+				<div class="mb-4 game-mode-group">
+					<button
+						class="btn btn-dark px-3 py-1 border-2 border-white me-3 text-uppercase easy-level">
+						easy
+					</button>
+					<button
+						class="btn btn-dark active px-3 py-1 border-2 border-white text-uppercase normal-level">
+						normal
+					</button>
+				</div>
 				<div class="mb-5 game-word-area">
 					<p>The word is...</p>
 					<h3 class="text-uppercase game-word"></h3>
