@@ -1,23 +1,10 @@
+import { gameWordList } from "./gameWords.js";
+
 let wordList = [];
 let gameMode;
 
 const generateRandomWord = () => {
 	const gameWord = document.querySelector(".game-word");
-	const gameWordList = [
-		"soldier",
-		"hospital",
-		"Christmas",
-		"cauliflower",
-		"hippopotamus",
-		"boulevard",
-		"bicuspid",
-		"typewriter",
-		"homework",
-		"extravagant",
-		"xylophone",
-		"pterodactyl",
-	];
-
 	const randomWord = Math.floor(Math.random() * gameWordList.length);
 	console.log(randomWord);
 	gameWord.textContent = gameWordList[randomWord].toUpperCase();
@@ -166,7 +153,7 @@ const getWordFromUser = async () => {
 			? displayErrorMsg(`${gameWord} doesn't count...`)
 			: checkWord(wordEntryInput.value);
 
-    wordEntryInput.value = ""
+		wordEntryInput.value = "";
 	});
 };
 
