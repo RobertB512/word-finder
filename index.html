@@ -124,10 +124,11 @@
 		</section>
 
 		<section class="row border-bottom border-white mb-5">
-			<h2 class="mb-5">Play game</h2>
+			<h2 class="mb-5">Ready to play?</h2>
+      <button class="py-2 px-5 btn btn-dark rounded-pill fs-4 text-uppercase w-auto mx-auto mb-5 start-game-btn">play</button>
 			<article class="game-area">
 				<h3 class="mb-3">Game modes:</h3>
-				<div class="mb-4 game-mode-group">
+				<article class="mb-4 game-mode-group">
 					<button
 						class="btn btn-dark px-3 py-1 border-2 border-white me-3 text-uppercase easy-level">
 						easy
@@ -136,13 +137,17 @@
 						class="btn btn-dark active px-3 py-1 border-2 border-white text-uppercase normal-level">
 						normal
 					</button>
-				</div>
-				<div class="mb-5 game-word-area">
+				</article>
+				<section class="mb-5 game-word-area">
 					<p>The word is...</p>
 					<h3 class="text-uppercase game-word"></h3>
-          <button class="btn btn-dark px-3 py-1 border-2 border-white text-uppercase get-new-word-btn">get new word</button>
-				</div>
-				<div class="input-area">
+          <button class="btn btn-dark px-3 py-1 border-2 border-white text-uppercase mb-4 get-new-word-btn">get new word</button>
+          <!-- <article class="timer-wrapper">
+            <p>You have:</p>
+            <p class="fs-1 game-timer"></p>
+          </article> -->
+				</section>
+				<section class="input-area">
 					<form class="m-auto word-entry-form" action="">
 						<label class="d-block text-start word-entry-lbl" for="word-entry"
 							>Enter word</label
@@ -152,14 +157,14 @@
 							id="word-entry"
 							type="text"
 							required />
-						<button class="pt-2 px-3 btn btn-dark rounded-pill submit-word">
+						<button class="pt-2 px-3 btn btn-dark rounded-pill text-uppercase submit-word">
 							Submit
 						</button>
 					</form>
 					<div class="row error-area">
 						<p class="text-danger error-msg-lbl"></p>
 					</div>
-				</div>
+				</section>
 
 				<p class="text-start fs-6 mb-4 game-progress">
 					Total words found: <span class="fs-4 total-words-found"></span>

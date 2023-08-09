@@ -29,12 +29,12 @@ const resetGame = () => {
 };
 
 const getNewWord = () => {
-  const getNewWordBtn = document.querySelector(".get-new-word-btn")
+	const getNewWordBtn = document.querySelector(".get-new-word-btn");
 
-  getNewWordBtn.addEventListener("click", () => {
-    resetGame();
-  })
-}
+	getNewWordBtn.addEventListener("click", () => {
+		resetGame();
+	});
+};
 
 const addUserWord = async guessedWord => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
@@ -165,7 +165,31 @@ const getWordFromUser = async () => {
 	});
 };
 
-getNewWord()
-handleLevelSelection();
-generateRandomWord();
-getWordFromUser();
+const playGame = () => {
+  generateRandomWord();
+  getWordFromUser();
+  handleLevelSelection();
+	getNewWord();
+};
+
+const prepOnPageLoad = () => {
+	const startGameBtn = document.querySelector(".start-game-btn");
+	const gameArea = document.querySelector(".game-area");
+
+	gameArea.classList.add("d-none");
+
+  startGameBtn.addEventListener("click", () => {
+    gameArea.classList.remove("d-none")
+    startGameBtn.classList.add("d-none")
+    playGame()
+  })
+};
+
+
+
+prepOnPageLoad()
+
+// getNewWord()
+// handleLevelSelection();
+// generateRandomWord();
+// getWordFromUser();
