@@ -3,6 +3,12 @@ import { gameWordList } from "./gameWords.js";
 let wordList = [];
 let gameMode;
 
+const focusOnInput = () => {
+  const wordEntryInput = document.querySelector(".word-entry-input")
+
+  wordEntryInput.focus()
+}
+
 const generateRandomWord = () => {
 	const gameWord = document.querySelector(".game-word");
 	const randomWord = Math.floor(Math.random() * gameWordList.length);
@@ -33,6 +39,7 @@ const getNewWord = () => {
 
 	getNewWordBtn.addEventListener("click", () => {
 		resetGame();
+    focusOnInput()
 	});
 };
 
@@ -96,6 +103,7 @@ const handleLevelSelection = () => {
 		easyLevel.classList.add("active");
 		normalLevel.classList.remove("active");
 		gameMode = checkWordInGameWord;
+    focusOnInput()
 		console.log("easy mode on");
 	});
 
@@ -104,6 +112,7 @@ const handleLevelSelection = () => {
 		normalLevel.classList.add("active");
 		easyLevel.classList.remove("active");
 		gameMode = strictCheckWordInGameWord;
+    focusOnInput()
 		console.log("normal mode on");
 	});
 
@@ -166,6 +175,7 @@ const getWordFromUser = async () => {
 };
 
 const playGame = () => {
+  focusOnInput()
   generateRandomWord();
   getWordFromUser();
   handleLevelSelection();
