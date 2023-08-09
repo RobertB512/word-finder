@@ -4,10 +4,10 @@ let wordList = [];
 let gameMode;
 
 const focusOnInput = () => {
-  const wordEntryInput = document.querySelector(".word-entry-input")
+	const wordEntryInput = document.querySelector(".word-entry-input");
 
-  wordEntryInput.focus()
-}
+	wordEntryInput.focus();
+};
 
 const generateRandomWord = () => {
 	const gameWord = document.querySelector(".game-word");
@@ -34,12 +34,47 @@ const resetGame = () => {
 	console.log("reset game");
 };
 
+const handleGameOver = () => {
+  const gameWrapper = document.querySelector(".game-wrapper")
+  gameWrapper.classList.add("d-none")
+  resetGame()
+}
+
+const handleTimer = () => {
+	const gameTimer = document.querySelector(".game-timer");
+	let timeOnTimer = 15; // seconds
+
+	const countDownInterval = setInterval(() => {
+		updateTimer();
+	}, 1000);
+
+	const updateTimer = () => {
+		let minutes = Math.floor(timeOnTimer / 60);
+		let seconds = timeOnTimer % 60;
+
+		let formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+		let formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+
+		console.log("time on timer", timeOnTimer);
+		gameTimer.textContent = `${formattedMinutes}:${formattedSeconds}`;
+
+    timeOnTimer <= 10 && gameTimer.classList.add("text-danger") 
+
+    if (timeOnTimer === 0) {
+      clearInterval(countDownInterval)
+      handleGameOver()
+    }
+
+		timeOnTimer--;
+	};
+};
+
 const getNewWord = () => {
 	const getNewWordBtn = document.querySelector(".get-new-word-btn");
 
 	getNewWordBtn.addEventListener("click", () => {
 		resetGame();
-    focusOnInput()
+		focusOnInput();
 	});
 };
 
@@ -103,7 +138,7 @@ const handleLevelSelection = () => {
 		easyLevel.classList.add("active");
 		normalLevel.classList.remove("active");
 		gameMode = checkWordInGameWord;
-    focusOnInput()
+		focusOnInput();
 		console.log("easy mode on");
 	});
 
@@ -112,7 +147,7 @@ const handleLevelSelection = () => {
 		normalLevel.classList.add("active");
 		easyLevel.classList.remove("active");
 		gameMode = strictCheckWordInGameWord;
-    focusOnInput()
+		focusOnInput();
 		console.log("normal mode on");
 	});
 
@@ -175,10 +210,11 @@ const getWordFromUser = async () => {
 };
 
 const playGame = () => {
-  focusOnInput()
-  generateRandomWord();
-  getWordFromUser();
-  handleLevelSelection();
+	generateRandomWord();
+	focusOnInput();
+	handleTimer();
+	getWordFromUser();
+	handleLevelSelection();
 	getNewWord();
 };
 
@@ -188,16 +224,14 @@ const prepOnPageLoad = () => {
 
 	gameArea.classList.add("d-none");
 
-  startGameBtn.addEventListener("click", () => {
-    gameArea.classList.remove("d-none")
-    startGameBtn.classList.add("d-none")
-    playGame()
-  })
+	startGameBtn.addEventListener("click", () => {
+		gameArea.classList.remove("d-none");
+		startGameBtn.classList.add("d-none");
+		playGame();
+	});
 };
 
-
-
-prepOnPageLoad()
+prepOnPageLoad();
 
 // getNewWord()
 // handleLevelSelection();

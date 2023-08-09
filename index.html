@@ -31,8 +31,8 @@
 				<p>
 					There are two levels in this game, easy and normal. In easy you can
 					use each letter as many times as you want. In normal, you can only use
-					each letter, at most, as many times as it appears in the word. Normal makes
-					things more challenging, but also might make things more fun!
+					each letter, at most, as many times as it appears in the word. Normal
+					makes things more challenging, but also might make things more fun!
 				</p>
 				<p>
 					You can change your level at anytime, but be warned, by changing the
@@ -72,9 +72,9 @@
 						</li>
 					</ul>
 
-          <h5>For normal mode:</h5>
-          
-          <ul class="list-unstyled exampe-valid example-list">
+					<h5>For normal mode:</h5>
+
+					<ul class="list-unstyled exampe-valid example-list">
 						<li class="d-inline-block pe-4 fs-4 example-answer-word">
 							✅ hits (hits is a word)
 						</li>
@@ -85,19 +85,18 @@
 							✅ shirt (shirt is a word)
 						</li>
 					</ul>
-
 				</article>
 
 				<article class="mb-4 example-2 example">
 					<h4>invalid words</h4>
-          <p>
+					<p>
 						Let's say the word is
 						<span class="text-uppercase fw-bold example-given-word"
 							>crocodile</span
 						>. Some invalid examples would be:
 					</p>
 
-          <h5>For easy mode:</h5>
+					<h5>For easy mode:</h5>
 
 					<ul class="list-unstyled exampe-valid example-list">
 						<li class="d-inline-block pe-4 fs-4 example-answer-word">
@@ -111,21 +110,23 @@
 						</li>
 					</ul>
 
-          <h5>For normal mode:</h5>
+					<h5>For normal mode:</h5>
 
-          <ul class="list-unstyled exampe-valid example-list">
+					<ul class="list-unstyled exampe-valid example-list">
 						<li class="d-inline-block pe-4 fs-4 example-answer-word">
 							❌ creed (crocodile only has one e)
 						</li>
 					</ul>
-
 				</article>
 			</section>
 		</section>
 
-		<section class="row border-bottom border-white mb-5">
+		<section class="row border-bottom border-white mb-5 game-wrapper">
 			<h2 class="mb-5">Ready to play?</h2>
-      <button class="py-2 px-5 btn btn-dark rounded-pill fs-4 text-uppercase w-auto mx-auto mb-5 start-game-btn">play</button>
+			<button
+				class="py-2 px-5 btn btn-dark rounded-pill fs-4 text-uppercase w-auto mx-auto mb-5 start-game-btn">
+				play
+			</button>
 			<article class="game-area">
 				<h3 class="mb-3">Game modes:</h3>
 				<article class="mb-4 game-mode-group">
@@ -141,11 +142,14 @@
 				<section class="mb-5 game-word-area">
 					<p>The word is...</p>
 					<h3 class="text-uppercase game-word"></h3>
-          <button class="btn btn-dark px-3 py-1 border-2 border-white text-uppercase mb-4 get-new-word-btn">get new word</button>
-          <!-- <article class="timer-wrapper">
+					<button
+						class="btn btn-dark px-3 py-1 border-2 border-white text-uppercase mb-4 get-new-word-btn">
+						get new word
+					</button>
+					<article class="timer-wrapper">
             <p>You have:</p>
-            <p class="fs-1 game-timer"></p>
-          </article> -->
+            <p class="fs-1 fw-bold game-timer"></p>
+          </article>
 				</section>
 				<section class="input-area">
 					<form class="m-auto word-entry-form" action="">
@@ -156,9 +160,10 @@
 							class="p-2 m-3 from-control text-uppercase text-bg-dark rounded-pill border border-white word-entry-input"
 							id="word-entry"
 							type="text"
-              autocomplete="off"
+							autocomplete="off"
 							required />
-						<button class="pt-2 px-3 btn btn-dark rounded-pill text-uppercase submit-word">
+						<button
+							class="pt-2 px-3 btn btn-dark rounded-pill text-uppercase submit-word">
 							Submit
 						</button>
 					</form>
@@ -175,6 +180,6 @@
 			</article>
 		</section>
 
-		<script src="./scripts/script.js" type="module" ></script>
+		<script src="./scripts/script.js" type="module"></script>
 	</body>
 </html>
