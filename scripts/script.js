@@ -42,7 +42,7 @@ const handleGameOver = () => {
 
 const handleTimer = () => {
 	const gameTimer = document.querySelector(".game-timer");
-	let timeOnTimer = 15; // seconds
+	let timeOnTimer = 180; // seconds
 
 	const countDownInterval = setInterval(() => {
 		updateTimer();
