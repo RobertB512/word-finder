@@ -28,6 +28,14 @@ const resetGame = () => {
 	console.log("reset game");
 };
 
+const getNewWord = () => {
+  const getNewWordBtn = document.querySelector(".get-new-word-btn")
+
+  getNewWordBtn.addEventListener("click", () => {
+    resetGame();
+  })
+}
+
 const addUserWord = async guessedWord => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
 	const totalWordsFound = document.querySelector(".total-words-found");
@@ -157,6 +165,7 @@ const getWordFromUser = async () => {
 	});
 };
 
+getNewWord()
 handleLevelSelection();
 generateRandomWord();
 getWordFromUser();
