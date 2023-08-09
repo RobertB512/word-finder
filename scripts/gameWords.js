@@ -64,7 +64,22 @@ export const gameWordList = [
 	"quotation",
 	"quadrilateral",
 	"quivering",
-  "protagonist"
+  "protagonist",
+  "walruses",
+  "wonderful",
+  "employee",
+  "skyscraper",
+  "Lithuania",
+  "Germany",
+  "America",
+  "Canida",
+  "Mexico",
+  "Netherlands",
+  "Switzerland",
+  "baptize",
+  "Christianity",
+  "zookeeper",
+  "terrific",
 ];
 
 // export default gameWordList
