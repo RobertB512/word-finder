@@ -22,3 +22,20 @@ form {
   column-gap: 2rem;
   column-rule: thin solid white;
 }
+
+/* game over area */
+.play-again-btn {
+  border-radius: 100%;
+  width: 5rem;
+  height: 5rem;
+}
+.play-symbol {
+  margin: auto;
+  height: 0;
+  width: 0;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 35px solid black;
+  border-right: none;
+ 
+}
