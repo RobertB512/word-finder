@@ -218,7 +218,7 @@ const handleTimer = () => {
 
 	gameTimer.classList.remove("text-danger");
 
-	let timeOnTimer = 300; // seconds
+	let timeOnTimer = 45; // seconds
 	const countDownInterval = setInterval(() => {
 		updateTimer();
 	}, 1000);
