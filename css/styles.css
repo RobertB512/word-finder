@@ -1,3 +1,7 @@
+body {
+  background-color: blue;
+}
+
 /* body {
   background-color: #000000;
   color: #ffffff;
@@ -22,7 +26,6 @@ form {
   column-gap: 2rem;
   column-rule: thin solid white;
 } */
-
 /* game over area */
 /* .play-again-btn {
   border-radius: 100%;
@@ -39,3 +42,4 @@ form {
   border-right: none;
 } */
 
+/*# sourceMappingURL=styles.css.map */
