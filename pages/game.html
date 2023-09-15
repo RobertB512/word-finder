@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../styles/styles.scss" />
+    
+		<title>Document</title>
+
+	</head>
+	<body>
+		<section class="game-wrapper">
+			<section class="init-game-start-wrapper">
+				<h2>Ready to play?</h2>
+				<button class="start-game-btn btns-and-links">play</button>
+			</section>
+			<article class="game-area">
+				<section class="game-controls-wrapper">
+					<p>The word is...</p>
+					<h3 class="game-word"></h3>
+					<button class="get-new-word-btn btns-and-links">get new word</button>
+					<section class="input-area">
+						<form class="word-entry-form" action="">
+							<label class="word-entry-lbl" for="word-entry">Enter word</label>
+							<input
+								class="word-entry-input"
+								id="word-entry"
+								type="text"
+								autocomplete="off"
+								required />
+							<button class="submit-word btns-and-links">Submit</button>
+						</form>
+						<div class="error-area">
+							<p class="error-msg-lbl"></p>
+						</div>
+					</section>
+					<article class="level-and-timer">
+						<!-- <h3>Game modes:</h3> -->
+						<article class="game-mode-group">
+							<button class="easy-level btns-and-links">easy</button>
+							<button class="normal-level btns-and-links">normal</button>
+						</article>
+						<article class="timer-wrapper">
+							<p>You have:</p>
+							<p class="game-timer"></p>
+						</article>
+					</article>
+				</section>
+
+				<article class="found-words-wrapper">
+					<p class="game-progress">
+						Total words found: <span class="total-words-found"></span>
+					</p>
+					<article class="guessed-words-section"></article>
+				</article>
+			</article>
+		</section>
+
+		<!-- <section class="game-over-wrapper">
+			<h2 class="game-over-heading">
+				game <br />
+				over
+			</h2>
+			<button class="play-again-btn btns-and-links">
+				<div class="play-symbol"></div>
+			</button>
+		</section> -->
+
+		<script src="../scripts/script.js" type="module"></script>
+	</body>
+</html>
