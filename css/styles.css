@@ -1,5 +1,149 @@
-body {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+p, li {
+  font-size: 2rem;
+}
+
+h1, h2, h3, h4, h5 {
+  line-height: 0.9;
+}
+
+h1 {
+  color: blue;
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 5.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+h3 {
+  font-size: 5rem;
+}
+
+h4 {
+  font-size: 4.5rem;
+}
+
+h5 {
+  font-size: 4rem;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 90%;
+}
+
+.home-page-options {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+.btns-and-links {
+  text-align: center;
+  background-color: black;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 3rem;
+  padding: 1rem 0;
+  width: 20rem;
+}
+
+.how-to-play {
+  text-align: center;
   background-color: blue;
+  color: white;
+  padding: 5rem 1rem;
+}
+
+.introduction-container {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.introduction-container p {
+  margin-bottom: 1rem;
+}
+.introduction-container :last-child {
+  margin-bottom: 0;
+}
+
+.examples {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.examples h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.examples .example-explanation {
+  margin-bottom: 3rem;
+}
+
+.example-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.example {
+  text-align: center;
+  background-color: white;
+  color: black;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.example h4, .example h5 {
+  margin-bottom: 1.5rem;
+}
+.example .example-word, .example .example-list {
+  margin-bottom: 2rem;
+}
+.example .example-list {
+  text-align: left;
+  list-style: dashed;
+  list-style-position: inside;
+}
+.example .example-list li {
+  margin-bottom: 1rem;
+}
+.example .example-list :last-child {
+  margin-bottom: none;
+}
+
+.play-link {
+  display: inline-block;
 }
 
 /* body {
