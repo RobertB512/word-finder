@@ -5,18 +5,24 @@ let gameMode;
 
 function toggleVisibleAndPlay() {
 	const startGameBtn = document.querySelector(".start-game-btn");
-	const gameArea = document.querySelector(".game-area");
-	gameArea.classList.remove("d-none");
-	startGameBtn.classList.add("d-none");
+  const playBtnWrapper = document.querySelector(".play-btn-wrapper")
+	const gameControlsWrapper = document.querySelector(".game-controls-wrapper ");
+	gameControlsWrapper.classList.remove("d-none");
+	// startGameBtn.classList.add("d-none");
+  playBtnWrapper.classList.add("d-none");
 	playGame();
 }
 
 const prepOnPageLoad = () => {
-	const startGameBtn = document.querySelector(".start-game-btn");
-	const gameArea = document.querySelector(".game-area");
+	const playBtnWrapper = document.querySelector(".play-btn-wrapper")
+  const startGameBtn = document.querySelector(".start-game-btn");
+	const gameControlsWrapper  = document.querySelector(".game-controls-wrapper");
+  const normalLevel = document.querySelector(".normal-level")
 
-	gameArea.classList.add("d-none");
-	startGameBtn.classList.remove("d-none");
+	gameControlsWrapper.classList.add("d-none");
+	// startGameBtn.classList.remove("d-none");
+  playBtnWrapper.classList.remove("d-none");
+  normalLevel.classList.add("active");
 
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
 
@@ -37,6 +43,8 @@ const generateRandomWord = () => {
 	const randomWordIndex = Math.floor(Math.random() * gameWordList.length);
 	console.log(randomWordIndex);
 	gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
+  gameWord.classList.remove("calc-font-size")
+  gameWord.classList.add("calc-font-size")
 };
 // const preventFormReload = () {
 
@@ -216,7 +224,7 @@ const getNewWord = () => {
 const handleTimer = () => {
 	const gameTimer = document.querySelector(".game-timer");
 
-	gameTimer.classList.remove("text-danger");
+	gameTimer.classList.remove("time-almost-out");
 
 	let timeOnTimer = 45; // seconds
 	const countDownInterval = setInterval(() => {
@@ -232,7 +240,7 @@ const handleTimer = () => {
 
 		gameTimer.textContent = `${formattedMinutes}:${formattedSeconds}`;
 
-		timeOnTimer <= 10 && gameTimer.classList.add("text-danger");
+		timeOnTimer <= 10 && gameTimer.classList.add("time-almost-out");
 
 		if (timeOnTimer === 0) {
 			clearInterval(countDownInterval);

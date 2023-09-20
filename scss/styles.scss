@@ -12,7 +12,7 @@ html {
   font-size: 62.5%;
 }
 
-p, li {
+p, li, label {
   font-size: 2rem;
 }
 
@@ -73,6 +73,11 @@ a {
 }
 button {
   border: none;
+  &:hover {
+    cursor: pointer;
+  }
+  
+
 }
 .btns-and-links {
   text-align: center;
@@ -82,6 +87,11 @@ button {
   font-size: 3rem;
   padding: 1rem 0;
   width: 20rem;
+
+  &:active {
+    background-color: $secondary-color;
+    color: $tertiary-color;
+  }
 }
 
 // how to play page styles
@@ -175,8 +185,111 @@ button {
 }
       
 
+// game area styles
 
+.game-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
+  article, form {
+    width: fit-content;
+  }
+  article {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+.game-controls-wrapper {
+  p {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  .game-word {
+    margin-bottom: 1.5rem;
+    // font-size: max(4rem, 3.5rem);
+    font-size: 3.8rem;
+  }
+}
+
+.get-new-word-btn {
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+
+  label {
+    text-align-last: left;
+  }
+  input {
+    border: none;
+    font-size: 3rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  button.btns-and-links {
+    width: 100%;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+}
+p.error-msg-lbl {
+  font-size: 2.5rem;
+}
+
+.level-and-timer {
+  display: flex;
+  gap: 3rem;
+}
+.game-mode-group {
+  display: flex;
+  gap: 0.5rem;
+  
+  button {
+    width: fit-content;
+    padding: 1.5rem 1.5rem;
+    font-size: 1.8rem;
+  }
+}
+
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p.game-timer {
+  width: fit-content;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.game-info-wrapper {
+  
+  background-color: $primary-color;
+  color: $secondary-color;
+  padding: 2rem;
+}
+
+// for javascript
+.active {
+  color: $secondary-color;
+  border: 2px solid $secondary-color;
+}
+// .calc-font-size {
+//   font-size: max(5rem, min(3.5rem, 4rem));
+// }
+.d-none {
+  display: none;
+}
+.time-almost-out {
+  color: yellow;
+}
 
 
 

@@ -9,7 +9,7 @@ html {
   font-size: 62.5%;
 }
 
-p, li {
+p, li, label {
   font-size: 2rem;
 }
 
@@ -70,6 +70,9 @@ a {
 button {
   border: none;
 }
+button:hover {
+  cursor: pointer;
+}
 
 .btns-and-links {
   text-align: center;
@@ -79,6 +82,10 @@ button {
   font-size: 3rem;
   padding: 1rem 0;
   width: 20rem;
+}
+.btns-and-links:active {
+  background-color: white;
+  color: black;
 }
 
 .how-to-play-wrapper {
@@ -160,6 +167,103 @@ button {
 
 .play-link {
   display: inline-block;
+}
+
+.game-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.game-info-wrapper article, .game-info-wrapper form {
+  width: fit-content;
+}
+.game-info-wrapper article {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.game-controls-wrapper p {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+.game-controls-wrapper .game-word {
+  margin-bottom: 1.5rem;
+  font-size: 3.8rem;
+}
+
+.get-new-word-btn {
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+form label {
+  text-align-last: left;
+}
+form input {
+  border: none;
+  font-size: 3rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+form button.btns-and-links {
+  width: 100%;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+p.error-msg-lbl {
+  font-size: 2.5rem;
+}
+
+.level-and-timer {
+  display: flex;
+  gap: 3rem;
+}
+
+.game-mode-group {
+  display: flex;
+  gap: 0.5rem;
+}
+.game-mode-group button {
+  width: fit-content;
+  padding: 1.5rem 1.5rem;
+  font-size: 1.8rem;
+}
+
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p.game-timer {
+  width: fit-content;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.game-info-wrapper {
+  background-color: blue;
+  color: white;
+  padding: 2rem;
+}
+
+.active {
+  color: white;
+  border: 2px solid white;
+}
+
+.d-none {
+  display: none;
+}
+
+.time-almost-out {
+  color: yellow;
 }
 
 /* body {
