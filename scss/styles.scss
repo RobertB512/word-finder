@@ -85,17 +85,27 @@ button {
 }
 
 // how to play page styles
-.how-to-play {
+// .how-top-play-page {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+.how-to-play-wrapper {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
   text-align: center;
   background-color: $primary-color;
   color: $secondary-color;
   padding: 5rem 1rem;
 }
 .introduction-container {
-  text-align: center;
+  // text-align: center;
   margin-bottom: 3rem;
 
   p {
+    text-align: center;
+    max-width: 600px;
     margin-bottom: 1rem;
   }
   
@@ -104,6 +114,9 @@ button {
   }
 }
 .examples {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   margin-bottom: 4rem;
 
@@ -115,9 +128,13 @@ button {
     margin-bottom: 3rem;
   }
 }
+.example-explanation {
+  max-width: 600px;
+}
 .example-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;  
 }
 
@@ -125,28 +142,32 @@ button {
   text-align: center;
   background-color: $secondary-color;
   color: $tertiary-color;
-  padding: 1rem;
+  padding: 2rem 1rem;
   border-radius: 1rem;
+  max-width: 47.5rem;
 
 
   h4, h5 {
     margin-bottom: 1.5rem;
   }
+}
+.example-word, .example-list {
+  margin-bottom: 2rem;
+  list-style: none;
+}
+.example-list {
+  // text-align: center;
+  display: inline-block;
+  text-align-last: left;
+  list-style: dashed;
+  // list-style-position: inside;
 
-  .example-word, .example-list {
-    margin-bottom: 2rem;
+  li {
+    margin-bottom: 1rem;
   }
-  .example-list {
-    text-align: left;
-    list-style: dashed;
-    list-style-position: inside;
 
-    li {
-      margin-bottom: 1rem;
-    }
-    :last-child {
-      margin-bottom: none;
-    }
+  :last-child {
+    margin-bottom: 0;
   }
 }
 .play-link {

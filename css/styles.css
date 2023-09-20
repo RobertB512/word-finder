@@ -81,7 +81,10 @@ button {
   width: 20rem;
 }
 
-.how-to-play {
+.how-to-play-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   background-color: blue;
   color: white;
@@ -89,10 +92,11 @@ button {
 }
 
 .introduction-container {
-  text-align: center;
   margin-bottom: 3rem;
 }
 .introduction-container p {
+  text-align: center;
+  max-width: 600px;
   margin-bottom: 1rem;
 }
 .introduction-container :last-child {
@@ -100,6 +104,9 @@ button {
 }
 
 .examples {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   margin-bottom: 4rem;
 }
@@ -111,9 +118,14 @@ button {
   margin-bottom: 3rem;
 }
 
+.example-explanation {
+  max-width: 600px;
+}
+
 .example-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 
@@ -121,25 +133,29 @@ button {
   text-align: center;
   background-color: white;
   color: black;
-  padding: 1rem;
+  padding: 2rem 1rem;
   border-radius: 1rem;
+  max-width: 47.5rem;
 }
 .example h4, .example h5 {
   margin-bottom: 1.5rem;
 }
-.example .example-word, .example .example-list {
+
+.example-word, .example-list {
   margin-bottom: 2rem;
+  list-style: none;
 }
-.example .example-list {
-  text-align: left;
+
+.example-list {
+  display: inline-block;
+  text-align-last: left;
   list-style: dashed;
-  list-style-position: inside;
 }
-.example .example-list li {
+.example-list li {
   margin-bottom: 1rem;
 }
-.example .example-list :last-child {
-  margin-bottom: none;
+.example-list :last-child {
+  margin-bottom: 0;
 }
 
 .play-link {
