@@ -380,9 +380,9 @@ form {
   .game-info-wrapper, .found-words-wrapper {
     height: 100vh;
   }
-  // .game-info-wrapper {
-  //   flex: 0.25
-  // }
+  .game-info-wrapper {
+    flex: 0.25
+  }
   .found-words-wrapper {
     flex: 1;
 
