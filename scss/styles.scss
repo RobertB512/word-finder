@@ -58,6 +58,11 @@ header {
   text-align: center;
   margin-bottom: 3rem;
   width: 90%;
+
+  p {
+    margin: 0 auto;
+    max-width: 370px;
+  }
 }
 
 
@@ -168,9 +173,9 @@ button {
 .example-list {
   // text-align: center;
   display: inline-block;
-  text-align-last: left;
-  list-style: dashed;
-  // list-style-position: inside;
+  text-align: left;
+  list-style: decimal;
+  list-style-position: inside;
 
   li {
     margin-bottom: 1rem;
@@ -194,7 +199,7 @@ button {
   justify-content: center;
 
   article, form {
-    width: fit-content;
+    width: 100%;
   }
   article {
     text-align: center;
@@ -210,7 +215,7 @@ button {
   .game-word {
     margin-bottom: 1.5rem;
     // font-size: max(4rem, 3.5rem);
-    font-size: 3.8rem;
+    font-size: 3.5rem;
   }
 }
 
@@ -224,7 +229,7 @@ form {
   margin-bottom: 0.5rem;
 
   label {
-    text-align-last: left;
+    text-align: left;
   }
   input {
     border: none;
@@ -270,11 +275,31 @@ p.game-timer {
 }
 
 .game-info-wrapper {
-  
+  // position: sticky;
   background-color: $primary-color;
   color: $secondary-color;
   padding: 2rem;
 }
+
+.found-words-wrapper {
+  color: $primary-color;
+  padding: 2rem;
+  // height: 100%;
+  // overflow: scroll;
+
+p {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+}
+.game-progress {
+  border-bottom: 2px solid;
+  margin-bottom: 2rem;
+}
+
+.guessed-words-section {
+  margin-bottom: 1rem;
+} 
 
 // for javascript
 .active {
@@ -334,3 +359,54 @@ form {
   border-right: none;
 } */
 
+
+// for smaller screens
+@media(max-width: 280px) {
+  .game-controls-wrapper .game-word {
+    font-size: 2.5rem;
+  }
+}
+
+// for larger screens
+@media(min-width: 800px) {
+
+  .home-page-options {
+    flex-direction: row;
+  }
+
+  .game-wrapper {
+    display: flex;
+  }
+  .game-info-wrapper, .found-words-wrapper {
+    height: 100vh;
+  }
+  // .game-info-wrapper {
+  //   flex: 0.25
+  // }
+  .found-words-wrapper {
+    flex: 1;
+
+    p {
+      text-align: left;
+    }
+  }
+
+  .guessed-words-section {
+    -moz-column-width: 15rem;
+    -moz-column-gap: 2rem;
+    // -moz-column-rule: thin solid white;
+    -webkit-column-width: 15rem;
+    -webkit-column-gap: 2rem;
+    // -webkit-column-rule: thin solid white;
+    column-width: 15rem;
+    column-gap: 2rem;
+    // column-rule: thin solid white;
+
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  
+
+}

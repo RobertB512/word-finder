@@ -226,7 +226,7 @@ const handleTimer = () => {
 
 	gameTimer.classList.remove("time-almost-out");
 
-	let timeOnTimer = 45; // seconds
+	let timeOnTimer = 300; // seconds
 	const countDownInterval = setInterval(() => {
 		updateTimer();
 	}, 1000);

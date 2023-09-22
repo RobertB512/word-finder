@@ -55,6 +55,10 @@ header {
   margin-bottom: 3rem;
   width: 90%;
 }
+header p {
+  margin: 0 auto;
+  max-width: 370px;
+}
 
 .home-page-options {
   display: flex;
@@ -155,8 +159,9 @@ button:hover {
 
 .example-list {
   display: inline-block;
-  text-align-last: left;
-  list-style: dashed;
+  text-align: left;
+  list-style: decimal;
+  list-style-position: inside;
 }
 .example-list li {
   margin-bottom: 1rem;
@@ -176,7 +181,7 @@ button:hover {
   justify-content: center;
 }
 .game-info-wrapper article, .game-info-wrapper form {
-  width: fit-content;
+  width: 100%;
 }
 .game-info-wrapper article {
   text-align: center;
@@ -189,7 +194,7 @@ button:hover {
 }
 .game-controls-wrapper .game-word {
   margin-bottom: 1.5rem;
-  font-size: 3.8rem;
+  font-size: 3.5rem;
 }
 
 .get-new-word-btn {
@@ -202,7 +207,7 @@ form {
   margin-bottom: 0.5rem;
 }
 form label {
-  text-align-last: left;
+  text-align: left;
 }
 form input {
   border: none;
@@ -251,6 +256,24 @@ p.game-timer {
   background-color: blue;
   color: white;
   padding: 2rem;
+}
+
+.found-words-wrapper {
+  color: blue;
+  padding: 2rem;
+}
+.found-words-wrapper p {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.game-progress {
+  border-bottom: 2px solid;
+  margin-bottom: 2rem;
+}
+
+.guessed-words-section {
+  margin-bottom: 1rem;
 }
 
 .active {
@@ -305,5 +328,38 @@ form {
   border-left: 35px solid black;
   border-right: none;
 } */
+@media (max-width: 280px) {
+  .game-controls-wrapper .game-word {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 800px) {
+  .home-page-options {
+    flex-direction: row;
+  }
+  .game-wrapper {
+    display: flex;
+  }
+  .game-info-wrapper, .found-words-wrapper {
+    height: 100vh;
+  }
+  .found-words-wrapper {
+    flex: 1;
+  }
+  .found-words-wrapper p {
+    text-align: left;
+  }
+  .guessed-words-section {
+    -moz-column-width: 15rem;
+    -moz-column-gap: 2rem;
+    -webkit-column-width: 15rem;
+    -webkit-column-gap: 2rem;
+    column-width: 15rem;
+    column-gap: 2rem;
+  }
+  .guessed-words-section p {
+    font-size: 2rem;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */
