@@ -156,6 +156,10 @@ button:hover {
   margin-bottom: 1.5rem;
 }
 
+.example-given-word {
+  font-weight: 700;
+}
+
 .example-word, .example-list {
   margin-bottom: 2rem;
   list-style: none;
@@ -322,12 +326,14 @@ p.game-timer {
     display: flex;
   }
   .input-group input {
+    width: 75%;
     border-radius: 0.5rem 0rem 0rem 0.5rem;
   }
   .input-group .btns-and-links {
     border-radius: 0rem 0.5rem 0.5rem 0rem;
     font-size: 2rem;
     padding: 1rem;
+    width: fit-content;
   }
   .found-words-wrapper {
     display: flex;

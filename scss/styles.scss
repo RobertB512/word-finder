@@ -103,6 +103,7 @@ button {
 }
 
 // how to play page styles
+
 // .how-top-play-page {
 //   display: flex;
 //   flex-direction: column;
@@ -146,6 +147,7 @@ button {
     margin-bottom: 3rem;
   }
 }
+
 .example-explanation {
   max-width: 600px;
 }
@@ -168,6 +170,9 @@ button {
   h4, h5 {
     margin-bottom: 1.5rem;
   }
+}
+.example-given-word {
+  font-weight: 700;
 }
 .example-word, .example-list {
   margin-bottom: 2rem;
@@ -361,6 +366,7 @@ p.game-timer {
     display: flex;
 
     input {
+      width: 75%;
       border-radius: 0.5rem 0rem 0rem 0.5rem;
     }
     
@@ -368,6 +374,7 @@ p.game-timer {
       border-radius: 0rem 0.5rem 0.5rem 0rem;
       font-size: 2rem;
       padding: 1rem;
+      width: fit-content;
     }
   }
 
