@@ -1,37 +1,7 @@
 # Word Finder
 
-## How to play
+A simple HTML, SCSS, and Javascript word game. I started with CSS and Bootstrap, but wanted to give it a redesign using SCSS.
 
-This is a game where you find as many words as you can in a word given to you. You can use as many, or as few of the letters in the given word as you want.
+If you've ever heard of or played the game where you write a word down at the top of a piece of paper and find words in that word, this is that game. The list of words to find words in come from a list of words in a separate Javascript file. One of those word is randomly chosen from that list at the start of the game.
 
-There are two levels in this game, easy and normal. In easy, you can use each letter as many times as you want. In normal, you can only use each letter, at most, as many times as it appears in the given word.
-
-## Examples
-
-### Easy mode examples
-
-Let's say you are given the word **typewriter**. You goal is to find as many words as you can in **typewriter**, reordering the letters is allowed and necessary. Let's take a look at some examples.
-
-#### Valid examples
-
-- type (type is a word, and each letter is in the given word)
-- tire (tire is a word, and each letter is in the given word)
-- prep (prep is a word, and each letter is in the given word)
-
-#### Invalid examples
-
-- We're (punctuation not allowed)
-- typewriter (you can't use the given word as a word)
-
-### Normal mode
-
-Let's use a different word, **castling**.
-
-#### Valid examples
-
-- cast (cast is a word, and each letter is in the given word)
-- sting (sting is a word, and each letter is in the given word)
-
-#### Invalid examples
-
-- stings (the given word only has one s, not two)
+In order to verify the words that a user enters, I use an API.
