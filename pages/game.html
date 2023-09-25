@@ -9,53 +9,57 @@
 	</head>
 	<body>
 		<section class="game-wrapper">
-				<article class="game-info-wrapper">
-					<section class="play-btn-wrapper">
-						<h2>Ready?</h2>
-						<button class="start-game-btn btns-and-links">play</button>
-					</section>
-					<article class="game-controls-wrapper">
-						<p>The word is...</p>
-						<h3 class="game-word">Testing</h3>
-						<button class="get-new-word-btn btns-and-links">
-							get new word
-						</button>
-						<article class="input-area">
-							<form class="word-entry-form" action="">
-								<label class="word-entry-lbl" for="word-entry"
-									>Enter word</label
-								>
+			<article class="game-info-wrapper">
+				<section class="play-btn-wrapper">
+					<h2>Ready?</h2>
+					<button class="start-game-btn btns-and-links">play</button>
+				</section>
+				<article class="game-controls-wrapper">
+					<p>Make words from...</p>
+					<h3 class="game-word">Testing</h3>
+					<button class="get-new-word-btn btns-and-links">get new word</button>
+					<article class="input-area">
+						<form class="word-entry-form" action="">
+							<!-- <div class="input-wrapper"> -->
+							<label class="word-entry-lbl" for="word-entry"
+								>Enter a word</label
+							>
+							<div class="input-group">
 								<input
 									class="word-entry-input"
 									id="word-entry"
 									type="text"
 									autocomplete="off"
 									required />
-								<button class="submit-word btns-and-links">Submit</button>
-							</form>
-							<div class="error-area">
-								<p class="error-msg-lbl"></p>
+								<button class="submit-word-btn btns-and-links">Submit</button>
 							</div>
+							<!-- </div> -->
+							<!-- <p>(hit enter to submit)</p> -->
+						</form>
+						<div class="error-area">
+							<p class="error-msg-lbl"></p>
+						</div>
+					</article>
+					<article class="level-and-timer">
+						<!-- <h3>Game modes:</h3> -->
+						<article class="game-mode-group">
+							<button class="easy-level btns-and-links">E</button>
+							<button class="normal-level btns-and-links">N</button>
 						</article>
-						<article class="level-and-timer">
-							<!-- <h3>Game modes:</h3> -->
-							<article class="game-mode-group">
-								<button class="easy-level btns-and-links">E</button>
-								<button class="normal-level btns-and-links">N</button>
-							</article>
-							<article class="timer-wrapper">
-								<p class="game-timer">1:00</p>
-							</article>
+						<article class="timer-wrapper">
+							<p>time left:</p>
+							<p class="game-timer">1:00</p>
 						</article>
 					</article>
 				</article>
+			</article>
 
-				<article class="found-words-wrapper">
-					<p class="game-progress">
-						Total words found: <span class="total-words-found"></span>
-					</p>
-					<article class="guessed-words-section"></article>
-				</article>
+			<article class="found-words-wrapper">
+				<p class="game-progress">
+					Total words found: <span class="total-words-found"></span>
+				</p>
+				<article class="guessed-words-section"></article>
+			</article>
 		</section>
 
 		<!-- <section class="game-over-wrapper">

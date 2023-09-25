@@ -8,7 +8,6 @@ function toggleVisibleAndPlay() {
   const playBtnWrapper = document.querySelector(".play-btn-wrapper")
 	const gameControlsWrapper = document.querySelector(".game-controls-wrapper ");
 	gameControlsWrapper.classList.remove("d-none");
-	// startGameBtn.classList.add("d-none");
   playBtnWrapper.classList.add("d-none");
 	playGame();
 }
@@ -20,7 +19,6 @@ const prepOnPageLoad = () => {
   const normalLevel = document.querySelector(".normal-level")
 
 	gameControlsWrapper.classList.add("d-none");
-	// startGameBtn.classList.remove("d-none");
   playBtnWrapper.classList.remove("d-none");
   normalLevel.classList.add("active");
 
@@ -44,7 +42,6 @@ const generateRandomWord = () => {
 	console.log(randomWordIndex);
 	gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
   gameWord.classList.remove("calc-font-size")
-  gameWord.classList.add("calc-font-size")
 };
 // const preventFormReload = () {
 
@@ -193,7 +190,7 @@ const addUserWord = async userWord => {
 		// console.log("words", wordList);
 		// console.log("guessedWord is", userWord);
 		let goodWord = document.createElement("p");
-		goodWord.classList.add("mb-1", "good-word");
+		goodWord.classList.add("good-word");
 		goodWord.textContent = userWord;
 		guessedWordsSection.append(goodWord);
 	} else if (!(wordList.indexOf(userWord) === -1)) {

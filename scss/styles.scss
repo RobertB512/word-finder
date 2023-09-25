@@ -1,6 +1,6 @@
-$primary-color: blue;
-$secondary-color: white;
-$tertiary-color: black;
+$primary-color: #0000ff;
+$secondary-color: #FDF7FF;
+$tertiary-color: #1E1926;
 
 * {
   padding: 0;
@@ -12,7 +12,7 @@ html {
   font-size: 62.5%;
 }
 
-p, li, label {
+p, li, label, input {
   font-size: 2rem;
 }
 
@@ -44,6 +44,9 @@ h4 {
 }
 h5 {
   font-size: 4rem;
+}
+button:focus {
+  border: 0.2rem solid $secondary-color;
 }
 
 // homepage styles
@@ -89,7 +92,7 @@ button {
   background-color: $tertiary-color;
   color: $secondary-color;
   border-radius: 0.5rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
   padding: 1rem 0;
   width: 20rem;
 
@@ -209,13 +212,13 @@ button {
 
 .game-controls-wrapper {
   p {
-    font-size: 3rem;
+    // font-size: 3rem;
     margin-bottom: 1.5rem;
   }
   .game-word {
     margin-bottom: 1.5rem;
     // font-size: max(4rem, 3.5rem);
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
@@ -226,14 +229,15 @@ button {
 form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
+  // margin-bottom: 0.5rem;
 
   label {
     text-align: left;
   }
   input {
     border: none;
-    font-size: 3rem;
+    width: 100%;
+    // font-size: 2.5rem;
     padding: 0.5rem 1rem;
     text-align: center;
     border-radius: 0.5rem 0.5rem 0 0;
@@ -257,6 +261,7 @@ p.error-msg-lbl {
   
   button {
     width: fit-content;
+    height: fit-content;
     padding: 1.5rem 1.5rem;
     font-size: 1.8rem;
   }
@@ -264,8 +269,13 @@ p.error-msg-lbl {
 
 .timer-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 p.game-timer {
@@ -275,7 +285,6 @@ p.game-timer {
 }
 
 .game-info-wrapper {
-  // position: sticky;
   background-color: $primary-color;
   color: $secondary-color;
   padding: 2rem;
@@ -284,14 +293,13 @@ p.game-timer {
 .found-words-wrapper {
   color: $primary-color;
   padding: 2rem;
-  // height: 100%;
-  // overflow: scroll;
 
-p {
+  p {
     font-size: 2.5rem;
     text-align: center;
   }
 }
+
 .game-progress {
   border-bottom: 2px solid;
   margin-bottom: 2rem;
@@ -306,58 +314,13 @@ p {
   color: $secondary-color;
   border: 2px solid $secondary-color;
 }
-// .calc-font-size {
-//   font-size: max(5rem, min(3.5rem, 4rem));
-// }
+
 .d-none {
   display: none;
 }
 .time-almost-out {
   color: yellow;
 }
-
-
-
-/* body {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-form {
-  width: fit-content;
-}
-
-.progress {
-  background-color: transparent;
-}
-
-.guessed-words-section {
-  -moz-column-width: 10rem;
-  -moz-column-gap: 2rem;
-  -moz-column-rule: thin solid white;
-  -webkit-column-width: 10rem;
-  -webkit-column-gap: 2rem;
-  -webkit-column-rule: thin solid white;
-  column-width: 10rem;
-  column-gap: 2rem;
-  column-rule: thin solid white;
-} */
-
-/* game over area */
-/* .play-again-btn {
-  border-radius: 100%;
-  width: 5rem;
-  height: 5rem;
-}
-.play-symbol {
-  margin: auto;
-  height: 0;
-  width: 0;
-  border-top: 25px solid transparent;
-  border-bottom: 25px solid transparent;
-  border-left: 35px solid black;
-  border-right: none;
-} */
 
 
 // for smaller screens
@@ -370,6 +333,15 @@ form {
 // for larger screens
 @media(min-width: 800px) {
 
+  // .sticky-content-wrapper {
+  //   position: sticky;
+  //   top: 0;
+  // }
+
+  p, li, label, input {
+    font-size: 2.5rem;
+  }
+
   .home-page-options {
     flex-direction: row;
   }
@@ -381,10 +353,40 @@ form {
     height: 100vh;
   }
   .game-info-wrapper {
-    flex: 0.25
+    justify-content: flex-start;
+    flex: 0.35;
   }
+
+  .input-group {
+    display: flex;
+
+    input {
+      border-radius: 0.5rem 0rem 0rem 0.5rem;
+    }
+    
+    .btns-and-links {
+      border-radius: 0rem 0.5rem 0.5rem 0rem;
+      font-size: 2rem;
+      padding: 1rem;
+    }
+  }
+
   .found-words-wrapper {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+
+    .game-progress {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    // .guessed-words-section {
+    //   overflow-y: scroll;
+    //   height: 25%;
+    //   background-color: gray;
+    // }
 
     p {
       text-align: left;
@@ -392,21 +394,30 @@ form {
   }
 
   .guessed-words-section {
-    -moz-column-width: 15rem;
-    -moz-column-gap: 2rem;
-    // -moz-column-rule: thin solid white;
-    -webkit-column-width: 15rem;
-    -webkit-column-gap: 2rem;
-    // -webkit-column-rule: thin solid white;
-    column-width: 15rem;
-    column-gap: 2rem;
-    // column-rule: thin solid white;
+    // -moz-column-width: 15rem;
+    // -moz-column-gap: 2rem;
+    // -webkit-column-width: 15rem;
+    // -webkit-column-gap: 2rem;
+    // column-width: 15rem;
+    // column-gap: 2rem;
+
+    flex: 1;
+    overflow-y: scroll;
+    height: 25%;
+    border: 0.2rem solid $primary-color;
+    padding: 1rem;
 
     p {
       font-size: 2rem;
     }
+
+    .good-word {
+      display: inline-block;
+      margin-right: 1.5rem;
+
+      &:after {
+        content: ","
+      }
+    }
   }
-
-  
-
 }
