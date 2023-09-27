@@ -226,6 +226,7 @@ const handleTimer = () => {
 	let timeOnTimer = 300; // seconds
 	const countDownInterval = setInterval(() => {
 		updateTimer();
+    // gameTimer.classList.remove("time-almost-out")
 	}, 1000);
 
 	const updateTimer = () => {
@@ -237,7 +238,13 @@ const handleTimer = () => {
 
 		gameTimer.textContent = `${formattedMinutes}:${formattedSeconds}`;
 
-		timeOnTimer <= 10 && gameTimer.classList.add("time-almost-out");
+		// timeOnTimer <= 10 && gameTimer.classList.add("time-almost-out");
+		// timeOnTimer <= 10 && gameTimer.style.animation = 'scale 1s linear infinite';
+    if (timeOnTimer <= 10) {
+      gameTimer.classList.add("time-almost-out")
+    }
+
+		
 
 		if (timeOnTimer === 0) {
 			clearInterval(countDownInterval);

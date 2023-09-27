@@ -262,21 +262,22 @@ p.error-msg-lbl {
 }
 .game-mode-group {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   
   button {
     width: fit-content;
     height: fit-content;
-    padding: 1.5rem 1.5rem;
+    padding: 1rem;
     font-size: 1.8rem;
   }
 }
 
 .timer-wrapper {
   display: flex;
-  flex-direction: column;
+  gap: 1rem;
+  // flex-direction: column;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
 
   p {
     margin-bottom: 0;
@@ -285,9 +286,24 @@ p.error-msg-lbl {
 
 p.game-timer {
   width: fit-content;
+  height: fit-content;
   font-size: 3rem;
   margin-bottom: 0;
+  background-color: $tertiary-color;
+  padding: 1rem;
+  // animation: scale 1s linear infinite;
+  // transform-origin: center;
+  // transition: 0.12.5s;
 }
+
+// @keyframes scale {
+//   0%, 100% {
+//       transform: scale(1);
+//   }
+//   50% {
+//       transform: scale(1.5);
+//   }
+// }
 
 .game-info-wrapper {
   background-color: $primary-color;
@@ -324,9 +340,18 @@ p.game-timer {
   display: none;
 }
 .time-almost-out {
-  color: yellow;
+  animation: scale 1s linear infinite;
+  transform-origin: center;
 }
 
+@keyframes scale {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.5);
+  }
+}
 
 // for smaller screens
 @media(max-width: 280px) {
