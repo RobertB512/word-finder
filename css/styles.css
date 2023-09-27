@@ -196,6 +196,10 @@ button:hover {
   margin: 0 auto;
 }
 
+.play-btn-wrapper {
+  margin-bottom: 2rem;
+}
+
 .game-controls-wrapper p {
   margin-bottom: 1.5rem;
 }

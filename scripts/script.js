@@ -4,23 +4,31 @@ let wordList = [];
 let gameMode;
 
 function toggleVisibleAndPlay() {
-	const startGameBtn = document.querySelector(".start-game-btn");
-  const playBtnWrapper = document.querySelector(".play-btn-wrapper")
+	// const startGameBtn = document.querySelector(".start-game-btn");
+	const playBtnWrapper = document.querySelector(".play-btn-wrapper");
 	const gameControlsWrapper = document.querySelector(".game-controls-wrapper ");
+	const inputArea = document.querySelector(".input-area");
+	const levelAndTimer = document.querySelector(".level-and-timer");
+	const getNewWordBtn = document.querySelector(".get-new-word-btn");
+
 	gameControlsWrapper.classList.remove("d-none");
-  playBtnWrapper.classList.add("d-none");
+	playBtnWrapper.classList.add("d-none");
+	inputArea.classList.remove("d-none");
+	levelAndTimer.classList.remove("d-none");
+	getNewWordBtn.classList.remove("d-none");
+	resetGame();
 	playGame();
 }
 
 const prepOnPageLoad = () => {
-	const playBtnWrapper = document.querySelector(".play-btn-wrapper")
-  const startGameBtn = document.querySelector(".start-game-btn");
-	const gameControlsWrapper  = document.querySelector(".game-controls-wrapper");
-  const normalLevel = document.querySelector(".normal-level")
+	const playBtnWrapper = document.querySelector(".play-btn-wrapper");
+	const startGameBtn = document.querySelector(".start-game-btn");
+	const gameControlsWrapper = document.querySelector(".game-controls-wrapper");
+	const normalLevel = document.querySelector(".normal-level");
 
 	gameControlsWrapper.classList.add("d-none");
-  playBtnWrapper.classList.remove("d-none");
-  normalLevel.classList.add("active");
+	playBtnWrapper.classList.remove("d-none");
+	normalLevel.classList.add("active");
 
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
 
@@ -41,7 +49,7 @@ const generateRandomWord = () => {
 	const randomWordIndex = Math.floor(Math.random() * gameWordList.length);
 	console.log(randomWordIndex);
 	gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
-  gameWord.classList.remove("calc-font-size")
+	gameWord.classList.remove("calc-font-size");
 };
 // const preventFormReload = () {
 
@@ -145,22 +153,22 @@ function resetOnEasyLevel() {
 	focusOnInput();
 	console.log("easy mode on");
 
-  return gameMode
+	return gameMode;
 }
 
 function resetOnNormalLevel() {
-  const easyLevel = document.querySelector(".easy-level");
-  const normalLevel = document.querySelector(".normal-level");
+	const easyLevel = document.querySelector(".easy-level");
+	const normalLevel = document.querySelector(".normal-level");
 
-  resetGame();
-  normalLevel.classList.add("active");
-  easyLevel.classList.remove("active");
-  // gameMode = strictCheckWordInGameWord;
-  gameMode = strictCheckWordInGameWord;
-  focusOnInput();
-  console.log("normal mode on");
+	resetGame();
+	normalLevel.classList.add("active");
+	easyLevel.classList.remove("active");
+	// gameMode = strictCheckWordInGameWord;
+	gameMode = strictCheckWordInGameWord;
+	focusOnInput();
+	console.log("normal mode on");
 
-  return gameMode
+	return gameMode;
 }
 
 const handleLevelSelection = userWord => {
@@ -223,10 +231,9 @@ const handleTimer = () => {
 
 	gameTimer.classList.remove("time-almost-out");
 
-	let timeOnTimer = 300; // seconds
+	let timeOnTimer = 60; // seconds
 	const countDownInterval = setInterval(() => {
 		updateTimer();
-    // gameTimer.classList.remove("time-almost-out")
 	}, 1000);
 
 	const updateTimer = () => {
@@ -238,13 +245,9 @@ const handleTimer = () => {
 
 		gameTimer.textContent = `${formattedMinutes}:${formattedSeconds}`;
 
-		// timeOnTimer <= 10 && gameTimer.classList.add("time-almost-out");
-		// timeOnTimer <= 10 && gameTimer.style.animation = 'scale 1s linear infinite';
-    if (timeOnTimer <= 10) {
-      gameTimer.classList.add("time-almost-out")
-    }
-
-		
+		if (timeOnTimer <= 10) {
+			gameTimer.classList.add("time-almost-out");
+		}
 
 		if (timeOnTimer === 0) {
 			clearInterval(countDownInterval);
@@ -271,6 +274,8 @@ const displayErrorMsg = async errorMsg => {
 };
 
 const resetGame = () => {
+	document.querySelector(".error-msg-lbl").textContent = "";
+	document.querySelector(".word-entry-input").value = "";
 	document.querySelector(".guessed-words-section").textContent = "";
 	document.querySelector(".total-words-found").textContent = "";
 
@@ -279,22 +284,44 @@ const resetGame = () => {
 	console.log("reset game");
 };
 
+const showGameOverScreen = () => {
+	const startGameBtn = document.querySelector(".start-game-btn");
+
+	const inputArea = document.querySelector(".input-area");
+	const levelAndTimer = document.querySelector(".level-and-timer");
+	const getNewWordBtn = document.querySelector(".get-new-word-btn");
+	const playBtnWrapper = document.querySelector(".play-btn-wrapper");
+
+	playBtnWrapper.classList.remove("d-none");
+	getNewWordBtn.classList.add("d-none");
+	inputArea.classList.add("d-none");
+	levelAndTimer.classList.add("d-none");
+
+	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
+	startGameBtn.addEventListener("click", toggleVisibleAndPlay);
+};
+
 const handleGameOver = () => {
+	const gameMessage = document.querySelector(".game-message");
 	const startGameBtn = document.querySelector(".start-game-btn");
 	const wordEntryForm = document.querySelector(".word-entry-form");
-  const easyLevel = document.querySelector(".easy-level");
+	const easyLevel = document.querySelector(".easy-level");
 	const normalLevel = document.querySelector(".normal-level");
 
-  easyLevel.classList.remove("active")
-  normalLevel.classList.remove("active")
-  normalLevel.classList.add("active")
-  easyLevel.removeEventListener("click", resetOnEasyLevel);
+	gameMessage.textContent = "GAME OVER";
+
+	easyLevel.classList.remove("active");
+	normalLevel.classList.remove("active");
+	normalLevel.classList.add("active");
+	easyLevel.removeEventListener("click", resetOnEasyLevel);
 	normalLevel.removeEventListener("click", resetOnNormalLevel);
 	wordEntryForm.removeEventListener("submit", preventFormReload);
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
 
-	resetGame();
-	prepOnPageLoad();
+	showGameOverScreen();
+
+	// resetGame();
+	// prepOnPageLoad();
 };
 
 prepOnPageLoad();
