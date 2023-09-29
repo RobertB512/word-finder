@@ -215,7 +215,17 @@ button {
   }
 }
 
+// .home-link {
+//   font-size: 1.6rem;
+//   width: fit-content;
+//   padding: 0.5rem 0.5rem;
+//   margin-bottom: 1rem;
+// }
+
 .play-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 2rem;
 }
 
@@ -250,6 +260,7 @@ form {
     padding: 0.5rem 1rem;
     text-align: center;
     border-radius: 0.5rem 0.5rem 0 0;
+    text-transform: uppercase;
   }
   button.btns-and-links {
     width: 100%;
@@ -344,6 +355,7 @@ p.game-timer {
   display: none;
 }
 .time-almost-out {
+  color: #f00;
   animation: scale 1s linear infinite;
   transform-origin: center;
 }
