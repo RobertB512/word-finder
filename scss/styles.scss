@@ -260,6 +260,7 @@ form {
     padding: 0.5rem 1rem;
     text-align: center;
     border-radius: 0.5rem 0.5rem 0 0;
+    font-weight: 700;
     text-transform: uppercase;
   }
   button.btns-and-links {
@@ -377,7 +378,7 @@ p.game-timer {
 }
 
 // for larger screens
-@media(min-width: 800px) {
+@media(min-width: 1000px) {
 
   // .sticky-content-wrapper {
   //   position: sticky;
@@ -400,7 +401,7 @@ p.game-timer {
   }
   .game-info-wrapper {
     justify-content: flex-start;
-    flex: 0.35;
+    flex: 1;
   }
 
   .input-group {
@@ -422,7 +423,7 @@ p.game-timer {
   .found-words-wrapper {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 2;
 
     .game-progress {
       position: sticky;
