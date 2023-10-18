@@ -231,13 +231,12 @@ button {
 
 .game-controls-wrapper {
   p {
-    // font-size: 3rem;
     margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 3vw + 1rem, 3rem);
   }
   .game-word {
     margin-bottom: 1.5rem;
-    // font-size: max(4rem, 3.5rem);
-    font-size: 3rem;
+    font-size: clamp(3rem, 7vw + 1rem, 5rem)
   }
 }
 
@@ -280,6 +279,11 @@ p.error-msg-lbl {
   display: flex;
   gap: 1rem;
   
+  .level-options {
+    display: flex;
+    gap: 1rem;
+  }
+
   button {
     width: fit-content;
     height: fit-content;
@@ -352,6 +356,10 @@ p.game-timer {
   border: 2px solid $secondary-color;
 }
 
+// .adjust-font-size {
+//   font-size: clamp(3rem, 7vw + 1rem, 5rem)
+// }
+
 .d-none {
   display: none;
 }
@@ -371,10 +379,25 @@ p.game-timer {
 }
 
 // for smaller screens
-@media(max-width: 280px) {
-  .game-controls-wrapper .game-word {
-    font-size: 2.5rem;
+@media(max-width: 400px) {
+  .game-mode-group, .timer-wrapper {
+    flex-direction: column;
+    align-items: center;
   }
+  .game-mode-group {
+    p {
+      margin-bottom: 0;
+    }
+  }
+  // .timer-wrapper {
+  //   align-items: center;
+  // }
+
+}
+@media(max-width: 280px) {
+  // .game-controls-wrapper .game-word {
+  //   font-size: 2.5rem;
+  // }
 }
 
 // for larger screens

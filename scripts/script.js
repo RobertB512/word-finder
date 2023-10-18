@@ -49,11 +49,9 @@ const generateRandomWord = () => {
 	const randomWordIndex = Math.floor(Math.random() * gameWordList.length);
 	console.log(randomWordIndex);
 	gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
-	gameWord.classList.remove("calc-font-size");
 };
-// const preventFormReload = () {
 
-// }
+
 
 function preventFormReload(e) {
 	const wordEntryInput = document.querySelector(".word-entry-input");
@@ -83,7 +81,6 @@ const checkIfRealWord = async userWord => {
 			if (response.ok) {
 				const data = await response.json();
 				const theWord = await data[0].word;
-				// console.log("here is the word:", theWord);
 				// strictCheckWordInGameWord(theWord.toUpperCase());
 				gameMode(theWord.toUpperCase());
 			} else {
@@ -195,14 +192,12 @@ const addUserWord = async userWord => {
 	if (userWord && wordList.indexOf(userWord) === -1) {
 		console.log("valid word");
 		wordList.push(userWord);
-		// console.log("words", wordList);
-		// console.log("guessedWord is", userWord);
+
 		let goodWord = document.createElement("p");
 		goodWord.classList.add("good-word");
 		goodWord.textContent = userWord;
 		guessedWordsSection.append(goodWord);
 	} else if (!(wordList.indexOf(userWord) === -1)) {
-		// console.log("This word is already in the list");
 		displayErrorMsg(`${userWord} is already in the list`);
 	}
 	totalWordsFound.textContent = wordList.length.toString();
@@ -223,7 +218,6 @@ const getNewWord = () => {
 
 	getNewWordBtn.addEventListener("click", resetAndFocus);
 
-	// console.log("getNewWord function read");
 };
 
 const handleTimer = () => {

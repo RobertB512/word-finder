@@ -205,10 +205,11 @@ button:hover {
 
 .game-controls-wrapper p {
   margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
 }
 .game-controls-wrapper .game-word {
   margin-bottom: 1.5rem;
-  font-size: 3rem;
+  font-size: clamp(3rem, 7vw + 1rem, 5rem);
 }
 
 .get-new-word-btn {
@@ -246,6 +247,10 @@ p.error-msg-lbl {
 }
 
 .game-mode-group {
+  display: flex;
+  gap: 1rem;
+}
+.game-mode-group .level-options {
   display: flex;
   gap: 1rem;
 }
@@ -321,9 +326,13 @@ p.game-timer {
     transform: scale(1.5);
   }
 }
-@media (max-width: 280px) {
-  .game-controls-wrapper .game-word {
-    font-size: 2.5rem;
+@media (max-width: 400px) {
+  .game-mode-group, .timer-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .game-mode-group p {
+    margin-bottom: 0;
   }
 }
 @media (min-width: 1000px) {
