@@ -51,8 +51,6 @@ const generateRandomWord = () => {
 	gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
 };
 
-
-
 function preventFormReload(e) {
 	const wordEntryInput = document.querySelector(".word-entry-input");
 	const gameWord = document.querySelector(".game-word").textContent;
@@ -73,7 +71,7 @@ const getWordFromUser = async () => {
 	wordEntryForm.addEventListener("submit", preventFormReload);
 };
 
-const checkIfRealWord = async userWord => {
+const checkIfRealWord = async (userWord) => {
 	if (userWord) {
 		const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${userWord}`;
 		try {
@@ -95,7 +93,7 @@ const checkIfRealWord = async userWord => {
 	}
 };
 
-const checkWordInGameWord = async userWord => {
+const checkWordInGameWord = async (userWord) => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	console.log(`is ${userWord} in ${gameWord}`);
@@ -116,7 +114,7 @@ const checkWordInGameWord = async userWord => {
 	handleWordStatus(wordStatus, userWord, errorMsg);
 };
 
-const strictCheckWordInGameWord = async userWord => {
+const strictCheckWordInGameWord = async (userWord) => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	const gameWordCopy = gameWord.split("");
@@ -168,7 +166,7 @@ function resetOnNormalLevel() {
 	return gameMode;
 }
 
-const handleLevelSelection = userWord => {
+const handleLevelSelection = (userWord) => {
 	const easyLevel = document.querySelector(".easy-level");
 	const normalLevel = document.querySelector(".normal-level");
 
@@ -185,13 +183,72 @@ const handleLevelSelection = userWord => {
 const handleWordStatus = async (wordStatus, userWord, errorMsg) =>
 	wordStatus ? addUserWord(userWord) : displayErrorMsg(errorMsg);
 
-const addUserWord = async userWord => {
+// const getCurrentTotalPoints = async () => {
+//   const currentPoints = document.querySelector(".total-points").textContent
+//   return parseInt(currentPoints)
+// }
+
+const getWordPoints = async (userWord) => {
+	const totalPointsOutput = document.querySelector(".total-points");
+  let wordPoints = 0;
+  let totalPoints = parseInt(totalPointsOutput.textContent)
+
+	// points are same as scrabble points
+	const letterPointSystem = [
+		{ letter: "a", points: 1 },
+		{ letter: "b", points: 3 },
+		{ letter: "c", points: 3 },
+		{ letter: "d", points: 2 },
+		{ letter: "e", points: 1 },
+		{ letter: "f", points: 5 },
+		{ letter: "g", points: 2 },
+		{ letter: "h", points: 5 },
+		{ letter: "i", points: 1 },
+		{ letter: "j", points: 8 },
+		{ letter: "k", points: 5 },
+		{ letter: "l", points: 1 },
+		{ letter: "m", points: 3 },
+		{ letter: "n", points: 1 },
+		{ letter: "o", points: 1 },
+		{ letter: "p", points: 3 },
+		{ letter: "q", points: 10 },
+		{ letter: "r", points: 1 },
+		{ letter: "s", points: 1 },
+		{ letter: "t", points: 1 },
+		{ letter: "u", points: 1 },
+		{ letter: "v", points: 5 },
+		{ letter: "w", points: 5 },
+		{ letter: "x", points: 8 },
+		{ letter: "y", points: 5 },
+		{ letter: "z", points: 10 },
+	];
+
+  for (let userLetter of userWord) {
+    console.log("enter point loop 1");
+    console.log("letter :", userLetter);
+    letterPointSystem.forEach(letter => {
+      if (userLetter.toLowerCase() === letter.letter.toLowerCase()) {
+        console.log("enter point loop 2");
+        wordPoints += letter.points
+      }
+    })
+  }
+
+  totalPoints += wordPoints
+  totalPointsOutput.textContent = totalPoints.toString()
+
+};
+
+const addUserWord = async (userWord) => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
 	const totalWordsFound = document.querySelector(".total-words-found");
 
 	if (userWord && wordList.indexOf(userWord) === -1) {
 		console.log("valid word");
 		wordList.push(userWord);
+
+		// add addPoints function call here
+    getWordPoints(userWord)
 
 		let goodWord = document.createElement("p");
 		goodWord.classList.add("good-word");
@@ -217,7 +274,6 @@ const getNewWord = () => {
 	}
 
 	getNewWordBtn.addEventListener("click", resetAndFocus);
-
 };
 
 const handleTimer = () => {
@@ -257,7 +313,7 @@ const focusOnInput = () => {
 	wordEntryInput.focus();
 };
 
-const displayErrorMsg = async errorMsg => {
+const displayErrorMsg = async (errorMsg) => {
 	const errorLbl = document.querySelector(".error-msg-lbl");
 
 	errorMsg && (errorLbl.textContent = errorMsg); // : (errorMsg.textContent = "");
@@ -271,7 +327,8 @@ const resetGame = () => {
 	document.querySelector(".error-msg-lbl").textContent = "";
 	document.querySelector(".word-entry-input").value = "";
 	document.querySelector(".guessed-words-section").textContent = "";
-	document.querySelector(".total-words-found").textContent = "";
+	document.querySelector(".total-words-found").textContent = "0";
+  document.querySelector(".total-points").textContent = "0"
 
 	wordList = [];
 	generateRandomWord();
