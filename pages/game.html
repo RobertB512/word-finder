@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="../css/styles.css" />
+		<link rel="stylesheet" href="../scss/styles.css" />
 
 		<title>Document</title>
 	</head>
@@ -60,12 +60,14 @@
 			</article>
 
 			<article class="found-words-wrapper">
-				<p class="game-progress">
-					Total words found: <span class="total-words-found">0</span>
-				</p>
-        <p class="game-progress">
-          Total points: <span class="total-points">0</span>
-        </p>
+				<div class="score-wrapper">
+          <p class="game-progress">
+            Words found: <span class="total-words-found">0</span>
+          </p>
+          <p class="game-progress">
+            Points: <span class="total-points">0</span>
+          </p>
+        </div>
 				<article class="guessed-words-section"></article>
 			</article>
 		</section>
