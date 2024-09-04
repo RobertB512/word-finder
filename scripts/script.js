@@ -51,8 +51,6 @@ const generateRandomWord = () => {
 	gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
 };
 
-
-
 function preventFormReload(e) {
 	const wordEntryInput = document.querySelector(".word-entry-input");
 	const gameWord = document.querySelector(".game-word").textContent;
@@ -73,8 +71,8 @@ const getWordFromUser = async () => {
 	wordEntryForm.addEventListener("submit", preventFormReload);
 };
 
-const checkIfRealWord = async userWord => {
-	if (userWord) {
+const checkIfRealWord = async (userWord) => {
+	if (userWord.length >= 3) {
 		const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${userWord}`;
 		try {
 			const response = await fetch(url);
@@ -90,12 +88,15 @@ const checkIfRealWord = async userWord => {
 		} catch (error) {
 			console.log("failed fetch:", error);
 		}
+	} else if (userWord.length < 3) {
+		console.log("word < 3 letters");
+		displayErrorMsg("Your word must be at least 3 letters long.");
 	} else {
 		console.log("no word to verify");
 	}
 };
 
-const checkWordInGameWord = async userWord => {
+const checkWordInGameWord = async (userWord) => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	console.log(`is ${userWord} in ${gameWord}`);
@@ -116,7 +117,7 @@ const checkWordInGameWord = async userWord => {
 	handleWordStatus(wordStatus, userWord, errorMsg);
 };
 
-const strictCheckWordInGameWord = async userWord => {
+const strictCheckWordInGameWord = async (userWord) => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	const gameWordCopy = gameWord.split("");
@@ -168,7 +169,7 @@ function resetOnNormalLevel() {
 	return gameMode;
 }
 
-const handleLevelSelection = userWord => {
+const handleLevelSelection = (userWord) => {
 	const easyLevel = document.querySelector(".easy-level");
 	const normalLevel = document.querySelector(".normal-level");
 
@@ -185,7 +186,7 @@ const handleLevelSelection = userWord => {
 const handleWordStatus = async (wordStatus, userWord, errorMsg) =>
 	wordStatus ? addUserWord(userWord) : displayErrorMsg(errorMsg);
 
-const addUserWord = async userWord => {
+const addUserWord = async (userWord) => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
 	const totalWordsFound = document.querySelector(".total-words-found");
 
@@ -217,7 +218,6 @@ const getNewWord = () => {
 	}
 
 	getNewWordBtn.addEventListener("click", resetAndFocus);
-
 };
 
 const handleTimer = () => {
@@ -257,7 +257,7 @@ const focusOnInput = () => {
 	wordEntryInput.focus();
 };
 
-const displayErrorMsg = async errorMsg => {
+const displayErrorMsg = async (errorMsg) => {
 	const errorLbl = document.querySelector(".error-msg-lbl");
 
 	errorMsg && (errorLbl.textContent = errorMsg); // : (errorMsg.textContent = "");
