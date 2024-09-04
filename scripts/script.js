@@ -38,6 +38,7 @@ const prepOnPageLoad = () => {
 const playGame = () => {
 	generateRandomWord();
 	focusOnInput();
+	listenForInput();
 	handleTimer();
 	getWordFromUser();
 	handleLevelSelection();
@@ -51,8 +52,6 @@ const generateRandomWord = () => {
 	gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
 };
 
-
-
 function preventFormReload(e) {
 	const wordEntryInput = document.querySelector(".word-entry-input");
 	const gameWord = document.querySelector(".game-word").textContent;
@@ -65,6 +64,20 @@ function preventFormReload(e) {
 	wordEntryInput.value = "";
 }
 
+const listenForInput = async () => {
+	const wordEntryInput = document.querySelector(".word-entry-input");
+
+	wordEntryInput.removeEventListener("input", allowOnlyAlphabetChars);
+	wordEntryInput.addEventListener("input", allowOnlyAlphabetChars);
+};
+
+const allowOnlyAlphabetChars = async () => {
+	const wordEntryInput = document.querySelector(".word-entry-input");
+
+	console.log("Are only letters taking?");
+	wordEntryInput.value = wordEntryInput.value.replace(/[^a-zA-Z]/g, "");
+};
+
 const getWordFromUser = async () => {
 	const wordEntryForm = document.querySelector(".word-entry-form");
 
@@ -73,7 +86,7 @@ const getWordFromUser = async () => {
 	wordEntryForm.addEventListener("submit", preventFormReload);
 };
 
-const checkIfRealWord = async userWord => {
+const checkIfRealWord = async (userWord) => {
 	if (userWord) {
 		const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${userWord}`;
 		try {
@@ -95,7 +108,7 @@ const checkIfRealWord = async userWord => {
 	}
 };
 
-const checkWordInGameWord = async userWord => {
+const checkWordInGameWord = async (userWord) => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	console.log(`is ${userWord} in ${gameWord}`);
@@ -116,7 +129,7 @@ const checkWordInGameWord = async userWord => {
 	handleWordStatus(wordStatus, userWord, errorMsg);
 };
 
-const strictCheckWordInGameWord = async userWord => {
+const strictCheckWordInGameWord = async (userWord) => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	const gameWordCopy = gameWord.split("");
@@ -168,7 +181,7 @@ function resetOnNormalLevel() {
 	return gameMode;
 }
 
-const handleLevelSelection = userWord => {
+const handleLevelSelection = (userWord) => {
 	const easyLevel = document.querySelector(".easy-level");
 	const normalLevel = document.querySelector(".normal-level");
 
@@ -185,7 +198,7 @@ const handleLevelSelection = userWord => {
 const handleWordStatus = async (wordStatus, userWord, errorMsg) =>
 	wordStatus ? addUserWord(userWord) : displayErrorMsg(errorMsg);
 
-const addUserWord = async userWord => {
+const addUserWord = async (userWord) => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
 	const totalWordsFound = document.querySelector(".total-words-found");
 
@@ -217,7 +230,6 @@ const getNewWord = () => {
 	}
 
 	getNewWordBtn.addEventListener("click", resetAndFocus);
-
 };
 
 const handleTimer = () => {
@@ -257,7 +269,7 @@ const focusOnInput = () => {
 	wordEntryInput.focus();
 };
 
-const displayErrorMsg = async errorMsg => {
+const displayErrorMsg = async (errorMsg) => {
 	const errorLbl = document.querySelector(".error-msg-lbl");
 
 	errorMsg && (errorLbl.textContent = errorMsg); // : (errorMsg.textContent = "");
@@ -299,6 +311,7 @@ const handleGameOver = () => {
 	const gameMessage = document.querySelector(".game-message");
 	const startGameBtn = document.querySelector(".start-game-btn");
 	const wordEntryForm = document.querySelector(".word-entry-form");
+	const wordEntryInput = document.querySelector(".word-entry-input");
 	const easyLevel = document.querySelector(".easy-level");
 	const normalLevel = document.querySelector(".normal-level");
 
@@ -310,6 +323,7 @@ const handleGameOver = () => {
 	easyLevel.removeEventListener("click", resetOnEasyLevel);
 	normalLevel.removeEventListener("click", resetOnNormalLevel);
 	wordEntryForm.removeEventListener("submit", preventFormReload);
+	wordEntryInput.removeEventListener("input", allowOnlyAlphabetChars);
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
 
 	showGameOverScreen();
