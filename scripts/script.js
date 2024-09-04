@@ -72,7 +72,7 @@ const getWordFromUser = async () => {
 };
 
 const checkIfRealWord = async (userWord) => {
-	if (userWord) {
+	if (userWord.length >= 3) {
 		const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${userWord}`;
 		try {
 			const response = await fetch(url);
@@ -88,6 +88,9 @@ const checkIfRealWord = async (userWord) => {
 		} catch (error) {
 			console.log("failed fetch:", error);
 		}
+	} else if (userWord.length < 3) {
+		console.log("word < 3 letters");
+		displayErrorMsg("Your word must be at least 3 letters long.");
 	} else {
 		console.log("no word to verify");
 	}
