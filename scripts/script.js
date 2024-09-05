@@ -38,6 +38,7 @@ const prepOnPageLoad = () => {
 const playGame = () => {
 	generateRandomWord();
 	focusOnInput();
+	listenForInput();
 	handleTimer();
 	getWordFromUser();
 	handleLevelSelection();
@@ -62,6 +63,20 @@ function preventFormReload(e) {
 
 	wordEntryInput.value = "";
 }
+
+const listenForInput = async () => {
+	const wordEntryInput = document.querySelector(".word-entry-input");
+
+	wordEntryInput.removeEventListener("input", allowOnlyAlphabetChars);
+	wordEntryInput.addEventListener("input", allowOnlyAlphabetChars);
+};
+
+const allowOnlyAlphabetChars = async () => {
+	const wordEntryInput = document.querySelector(".word-entry-input");
+
+	console.log("Are only letters taking?");
+	wordEntryInput.value = wordEntryInput.value.replace(/[^a-zA-Z]/g, "");
+};
 
 const getWordFromUser = async () => {
 	const wordEntryForm = document.querySelector(".word-entry-form");
@@ -239,7 +254,6 @@ const getWordPoints = async (userWord) => {
 
   totalPoints += wordPoints
   totalPointsOutput.textContent = totalPoints.toString()
-
 };
 
 const addUserWord = async (userWord) => {
@@ -359,6 +373,7 @@ const handleGameOver = () => {
 	const gameMessage = document.querySelector(".game-message");
 	const startGameBtn = document.querySelector(".start-game-btn");
 	const wordEntryForm = document.querySelector(".word-entry-form");
+	const wordEntryInput = document.querySelector(".word-entry-input");
 	const easyLevel = document.querySelector(".easy-level");
 	const normalLevel = document.querySelector(".normal-level");
 
@@ -370,6 +385,7 @@ const handleGameOver = () => {
 	easyLevel.removeEventListener("click", resetOnEasyLevel);
 	normalLevel.removeEventListener("click", resetOnNormalLevel);
 	wordEntryForm.removeEventListener("submit", preventFormReload);
+	wordEntryInput.removeEventListener("input", allowOnlyAlphabetChars);
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
 
 	showGameOverScreen();
