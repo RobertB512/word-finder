@@ -47,9 +47,15 @@ const playGame = () => {
 
 const generateRandomWord = () => {
 	const gameWord = document.querySelector(".game-word");
+	gameWord.textContent = "";
 	const randomWordIndex = Math.floor(Math.random() * gameWordList.length);
 	console.log(randomWordIndex);
-	gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
+	const rootWord = gameWordList[randomWordIndex].toUpperCase();
+
+	// gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
+	// const rootWord = gameWord.textContent;
+
+	createLetterWrappers(rootWord);
 };
 
 function preventFormReload(e) {
@@ -62,6 +68,7 @@ function preventFormReload(e) {
 		: checkIfRealWord(wordEntryInput.value);
 
 	wordEntryInput.value = "";
+  wordEntryInput.focus()
 }
 
 const listenForInput = async () => {
@@ -77,6 +84,44 @@ const allowOnlyAlphabetChars = async () => {
 	console.log("Are only letters taking?");
 	wordEntryInput.value = wordEntryInput.value.replace(/[^a-zA-Z]/g, "");
 };
+
+const createLetterWrappers = async (word) => {
+	const gameWord = document.querySelector(".game-word");
+	// const wordInput = document.querySelector(".word-entry-input")
+	// const gameWordLetterList = gameWord.split()
+
+	for (let letter of word) {
+		const letterWrapper = document.createElement("span");
+		letterWrapper.classList.add("letter-wrapper");
+		letterWrapper.textContent = letter;
+		gameWord.append(letterWrapper);
+	}
+
+	receiveInputFromLetterTap();
+};
+
+const receiveInputFromLetterTap = async () => {
+	const letterWrappers = document.querySelectorAll(".letter-wrapper");
+
+	// letterWrappers.forEach((wrapper) => {
+	// 	wrapper.addEventListener("click", () => addLetterFromTap(wrapper));
+	// });
+
+	for (let wrapper of letterWrappers) {
+		wrapper.addEventListener("click", (e) => addLetterFromTap(e, wrapper));
+	}
+};
+
+const addLetterFromTap = async (e, wrapper) => {
+  const wordInput = document.querySelector(".word-entry-input")
+  e.stopPropagation()
+	console.log("entered add letter function");
+	const inputField = document.querySelector(".word-entry-input");
+	inputField.value = inputField.value + wrapper.textContent;
+  wordInput.focus()
+};
+
+// const handleLetterTapEvent = async (wrapper) => {};
 
 const getWordFromUser = async () => {
 	const wordEntryForm = document.querySelector(".word-entry-form");
@@ -274,6 +319,7 @@ const addUserWord = async (userWord) => {
 	} else if (!(wordList.indexOf(userWord) === -1)) {
 		displayErrorMsg(`${userWord} is already in the list`);
 	}
+
 	totalWordsFound.textContent = wordList.length.toString();
 	// wordList.length > 0
 	// 	? (totalWordsFound.textContent = wordList.length.toString())
@@ -341,6 +387,7 @@ const displayErrorMsg = async (errorMsg) => {
 };
 
 const resetGame = () => {
+	// document.querySelector(".game-word").textContent = "";
 	document.querySelector(".error-msg-lbl").textContent = "";
 	document.querySelector(".word-entry-input").value = "";
 	document.querySelector(".guessed-words-section").textContent = "";
