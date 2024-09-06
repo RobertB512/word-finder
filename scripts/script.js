@@ -46,12 +46,16 @@ const playGame = () => {
 
 const generateRandomWord = () => {
 	const gameWord = document.querySelector(".game-word");
+	gameWord.textContent = "";
 	const randomWordIndex = Math.floor(Math.random() * gameWordList.length);
 	console.log(randomWordIndex);
-	gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
+	const rootWord = gameWordList[randomWordIndex].toUpperCase();
+
+	// gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
+	// const rootWord = gameWord.textContent;
+
+	createLetterWrappers(rootWord);
 };
-
-
 
 function preventFormReload(e) {
 	const wordEntryInput = document.querySelector(".word-entry-input");
@@ -63,7 +67,46 @@ function preventFormReload(e) {
 		: checkIfRealWord(wordEntryInput.value);
 
 	wordEntryInput.value = "";
+  wordEntryInput.focus()
 }
+
+const createLetterWrappers = async (word) => {
+	const gameWord = document.querySelector(".game-word");
+	// const wordInput = document.querySelector(".word-entry-input")
+	// const gameWordLetterList = gameWord.split()
+
+	for (let letter of word) {
+		const letterWrapper = document.createElement("span");
+		letterWrapper.classList.add("letter-wrapper");
+		letterWrapper.textContent = letter;
+		gameWord.append(letterWrapper);
+	}
+
+	receiveInputFromLetterTap();
+};
+
+const receiveInputFromLetterTap = async () => {
+	const letterWrappers = document.querySelectorAll(".letter-wrapper");
+
+	// letterWrappers.forEach((wrapper) => {
+	// 	wrapper.addEventListener("click", () => addLetterFromTap(wrapper));
+	// });
+
+	for (let wrapper of letterWrappers) {
+		wrapper.addEventListener("click", (e) => addLetterFromTap(e, wrapper));
+	}
+};
+
+const addLetterFromTap = async (e, wrapper) => {
+  const wordInput = document.querySelector(".word-entry-input")
+  e.stopPropagation()
+	console.log("entered add letter function");
+	const inputField = document.querySelector(".word-entry-input");
+	inputField.value = inputField.value + wrapper.textContent;
+  wordInput.focus()
+};
+
+// const handleLetterTapEvent = async (wrapper) => {};
 
 const getWordFromUser = async () => {
 	const wordEntryForm = document.querySelector(".word-entry-form");
@@ -73,7 +116,7 @@ const getWordFromUser = async () => {
 	wordEntryForm.addEventListener("submit", preventFormReload);
 };
 
-const checkIfRealWord = async userWord => {
+const checkIfRealWord = async (userWord) => {
 	if (userWord) {
 		const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${userWord}`;
 		try {
@@ -95,7 +138,7 @@ const checkIfRealWord = async userWord => {
 	}
 };
 
-const checkWordInGameWord = async userWord => {
+const checkWordInGameWord = async (userWord) => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	console.log(`is ${userWord} in ${gameWord}`);
@@ -116,7 +159,7 @@ const checkWordInGameWord = async userWord => {
 	handleWordStatus(wordStatus, userWord, errorMsg);
 };
 
-const strictCheckWordInGameWord = async userWord => {
+const strictCheckWordInGameWord = async (userWord) => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	const gameWordCopy = gameWord.split("");
@@ -168,7 +211,7 @@ function resetOnNormalLevel() {
 	return gameMode;
 }
 
-const handleLevelSelection = userWord => {
+const handleLevelSelection = (userWord) => {
 	const easyLevel = document.querySelector(".easy-level");
 	const normalLevel = document.querySelector(".normal-level");
 
@@ -185,7 +228,7 @@ const handleLevelSelection = userWord => {
 const handleWordStatus = async (wordStatus, userWord, errorMsg) =>
 	wordStatus ? addUserWord(userWord) : displayErrorMsg(errorMsg);
 
-const addUserWord = async userWord => {
+const addUserWord = async (userWord) => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
 	const totalWordsFound = document.querySelector(".total-words-found");
 
@@ -200,6 +243,7 @@ const addUserWord = async userWord => {
 	} else if (!(wordList.indexOf(userWord) === -1)) {
 		displayErrorMsg(`${userWord} is already in the list`);
 	}
+
 	totalWordsFound.textContent = wordList.length.toString();
 	// wordList.length > 0
 	// 	? (totalWordsFound.textContent = wordList.length.toString())
@@ -217,7 +261,6 @@ const getNewWord = () => {
 	}
 
 	getNewWordBtn.addEventListener("click", resetAndFocus);
-
 };
 
 const handleTimer = () => {
@@ -257,7 +300,7 @@ const focusOnInput = () => {
 	wordEntryInput.focus();
 };
 
-const displayErrorMsg = async errorMsg => {
+const displayErrorMsg = async (errorMsg) => {
 	const errorLbl = document.querySelector(".error-msg-lbl");
 
 	errorMsg && (errorLbl.textContent = errorMsg); // : (errorMsg.textContent = "");
@@ -268,6 +311,7 @@ const displayErrorMsg = async errorMsg => {
 };
 
 const resetGame = () => {
+	// document.querySelector(".game-word").textContent = "";
 	document.querySelector(".error-msg-lbl").textContent = "";
 	document.querySelector(".word-entry-input").value = "";
 	document.querySelector(".guessed-words-section").textContent = "";
