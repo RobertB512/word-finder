@@ -9,11 +9,18 @@ html {
   font-size: 62.5%;
 }
 
-p, li, label, input {
+p,
+li,
+label,
+input {
   font-size: 2rem;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   line-height: 0.9;
 }
 
@@ -43,7 +50,7 @@ h5 {
 }
 
 button:focus {
-  border: 0.2rem solid #FDF7FF;
+  border: 0.2rem solid #fdf7ff;
 }
 
 .home-page {
@@ -84,16 +91,16 @@ button:hover {
 
 .btns-and-links {
   text-align: center;
-  background-color: #1E1926;
-  color: #FDF7FF;
+  background-color: #1e1926;
+  color: #fdf7ff;
   border-radius: 0.5rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   padding: 1rem 0;
   width: 20rem;
 }
 .btns-and-links:active {
-  background-color: #FDF7FF;
-  color: #1E1926;
+  background-color: #fdf7ff;
+  color: #1e1926;
 }
 
 .how-to-play-wrapper {
@@ -102,7 +109,7 @@ button:hover {
   align-items: center;
   text-align: center;
   background-color: #0000ff;
-  color: #FDF7FF;
+  color: #fdf7ff;
   padding: 5rem 1rem;
 }
 
@@ -146,13 +153,14 @@ button:hover {
 
 .example {
   text-align: center;
-  background-color: #FDF7FF;
-  color: #1E1926;
+  background-color: #fdf7ff;
+  color: #1e1926;
   padding: 2rem 1rem;
   border-radius: 1rem;
   max-width: 47.5rem;
 }
-.example h4, .example h5 {
+.example h4,
+.example h5 {
   margin-bottom: 1.5rem;
 }
 
@@ -160,7 +168,8 @@ button:hover {
   font-weight: 700;
 }
 
-.example-word, .example-list {
+.example-word,
+.example-list {
   margin-bottom: 2rem;
   list-style: none;
 }
@@ -188,7 +197,8 @@ button:hover {
   align-items: center;
   justify-content: center;
 }
-.game-info-wrapper article, .game-info-wrapper form {
+.game-info-wrapper article,
+.game-info-wrapper form {
   width: 100%;
 }
 .game-info-wrapper article {
@@ -205,11 +215,11 @@ button:hover {
 
 .game-controls-wrapper p {
   margin-bottom: 1.5rem;
-  font-size: clamp(2rem, 3vw + 1rem, 3rem);
+  font-size: clamp(2rem, 3vw + 1rem, 2.5rem);
 }
 .game-controls-wrapper .game-word {
   margin-bottom: 1.5rem;
-  font-size: clamp(3rem, 7vw + 1rem, 5rem);
+  font-size: clamp(3rem, 7vw + 1rem, 4rem);
 }
 
 .get-new-word-btn {
@@ -255,7 +265,9 @@ p.error-msg-lbl {
   gap: 1rem;
 }
 .game-mode-group button {
+  width: -moz-fit-content;
   width: fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 1rem;
   font-size: 1.8rem;
@@ -271,17 +283,19 @@ p.error-msg-lbl {
 }
 
 p.game-timer {
+  width: -moz-fit-content;
   width: fit-content;
+  height: -moz-fit-content;
   height: fit-content;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 0;
-  background-color: #1E1926;
+  background-color: #1e1926;
   padding: 1rem;
 }
 
 .game-info-wrapper {
   background-color: #0000ff;
-  color: #FDF7FF;
+  color: #fdf7ff;
   padding: 2rem;
 }
 
@@ -304,8 +318,8 @@ p.game-timer {
 }
 
 .active {
-  color: #FDF7FF;
-  border: 2px solid #FDF7FF;
+  color: #fdf7ff;
+  border: 2px solid #fdf7ff;
 }
 
 .d-none {
@@ -327,7 +341,8 @@ p.game-timer {
   }
 }
 @media (max-width: 400px) {
-  .game-mode-group, .timer-wrapper {
+  .game-mode-group,
+  .timer-wrapper {
     flex-direction: column;
     align-items: center;
   }
@@ -336,7 +351,10 @@ p.game-timer {
   }
 }
 @media (min-width: 1000px) {
-  p, li, label, input {
+  p,
+  li,
+  label,
+  input {
     font-size: 2.5rem;
   }
   .home-page-options {
@@ -345,7 +363,8 @@ p.game-timer {
   .game-wrapper {
     display: flex;
   }
-  .game-info-wrapper, .found-words-wrapper {
+  .game-info-wrapper,
+  .found-words-wrapper {
     height: 100vh;
   }
   .game-info-wrapper {
@@ -363,6 +382,7 @@ p.game-timer {
     border-radius: 0rem 0.5rem 0.5rem 0rem;
     font-size: 2rem;
     padding: 1rem;
+    width: -moz-fit-content;
     width: fit-content;
   }
   .found-words-wrapper {
@@ -395,6 +415,4 @@ p.game-timer {
   .guessed-words-section .good-word:after {
     content: ",";
   }
-}
-
-/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */

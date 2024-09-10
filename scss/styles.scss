@@ -1,19 +1,22 @@
 $primary-color: #0000ff;
-$secondary-color: #FDF7FF;
-$tertiary-color: #1E1926;
+$secondary-color: #fdf7ff;
+$tertiary-color: #1e1926;
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
 }
 html {
-  font-size: 62.5%;
+	font-size: 62.5%;
 }
 
-p, li, label, input {
-  font-size: 2rem;
+p,
+li,
+label,
+input {
+	font-size: 2rem;
 }
 
 // body {
@@ -21,85 +24,86 @@ p, li, label, input {
 // }
 
 // common styles
-h1, h2, h3, h4, h5 {
-  line-height: 0.9;
+h1,
+h2,
+h3,
+h4,
+h5 {
+	line-height: 0.9;
 }
 
 h1 {
-  color: $primary-color;
-  font-size: 6rem;
-  margin-bottom: 1rem;
-  line-height: 1;
+	color: $primary-color;
+	font-size: 6rem;
+	margin-bottom: 1rem;
+	line-height: 1;
 }
 h2 {
-  font-size: 5.5rem;
-  text-align: center;
-  margin-bottom: 3rem;
+	font-size: 5.5rem;
+	text-align: center;
+	margin-bottom: 3rem;
 }
 h3 {
-  font-size: 5rem;
+	font-size: 5rem;
 }
 h4 {
-  font-size: 4.5rem;
+	font-size: 4.5rem;
 }
 h5 {
-  font-size: 4rem;
+	font-size: 4rem;
 }
 button:focus {
-  border: 0.2rem solid $secondary-color;
+	border: 0.2rem solid $secondary-color;
 }
 
 // homepage styles
 .home-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
 }
 header {
-  text-align: center;
-  margin-bottom: 3rem;
-  width: 90%;
+	text-align: center;
+	margin-bottom: 3rem;
+	width: 90%;
 
-  p {
-    margin: 0 auto;
-    max-width: 370px;
-  }
+	p {
+		margin: 0 auto;
+		max-width: 370px;
+	}
 }
 
-
 .home-page-options {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 0.5rem;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 button {
-  border: none;
-  &:hover {
-    cursor: pointer;
-  }
-  
-
+	border: none;
+	&:hover {
+		cursor: pointer;
+	}
 }
 .btns-and-links {
-  text-align: center;
-  background-color: $tertiary-color;
-  color: $secondary-color;
-  border-radius: 0.5rem;
-  font-size: 2.5rem;
-  padding: 1rem 0;
-  width: 20rem;
+	text-align: center;
+	background-color: $tertiary-color;
+	color: $secondary-color;
+	border-radius: 0.5rem;
+	font-size: 2rem;
+	padding: 1rem 0;
+	width: 20rem;
 
-  &:active {
-    background-color: $secondary-color;
-    color: $tertiary-color;
-  }
+	&:active {
+		background-color: $secondary-color;
+		color: $tertiary-color;
+	}
 }
 
 // how to play page styles
@@ -110,109 +114,110 @@ button {
 //   align-items: center;
 // }
 .how-to-play-wrapper {
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  text-align: center;
-  background-color: $primary-color;
-  color: $secondary-color;
-  padding: 5rem 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	background-color: $primary-color;
+	color: $secondary-color;
+	padding: 5rem 1rem;
 }
 .introduction-container {
-  // text-align: center;
-  margin-bottom: 3rem;
+	// text-align: center;
+	margin-bottom: 3rem;
 
-  p {
-    text-align: center;
-    max-width: 600px;
-    margin-bottom: 1rem;
-  }
-  
-  :last-child {
-    margin-bottom: 0;
-  }
+	p {
+		text-align: center;
+		max-width: 600px;
+		margin-bottom: 1rem;
+	}
+
+	:last-child {
+		margin-bottom: 0;
+	}
 }
 .examples {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 4rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 4rem;
 
-  h3 {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  .example-explanation {
-    margin-bottom: 3rem;
-  }
+	h3 {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+	.example-explanation {
+		margin-bottom: 3rem;
+	}
 }
 
 .example-explanation {
-  max-width: 600px;
+	max-width: 600px;
 }
 .example-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;  
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 2rem;
 }
 
 .example {
-  text-align: center;
-  background-color: $secondary-color;
-  color: $tertiary-color;
-  padding: 2rem 1rem;
-  border-radius: 1rem;
-  max-width: 47.5rem;
+	text-align: center;
+	background-color: $secondary-color;
+	color: $tertiary-color;
+	padding: 2rem 1rem;
+	border-radius: 1rem;
+	max-width: 47.5rem;
 
-
-  h4, h5 {
-    margin-bottom: 1.5rem;
-  }
+	h4,
+	h5 {
+		margin-bottom: 1.5rem;
+	}
 }
 .example-given-word {
-  font-weight: 700;
+	font-weight: 700;
 }
-.example-word, .example-list {
-  margin-bottom: 2rem;
-  list-style: none;
+.example-word,
+.example-list {
+	margin-bottom: 2rem;
+	list-style: none;
 }
 .example-list {
-  // text-align: center;
-  display: inline-block;
-  text-align: left;
-  list-style: decimal;
-  list-style-position: inside;
+	// text-align: center;
+	display: inline-block;
+	text-align: left;
+	list-style: decimal;
+	list-style-position: inside;
 
-  li {
-    margin-bottom: 1rem;
-  }
+	li {
+		margin-bottom: 1rem;
+	}
 
-  :last-child {
-    margin-bottom: 0;
-  }
+	:last-child {
+		margin-bottom: 0;
+	}
 }
 .play-link {
-  display: inline-block;
+	display: inline-block;
 }
-      
 
 // game area styles
 
 .game-info-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-  article, form {
-    width: 100%;
-  }
-  article {
-    text-align: center;
-    margin: 0 auto;
-  }
+	article,
+	form {
+		width: 100%;
+	}
+	article {
+		text-align: center;
+		margin: 0 auto;
+	}
 }
 
 // .home-link {
@@ -223,97 +228,97 @@ button {
 // }
 
 .play-btn-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 2rem;
 }
 
 .game-controls-wrapper {
-  p {
-    margin-bottom: 1.5rem;
-    font-size: clamp(2rem, 3vw + 1rem, 3rem);
-  }
-  .game-word {
-    margin-bottom: 1.5rem;
-    font-size: clamp(3rem, 7vw + 1rem, 5rem)
-  }
+	p {
+		margin-bottom: 1.5rem;
+		font-size: clamp(2rem, 3vw + 1rem, 2.5rem);
+	}
+	.game-word {
+		margin-bottom: 1.5rem;
+		font-size: clamp(3rem, 7vw + 1rem, 4rem);
+	}
 }
 
 .get-new-word-btn {
-  margin-bottom: 1.5rem;
+	margin-bottom: 1.5rem;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  // margin-bottom: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	// margin-bottom: 0.5rem;
 
-  label {
-    text-align: left;
-  }
-  input {
-    border: none;
-    width: 100%;
-    // font-size: 2.5rem;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    border-radius: 0.5rem 0.5rem 0 0;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-  button.btns-and-links {
-    width: 100%;
-    border-radius: 0 0 0.5rem 0.5rem;
-  }
+	label {
+		text-align: left;
+	}
+	input {
+		border: none;
+		width: 100%;
+		// font-size: 2.5rem;
+		padding: 0.5rem 1rem;
+		text-align: center;
+		border-radius: 0.5rem 0.5rem 0 0;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	button.btns-and-links {
+		width: 100%;
+		border-radius: 0 0 0.5rem 0.5rem;
+	}
 }
 p.error-msg-lbl {
-  font-size: 2.5rem;
+	font-size: 2.5rem;
 }
 
 .level-and-timer {
-  display: flex;
-  gap: 3rem;
+	display: flex;
+	gap: 3rem;
 }
 .game-mode-group {
-  display: flex;
-  gap: 1rem;
-  
-  .level-options {
-    display: flex;
-    gap: 1rem;
-  }
+	display: flex;
+	gap: 1rem;
 
-  button {
-    width: fit-content;
-    height: fit-content;
-    padding: 1rem;
-    font-size: 1.8rem;
-  }
+	.level-options {
+		display: flex;
+		gap: 1rem;
+	}
+
+	button {
+		width: fit-content;
+		height: fit-content;
+		padding: 1rem;
+		font-size: 1.8rem;
+	}
 }
 
 .timer-wrapper {
-  display: flex;
-  gap: 1rem;
-  // flex-direction: column;
-  justify-content: center;
-  // align-items: center;
+	display: flex;
+	gap: 1rem;
+	// flex-direction: column;
+	justify-content: center;
+	// align-items: center;
 
-  p {
-    margin-bottom: 0;
-  }
+	p {
+		margin-bottom: 0;
+	}
 }
 
 p.game-timer {
-  width: fit-content;
-  height: fit-content;
-  font-size: 3rem;
-  margin-bottom: 0;
-  background-color: $tertiary-color;
-  padding: 1rem;
-  // animation: scale 1s linear infinite;
-  // transform-origin: center;
-  // transition: 0.12.5s;
+	width: fit-content;
+	height: fit-content;
+	font-size: 2.5rem;
+	margin-bottom: 0;
+	background-color: $tertiary-color;
+	padding: 1rem;
+	// animation: scale 1s linear infinite;
+	// transform-origin: center;
+	// transition: 0.12.5s;
 }
 
 // @keyframes scale {
@@ -326,34 +331,34 @@ p.game-timer {
 // }
 
 .game-info-wrapper {
-  background-color: $primary-color;
-  color: $secondary-color;
-  padding: 2rem;
+	background-color: $primary-color;
+	color: $secondary-color;
+	padding: 2rem;
 }
 
 .found-words-wrapper {
-  color: $primary-color;
-  padding: 2rem;
+	color: $primary-color;
+	padding: 2rem;
 
-  p {
-    font-size: 2.5rem;
-    text-align: center;
-  }
+	p {
+		font-size: 2.5rem;
+		text-align: center;
+	}
 }
 
 .game-progress {
-  border-bottom: 2px solid;
-  margin-bottom: 2rem;
+	border-bottom: 2px solid;
+	margin-bottom: 2rem;
 }
 
 .guessed-words-section {
-  margin-bottom: 1rem;
-} 
+	margin-bottom: 1rem;
+}
 
 // for javascript
 .active {
-  color: $secondary-color;
-  border: 2px solid $secondary-color;
+	color: $secondary-color;
+	border: 2px solid $secondary-color;
 }
 
 // .adjust-font-size {
@@ -361,135 +366,139 @@ p.game-timer {
 // }
 
 .d-none {
-  display: none;
+	display: none;
 }
 .time-almost-out {
-  color: #f00;
-  animation: scale 1s linear infinite;
-  transform-origin: center;
+	color: #f00;
+	animation: scale 1s linear infinite;
+	transform-origin: center;
 }
 
 @keyframes scale {
-  0%, 100% {
-      transform: scale(1);
-  }
-  50% {
-      transform: scale(1.5);
-  }
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.5);
+	}
 }
 
 // for smaller screens
-@media(max-width: 400px) {
-  .game-mode-group, .timer-wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-  .game-mode-group {
-    p {
-      margin-bottom: 0;
-    }
-  }
-  // .timer-wrapper {
-  //   align-items: center;
-  // }
-
+@media (max-width: 400px) {
+	.game-mode-group,
+	.timer-wrapper {
+		flex-direction: column;
+		align-items: center;
+	}
+	.game-mode-group {
+		p {
+			margin-bottom: 0;
+		}
+	}
+	// .timer-wrapper {
+	//   align-items: center;
+	// }
 }
-@media(max-width: 280px) {
-  // .game-controls-wrapper .game-word {
-  //   font-size: 2.5rem;
-  // }
+@media (max-width: 280px) {
+	// .game-controls-wrapper .game-word {
+	//   font-size: 2.5rem;
+	// }
 }
 
 // for larger screens
-@media(min-width: 1000px) {
+@media (min-width: 1000px) {
+	// .sticky-content-wrapper {
+	//   position: sticky;
+	//   top: 0;
+	// }
 
-  // .sticky-content-wrapper {
-  //   position: sticky;
-  //   top: 0;
-  // }
+	p,
+	li,
+	label,
+	input {
+		font-size: 2.5rem;
+	}
 
-  p, li, label, input {
-    font-size: 2.5rem;
-  }
+	.home-page-options {
+		flex-direction: row;
+	}
 
-  .home-page-options {
-    flex-direction: row;
-  }
+	.game-wrapper {
+		display: flex;
+	}
+	.game-info-wrapper,
+	.found-words-wrapper {
+		height: 100vh;
+	}
+	.game-info-wrapper {
+		justify-content: flex-start;
+		flex: 1;
+	}
 
-  .game-wrapper {
-    display: flex;
-  }
-  .game-info-wrapper, .found-words-wrapper {
-    height: 100vh;
-  }
-  .game-info-wrapper {
-    justify-content: flex-start;
-    flex: 1;
-  }
+	.input-group {
+		display: flex;
 
-  .input-group {
-    display: flex;
+		input {
+			width: 75%;
+			border-radius: 0.5rem 0rem 0rem 0.5rem;
+		}
 
-    input {
-      width: 75%;
-      border-radius: 0.5rem 0rem 0rem 0.5rem;
-    }
-    
-    .btns-and-links {
-      border-radius: 0rem 0.5rem 0.5rem 0rem;
-      font-size: 2rem;
-      padding: 1rem;
-      width: fit-content;
-    }
-  }
+		.btns-and-links {
+			border-radius: 0rem 0.5rem 0.5rem 0rem;
+			font-size: 2rem;
+			padding: 1rem;
+			width: fit-content;
+		}
+	}
 
-  .found-words-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 2;
+	.found-words-wrapper {
+		display: flex;
+		flex-direction: column;
+		flex: 2;
 
-    .game-progress {
-      position: sticky;
-      top: 0;
-      z-index: 2;
-    }
+		.game-progress {
+			position: sticky;
+			top: 0;
+			z-index: 2;
+		}
 
-    // .guessed-words-section {
-    //   overflow-y: scroll;
-    //   height: 25%;
-    //   background-color: gray;
-    // }
+		// .guessed-words-section {
+		//   overflow-y: scroll;
+		//   height: 25%;
+		//   background-color: gray;
+		// }
 
-    p {
-      text-align: left;
-    }
-  }
+		p {
+			text-align: left;
+		}
+	}
 
-  .guessed-words-section {
-    // -moz-column-width: 15rem;
-    // -moz-column-gap: 2rem;
-    // -webkit-column-width: 15rem;
-    // -webkit-column-gap: 2rem;
-    // column-width: 15rem;
-    // column-gap: 2rem;
+	.guessed-words-section {
+		// -moz-column-width: 15rem;
+		// -moz-column-gap: 2rem;
+		// -webkit-column-width: 15rem;
+		// -webkit-column-gap: 2rem;
+		// column-width: 15rem;
+		// column-gap: 2rem;
 
-    flex: 1;
-    overflow-y: scroll;
-    height: 25%;
-    border: 0.2rem solid $primary-color;
-    padding: 1rem;
+		flex: 1;
+		overflow-y: scroll;
+		height: 25%;
+		border: 0.2rem solid $primary-color;
+		padding: 1rem;
 
-    p {
-      font-size: 2rem;
-    }
+		p {
+			font-size: 2rem;
+		}
 
-    .good-word {
-      display: inline-block;
-      margin-right: 1.5rem;
+		.good-word {
+			display: inline-block;
+			margin-right: 1.5rem;
 
-      &:after {
-        content: ","
-      }
-    }
-  }
+			&:after {
+				content: ",";
+			}
+		}
+	}
 }
