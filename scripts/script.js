@@ -5,42 +5,69 @@ let gameMode;
 
 function toggleVisibleAndPlay() {
 	// const startGameBtn = document.querySelector(".start-game-btn");
-	const playBtnWrapper = document.querySelector(".play-btn-wrapper");
-	const gameControlsWrapper = document.querySelector(".game-controls-wrapper ");
+	const startGameWrapper = document.querySelector(".start-game-wrapper");
+	const gameControlsWrapper = document.querySelector(".game-controls-wrapper");
 	const inputArea = document.querySelector(".input-area");
-	const levelAndTimer = document.querySelector(".level-and-timer");
+	const timerWrapper = document.querySelector(".timer-wrapper");
 	const getNewWordBtn = document.querySelector(".get-new-word-btn");
+	const levelSelector = document.querySelector(".level-select");
+	let selectedLevel = "";
 
+	if (levelSelector.value === "easy") {
+		selectedLevel = "easy";
+		console.log("entered easy level");
+	} else if (levelSelector.value === "normal") {
+		selectedLevel = "normal";
+		console.log("entered normal level");
+	} else {
+		console.log("problem selecting level");
+	}
+
+
+	// startGameWrapper.contains(gameControlsWrapper)
+	// 	? startGameWrapper.removeChild(gameControlsWrapper)
+	// 	: null;
+	// startGameWrapper.removeChild(gameControlsWrapper);
 	gameControlsWrapper.classList.remove("d-none");
-	playBtnWrapper.classList.add("d-none");
+	startGameWrapper.classList.add("d-none");
 	inputArea.classList.remove("d-none");
-	levelAndTimer.classList.remove("d-none");
+	timerWrapper.classList.remove("d-none");
 	getNewWordBtn.classList.remove("d-none");
 	resetGame();
-	playGame();
+	playGame(selectedLevel);
 }
 
+// const getUserLevel = () => {
+//   const levelSelector = document.querySelector(".level-select")
+//   let selectedLevel = ""
+
+//   if (levelSelector.value === "easy") {
+//     selectedLevel = "easy"
+//   } else if (levelSelector.value === "normal") {
+//     selectedLevel = "normal"
+//   }
+// }
+
 const prepOnPageLoad = () => {
-	const playBtnWrapper = document.querySelector(".play-btn-wrapper");
+	const startGameWrapper = document.querySelector(".start-game-wrapper");
 	const startGameBtn = document.querySelector(".start-game-btn");
 	const gameControlsWrapper = document.querySelector(".game-controls-wrapper");
 	const normalLevel = document.querySelector(".normal-level");
 
 	gameControlsWrapper.classList.add("d-none");
-	playBtnWrapper.classList.remove("d-none");
-	normalLevel.classList.add("active");
+	startGameWrapper.classList.remove("d-none");
+	// normalLevel.classList.add("active");
 
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
-
 	startGameBtn.addEventListener("click", toggleVisibleAndPlay);
 };
 
-const playGame = () => {
+const playGame = (selectedLevel) => {
 	generateRandomWord();
 	focusOnInput();
 	handleTimer();
 	getWordFromUser();
-	handleLevelSelection();
+	handleLevelSelection("", selectedLevel);
 	getNewWord();
 };
 
@@ -50,8 +77,6 @@ const generateRandomWord = () => {
 	console.log(randomWordIndex);
 	gameWord.textContent = gameWordList[randomWordIndex].toUpperCase();
 };
-
-
 
 function preventFormReload(e) {
 	const wordEntryInput = document.querySelector(".word-entry-input");
@@ -73,7 +98,7 @@ const getWordFromUser = async () => {
 	wordEntryForm.addEventListener("submit", preventFormReload);
 };
 
-const checkIfRealWord = async userWord => {
+const checkIfRealWord = async (userWord) => {
 	if (userWord) {
 		const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${userWord}`;
 		try {
@@ -95,7 +120,7 @@ const checkIfRealWord = async userWord => {
 	}
 };
 
-const checkWordInGameWord = async userWord => {
+const checkWordInGameWord = async (userWord) => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	console.log(`is ${userWord} in ${gameWord}`);
@@ -116,7 +141,7 @@ const checkWordInGameWord = async userWord => {
 	handleWordStatus(wordStatus, userWord, errorMsg);
 };
 
-const strictCheckWordInGameWord = async userWord => {
+const strictCheckWordInGameWord = async (userWord) => {
 	const gameWord = document.querySelector(".game-word").textContent;
 	let wordStatus = false;
 	const gameWordCopy = gameWord.split("");
@@ -168,24 +193,32 @@ function resetOnNormalLevel() {
 	return gameMode;
 }
 
-const handleLevelSelection = userWord => {
-	const easyLevel = document.querySelector(".easy-level");
-	const normalLevel = document.querySelector(".normal-level");
+const handleLevelSelection = (userWord, selectedLevel) => {
+	// const easyLevel = document.querySelector(".easy-level");
+	// const normalLevel = document.querySelector(".normal-level");
+	// const levelSelector = document.querySelector(".level-select")
+	// let gameMode = strictCheckWordInGameWord
 
-	gameMode = strictCheckWordInGameWord;
+	if (selectedLevel === "easy") {
+		gameMode = checkWordInGameWord;
+	} else if (selectedLevel === "normal") {
+		gameMode = strictCheckWordInGameWord;
+	}
+
+	// gameMode = strictCheckWordInGameWord;
 	// let selectedLevel = strictCheckWordInGameWord
 
-	easyLevel.removeEventListener("click", resetOnEasyLevel);
-	normalLevel.removeEventListener("click", resetOnNormalLevel);
+	// easyLevel.removeEventListener("click", resetOnEasyLevel);
+	// normalLevel.removeEventListener("click", resetOnNormalLevel);
 
-	easyLevel.addEventListener("click", resetOnEasyLevel);
-	normalLevel.addEventListener("click", resetOnNormalLevel);
+	// easyLevel.addEventListener("click", resetOnEasyLevel);
+	// normalLevel.addEventListener("click", resetOnNormalLevel);
 };
 
 const handleWordStatus = async (wordStatus, userWord, errorMsg) =>
 	wordStatus ? addUserWord(userWord) : displayErrorMsg(errorMsg);
 
-const addUserWord = async userWord => {
+const addUserWord = async (userWord) => {
 	const guessedWordsSection = document.querySelector(".guessed-words-section");
 	const totalWordsFound = document.querySelector(".total-words-found");
 
@@ -217,7 +250,6 @@ const getNewWord = () => {
 	}
 
 	getNewWordBtn.addEventListener("click", resetAndFocus);
-
 };
 
 const handleTimer = () => {
@@ -257,7 +289,7 @@ const focusOnInput = () => {
 	wordEntryInput.focus();
 };
 
-const displayErrorMsg = async errorMsg => {
+const displayErrorMsg = async (errorMsg) => {
 	const errorLbl = document.querySelector(".error-msg-lbl");
 
 	errorMsg && (errorLbl.textContent = errorMsg); // : (errorMsg.textContent = "");
@@ -279,17 +311,19 @@ const resetGame = () => {
 };
 
 const showGameOverScreen = () => {
+	const startGameWrapper = document.querySelector(".start-game-wrapper");
+	// const controlsWrapper = document.querySelector(".game-controls-wrapper");
 	const startGameBtn = document.querySelector(".start-game-btn");
-
 	const inputArea = document.querySelector(".input-area");
-	const levelAndTimer = document.querySelector(".level-and-timer");
+	const timerWrapper = document.querySelector(".timer-wrapper");
 	const getNewWordBtn = document.querySelector(".get-new-word-btn");
-	const playBtnWrapper = document.querySelector(".play-btn-wrapper");
 
-	playBtnWrapper.classList.remove("d-none");
+	startGameWrapper.classList.remove("d-none");
+
+	// startGameWrapper.append(controlsWrapper);
 	getNewWordBtn.classList.add("d-none");
 	inputArea.classList.add("d-none");
-	levelAndTimer.classList.add("d-none");
+	timerWrapper.classList.add("d-none");
 
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
 	startGameBtn.addEventListener("click", toggleVisibleAndPlay);
@@ -299,16 +333,16 @@ const handleGameOver = () => {
 	const gameMessage = document.querySelector(".game-message");
 	const startGameBtn = document.querySelector(".start-game-btn");
 	const wordEntryForm = document.querySelector(".word-entry-form");
-	const easyLevel = document.querySelector(".easy-level");
-	const normalLevel = document.querySelector(".normal-level");
+	// const easyLevel = document.querySelector(".easy-level");
+	// const normalLevel = document.querySelector(".normal-level");
 
 	gameMessage.textContent = "GAME OVER";
 
-	easyLevel.classList.remove("active");
-	normalLevel.classList.remove("active");
-	normalLevel.classList.add("active");
-	easyLevel.removeEventListener("click", resetOnEasyLevel);
-	normalLevel.removeEventListener("click", resetOnNormalLevel);
+	// easyLevel.classList.remove("active");
+	// normalLevel.classList.remove("active");
+	// normalLevel.classList.add("active");
+	// easyLevel.removeEventListener("click", resetOnEasyLevel);
+	// normalLevel.removeEventListener("click", resetOnNormalLevel);
 	wordEntryForm.removeEventListener("submit", preventFormReload);
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
 

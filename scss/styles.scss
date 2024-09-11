@@ -8,6 +8,7 @@ $tertiary-color: #1e1926;
 	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
 }
+
 html {
 	font-size: 62.5%;
 }
@@ -15,7 +16,8 @@ html {
 p,
 li,
 label,
-input {
+input,
+select {
 	font-size: 2rem;
 }
 
@@ -210,13 +212,13 @@ button {
 	align-items: center;
 	justify-content: center;
 
-	article,
+	// article,
 	form {
 		width: 100%;
 	}
 	article {
 		text-align: center;
-		margin: 0 auto;
+		// margin: 0 auto;
 	}
 }
 
@@ -227,14 +229,37 @@ button {
 //   margin-bottom: 1rem;
 // }
 
-.play-btn-wrapper {
+.start-game-wrapper {
 	display: flex;
 	flex-direction: column;
+	gap: 3rem;
 	align-items: center;
 	margin-bottom: 2rem;
+
+	h2 {
+		margin-bottom: 0;
+	}
+
+	.level-select-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		select {
+			font-size: 2.5rem;
+			padding: 0.5rem;
+			background-color: $secondary-color;
+			color: $tertiary-color;
+			border-radius: 0.5rem;
+		}
+	}
 }
 
 .game-controls-wrapper {
+  display: flex;
+  flex-direction: column;
+  // gap: 1rem;
+
 	p {
 		margin-bottom: 1.5rem;
 		font-size: clamp(2rem, 3vw + 1rem, 2.5rem);
@@ -246,7 +271,9 @@ button {
 }
 
 .get-new-word-btn {
-	margin-bottom: 1.5rem;
+	// margin-bottom: 1.5rem;
+	padding: 2rem 1rem;
+  width: fit-content
 }
 
 form {
@@ -276,10 +303,14 @@ p.error-msg-lbl {
 	font-size: 2.5rem;
 }
 
-.level-and-timer {
+.wordbtn-timer-wraper {
 	display: flex;
-	gap: 3rem;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+  margin-bottom: 1rem;
 }
+
 .game-mode-group {
 	display: flex;
 	gap: 1rem;
@@ -299,12 +330,22 @@ p.error-msg-lbl {
 
 .timer-wrapper {
 	display: flex;
-	gap: 1rem;
+	flex-direction: column;
+	// gap: 1rem;
 	// flex-direction: column;
 	justify-content: center;
-	// align-items: center;
+	align-items: center;
+	// width: fit-content;
+	padding: 0;
+	margin: 0;
+	// background-color: $tertiary-color;
+
+	.timer-lbl {
+		font-size: 2rem;
+	}
 
 	p {
+		display: inline-block;
 		margin-bottom: 0;
 	}
 }
@@ -312,7 +353,7 @@ p.error-msg-lbl {
 p.game-timer {
 	width: fit-content;
 	height: fit-content;
-	font-size: 2.5rem;
+	font-size: 2.25rem;
 	margin-bottom: 0;
 	background-color: $tertiary-color;
 	padding: 1rem;
@@ -331,6 +372,8 @@ p.game-timer {
 // }
 
 .game-info-wrapper {
+	// display: flex;
+	// flex: content;
 	background-color: $primary-color;
 	color: $secondary-color;
 	padding: 2rem;
@@ -426,6 +469,7 @@ p.game-timer {
 
 	.game-wrapper {
 		display: flex;
+		// flex-direction: column;
 	}
 	.game-info-wrapper,
 	.found-words-wrapper {
