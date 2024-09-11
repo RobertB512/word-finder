@@ -7,7 +7,8 @@ function toggleVisibleAndPlay() {
 	// const startGameBtn = document.querySelector(".start-game-btn");
 	const startGameWrapper = document.querySelector(".start-game-wrapper");
 	const gameControlsWrapper = document.querySelector(".game-controls-wrapper");
-	const inputArea = document.querySelector(".input-area");
+  const gameMessage = document.querySelector(".game-message")
+  const inputArea = document.querySelector(".input-area");
 	const timerWrapper = document.querySelector(".timer-wrapper");
 	const getNewWordBtn = document.querySelector(".get-new-word-btn");
 	const levelSelector = document.querySelector(".level-select");
@@ -30,7 +31,8 @@ function toggleVisibleAndPlay() {
 	// startGameWrapper.removeChild(gameControlsWrapper);
 	gameControlsWrapper.classList.remove("d-none");
 	startGameWrapper.classList.add("d-none");
-	inputArea.classList.remove("d-none");
+  gameMessage.classList.add("d-none")
+  inputArea.classList.remove("d-none");
 	timerWrapper.classList.remove("d-none");
 	getNewWordBtn.classList.remove("d-none");
 	resetGame();
@@ -313,8 +315,8 @@ const resetGame = () => {
 const showGameOverScreen = () => {
 	const startGameWrapper = document.querySelector(".start-game-wrapper");
 	// const controlsWrapper = document.querySelector(".game-controls-wrapper");
-	const startGameBtn = document.querySelector(".start-game-btn");
-	const inputArea = document.querySelector(".input-area");
+  const startGameBtn = document.querySelector(".start-game-btn");
+  const inputArea = document.querySelector(".input-area");
 	const timerWrapper = document.querySelector(".timer-wrapper");
 	const getNewWordBtn = document.querySelector(".get-new-word-btn");
 
@@ -336,6 +338,7 @@ const handleGameOver = () => {
 	// const easyLevel = document.querySelector(".easy-level");
 	// const normalLevel = document.querySelector(".normal-level");
 
+  gameMessage.classList.remove("d-none")
 	gameMessage.textContent = "GAME OVER";
 
 	// easyLevel.classList.remove("active");

@@ -325,6 +325,8 @@ p.game-timer {
 }
 
 .game-info-wrapper {
+  display: flex;
+  flex: content;
   background-color: #0000ff;
   color: #fdf7ff;
   padding: 2rem;
