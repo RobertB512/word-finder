@@ -224,10 +224,6 @@ button:hover {
   padding: 1.65px;
 }
 
-.get-new-word-btn {
-  margin-bottom: 1.5rem;
-}
-
 .start-game-wrapper {
   display: flex;
   flex-direction: column;
