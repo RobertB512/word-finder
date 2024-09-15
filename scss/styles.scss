@@ -315,9 +315,14 @@ button {
 	width: fit-content;
 }
 
+.input-area {
+  max-width: 95vw;
+}
+
 form {
 	display: flex;
 	flex-direction: column;
+  // max-width: 95vw;
 	// margin-bottom: 0.5rem;
 
 	label {
@@ -333,13 +338,29 @@ form {
 		font-weight: 700;
 		text-transform: uppercase;
 	}
+
+	.form-btn-wrapper {
+		display: flex;
+		gap: 0.25rem;
+	}
+
 	button.btns-and-links {
-		width: 100%;
+		// width: 100%;
 		border-radius: 0 0 0.5rem 0.5rem;
 	}
+
+	.submit-word-btn {
+		flex: 2;
+	}
+
+	.erase-letter-btn {
+		flex: 1;
+	}
 }
+
 p.error-msg-lbl {
 	font-size: 2.5rem;
+  max-width: 50rem;
 }
 
 .wordbtn-timer-wraper {

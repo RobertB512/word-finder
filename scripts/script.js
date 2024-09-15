@@ -72,6 +72,7 @@ const playGame = (selectedLevel) => {
 	getWordFromUser();
 	handleLevelSelection("", selectedLevel);
 	getNewWord();
+  handleErasingLetters()
 };
 
 const generateRandomWord = () => {
@@ -97,7 +98,7 @@ function preventFormReload(e) {
 		: checkIfRealWord(wordEntryInput.value);
 
 	wordEntryInput.value = "";
-  wordEntryInput.focus()
+  // wordEntryInput.focus()
 }
 
 const listenForInput = async () => {
@@ -147,16 +148,39 @@ const addLetterFromTap = async (e, wrapper) => {
 	console.log("entered add letter function");
 	const inputField = document.querySelector(".word-entry-input");
 	inputField.value = inputField.value + wrapper.textContent;
-  wordInput.focus()
+  // wordInput.focus()
 };
 
 // const handleLetterTapEvent = async (wrapper) => {};
 
+const handleErasingLetters = async () => {
+  const eraseLastLetterBtn = document.querySelector(".erase-letter-btn")
+
+  eraseLastLetterBtn.removeEventListener("click", eraseLastLetter);
+  eraseLastLetterBtn.addEventListener("click", eraseLastLetter)
+}
+
+const eraseLastLetter = async (e) => {
+  const inputField = document.querySelector(".word-entry-input")
+  const submitWordBtn = document.querySelector(".submit-word-btn")
+
+  e.preventDefault()
+
+  if (inputField.value) {
+    inputField.value = inputField.value.slice(0, -1) 
+  } else {
+    console.log("error eraseing letter");
+  }
+
+  submitWordBtn.focus()
+
+}
+
+
 const getWordFromUser = async () => {
 	const wordEntryForm = document.querySelector(".word-entry-form");
-
+  
 	wordEntryForm.removeEventListener("submit", preventFormReload);
-
 	wordEntryForm.addEventListener("submit", preventFormReload);
 };
 
@@ -460,6 +484,7 @@ const handleGameOver = () => {
 	const startGameBtn = document.querySelector(".start-game-btn");
 	const wordEntryForm = document.querySelector(".word-entry-form");
   const wordEntryInput = document.querySelector(".word-entry-input")
+  const eraseLastLetterBtn = document.querySelector(".erase-letter-btn")
 	// const easyLevel = document.querySelector(".easy-level");
 	// const normalLevel = document.querySelector(".normal-level");
 
@@ -474,6 +499,7 @@ const handleGameOver = () => {
 	wordEntryForm.removeEventListener("submit", preventFormReload);
 	wordEntryInput.removeEventListener("input", allowOnlyAlphabetChars);
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
+  eraseLastLetterBtn.removeEventListener("click", eraseLastLetter);
 
 	showGameOverScreen();
 

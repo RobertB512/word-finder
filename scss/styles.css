@@ -266,6 +266,10 @@ button:hover {
   width: fit-content;
 }
 
+.input-area {
+  max-width: 95vw;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -282,13 +286,23 @@ form input {
   font-weight: 700;
   text-transform: uppercase;
 }
+form .form-btn-wrapper {
+  display: flex;
+  gap: 0.25rem;
+}
 form button.btns-and-links {
-  width: 100%;
   border-radius: 0 0 0.5rem 0.5rem;
+}
+form .submit-word-btn {
+  flex: 2;
+}
+form .erase-letter-btn {
+  flex: 1;
 }
 
 p.error-msg-lbl {
   font-size: 2.5rem;
+  max-width: 50rem;
 }
 
 .wordbtn-timer-wraper {
