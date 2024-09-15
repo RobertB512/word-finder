@@ -21,11 +21,12 @@ select {
 	font-size: 2rem;
 }
 
-// body {
-//   overflow: hidden;
-// }
+body {
+  overflow: hidden;
+}
 
 // common styles
+
 h1,
 h2,
 h3,
@@ -59,6 +60,7 @@ button:focus {
 }
 
 // homepage styles
+
 .home-page {
 	display: flex;
 	flex-direction: column;
@@ -110,11 +112,6 @@ button {
 
 // how to play page styles
 
-// .how-top-play-page {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
 .how-to-play-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -125,7 +122,6 @@ button {
 	padding: 5rem 1rem;
 }
 .introduction-container {
-	// text-align: center;
 	margin-bottom: 3rem;
 
 	p {
@@ -138,6 +134,7 @@ button {
 		margin-bottom: 0;
 	}
 }
+
 .examples {
 	display: flex;
 	flex-direction: column;
@@ -157,6 +154,7 @@ button {
 .example-explanation {
 	max-width: 600px;
 }
+
 .example-wrapper {
 	display: flex;
 	justify-content: center;
@@ -177,16 +175,18 @@ button {
 		margin-bottom: 1.5rem;
 	}
 }
+
 .example-given-word {
 	font-weight: 700;
 }
+
 .example-word,
 .example-list {
 	margin-bottom: 2rem;
 	list-style: none;
 }
+
 .example-list {
-	// text-align: center;
 	display: inline-block;
 	text-align: left;
 	list-style: decimal;
@@ -200,6 +200,7 @@ button {
 		margin-bottom: 0;
 	}
 }
+
 .play-link {
 	display: inline-block;
 }
@@ -212,23 +213,14 @@ button {
 	align-items: center;
 	justify-content: center;
 
-	// article,
 	form {
 		width: 100%;
 	}
 
 	article {
 		text-align: center;
-		// margin: 0 auto;
 	}
 }
-
-// .home-link {
-//   font-size: 1.6rem;
-//   width: fit-content;
-//   padding: 0.5rem 0.5rem;
-//   margin-bottom: 1rem;
-// }
 
 .play-btn-wrapper {
 	display: flex;
@@ -250,19 +242,7 @@ button {
 	.letter-wrapper {
 		padding: 1.65px;
 	}
-
-	// .letter-wrapper:first-of-type {
-	// 	padding-left: 0;
-	// }
-
-	// .letter-wrapper:last-of-type {
-	// 	padding-right: 0;
-	// }
 }
-
-// .get-new-word-btn {
-// 	margin-bottom: 1.5rem;
-// }
 
 .start-game-wrapper {
 	display: flex;
@@ -293,11 +273,6 @@ button {
 .game-controls-wrapper {
 	display: flex;
 	flex-direction: column;
-	// gap: 1rem;
-
-	// .game-word-display-wrapper {
-
-	// }
 
 	p {
 		margin-bottom: 1.5rem;
@@ -310,7 +285,6 @@ button {
 }
 
 .get-new-word-btn {
-	// margin-bottom: 1.5rem;
 	padding: 2rem 1rem;
 	width: fit-content;
 }
@@ -322,8 +296,6 @@ button {
 form {
 	display: flex;
 	flex-direction: column;
-  // max-width: 95vw;
-	// margin-bottom: 0.5rem;
 
 	label {
 		text-align: left;
@@ -331,7 +303,6 @@ form {
 	input {
 		border: none;
 		width: 100%;
-		// font-size: 2.5rem;
 		padding: 0.5rem 1rem;
 		text-align: center;
 		border-radius: 0.5rem 0.5rem 0 0;
@@ -345,7 +316,6 @@ form {
 	}
 
 	button.btns-and-links {
-		// width: 100%;
 		border-radius: 0 0 0.5rem 0.5rem;
 	}
 
@@ -391,14 +361,10 @@ p.error-msg-lbl {
 .timer-wrapper {
 	display: flex;
 	flex-direction: column;
-	// gap: 1rem;
-	// flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	// width: fit-content;
 	padding: 0;
 	margin: 0;
-	// background-color: $tertiary-color;
 
 	.timer-lbl {
 		font-size: 2rem;
@@ -417,19 +383,7 @@ p.game-timer {
 	margin-bottom: 0;
 	background-color: $tertiary-color;
 	padding: 1rem;
-	// animation: scale 1s linear infinite;
-	// transform-origin: center;
-	// transition: 0.12.5s;
 }
-
-// @keyframes scale {
-//   0%, 100% {
-//       transform: scale(1);
-//   }
-//   50% {
-//       transform: scale(1.5);
-//   }
-// }
 
 .game-info-wrapper {
 	display: flex;
@@ -459,28 +413,21 @@ p.game-timer {
 	margin-bottom: 2rem;
 }
 
-// .game-progress {
-// 	border-bottom: 8px solid;
-// 	margin-bottom: 2rem;
-// }
-
 .guessed-words-section {
 	margin-bottom: 1rem;
 }
 
 // for javascript
+
 .active {
 	color: $secondary-color;
 	border: 2px solid $secondary-color;
 }
 
-// .adjust-font-size {
-//   font-size: clamp(3rem, 7vw + 1rem, 5rem)
-// }
-
 .d-none {
 	display: none;
 }
+
 .time-almost-out {
 	color: #f00;
 	animation: scale 1s linear infinite;
@@ -498,6 +445,7 @@ p.game-timer {
 }
 
 // for smaller screens
+
 @media (max-width: 400px) {
 	.game-mode-group,
 	.timer-wrapper {
@@ -509,23 +457,14 @@ p.game-timer {
 			margin-bottom: 0;
 		}
 	}
-	// .timer-wrapper {
-	//   align-items: center;
-	// }
 }
 @media (max-width: 280px) {
-	// .game-controls-wrapper .game-word {
-	//   font-size: 2.5rem;
-	// }
+	
 }
 
 // for larger screens
-@media (min-width: 1000px) {
-	// .sticky-content-wrapper {
-	//   position: sticky;
-	//   top: 0;
-	// }
 
+@media (min-width: 1000px) {
 	p,
 	li,
 	label,
@@ -576,25 +515,12 @@ p.game-timer {
 			z-index: 2;
 		}
 
-		// .guessed-words-section {
-		//   overflow-y: scroll;
-		//   height: 25%;
-		//   background-color: gray;
-		// }
-
 		p {
 			text-align: left;
 		}
 	}
 
 	.guessed-words-section {
-		// -moz-column-width: 15rem;
-		// -moz-column-gap: 2rem;
-		// -webkit-column-width: 15rem;
-		// -webkit-column-gap: 2rem;
-		// column-width: 15rem;
-		// column-gap: 2rem;
-
 		flex: 1;
 		overflow-y: scroll;
 		height: 25%;

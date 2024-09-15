@@ -1,10 +1,10 @@
 // Some words may be too big for some screens, especially with extra letter spacing
-// for this reason: TBG = "too big for screen"
+// for this reason: TBS = "too big for screen"
 
 export const gameWordList = [
 	"absorbent",
 	"achievement",
-	// "alphabetically", TBG
+	// "alphabetically", TBS
 	"America",
 	"artichoke",
 	"astronaut",
@@ -23,7 +23,7 @@ export const gameWordList = [
 	"chemistry",
 	"Christianity",
 	"Christmas",
-	// "chrysanthemum", TBG
+	// "chrysanthemum", TBS
 	"circumstance",
 	"coincidence",
 	"community",
@@ -33,7 +33,7 @@ export const gameWordList = [
 	"declaration",
 	"elevators",
 	"employee",
-	// "establishment", TBG
+	// "establishment", TBS
 	"extravagant",
 	"fabricate",
 	"fatherly",
@@ -66,9 +66,9 @@ export const gameWordList = [
 	"microscopic",
 	"motherly",
 	"Netherlands",
-	// "organizational", TBG
+	// "organizational", TBS
 	"parenting",
-	// "perpendicular", TBG
+	// "perpendicular", TBS
 	"political",
 	"president",
 	"proclamation",
@@ -77,7 +77,7 @@ export const gameWordList = [
 	"programmer",
 	"protagonist",
 	"pterodactyl",
-	// "quadrilateral", TBG
+	// "quadrilateral", TBS
 	"quintuple",
 	"quivering",
 	"quotation",

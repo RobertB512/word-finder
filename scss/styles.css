@@ -17,6 +17,10 @@ select {
   font-size: 2rem;
 }
 
+body {
+  overflow: hidden;
+}
+
 h1,
 h2,
 h3,
