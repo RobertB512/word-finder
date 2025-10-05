@@ -21,7 +21,6 @@ select {
 	font-size: 2rem;
 }
 
-
 // common styles
 
 h1,
@@ -287,7 +286,7 @@ button {
 }
 
 .input-area {
-  max-width: 95vw;
+	max-width: 95vw;
 }
 
 form {
@@ -327,7 +326,7 @@ form {
 
 p.error-msg-lbl {
 	font-size: 2.5rem;
-  max-width: 50rem;
+	max-width: 50rem;
 }
 
 .wordbtn-timer-wraper {
@@ -414,6 +413,34 @@ p.game-timer {
 	margin-bottom: 1rem;
 }
 
+.keyboard {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	position: absolute;
+	bottom: 0;
+	z-index: 99;
+	background-color: darkslategray;
+	width: 100vw;
+	padding: 2rem 0;
+
+	.letter-row {
+		display: flex;
+		justify-content: center;
+		gap: 0.25rem;
+
+		.key {
+      width: clamp(2.4rem, 4.5rem, 5.9rem);
+      height: clamp(5rem, 5.8rem, 7.7rem);
+      font-size: clamp(2.25rem, 3.25rem, 4rem);
+			padding: 0.5rem;
+			background-color: gray;
+			color: white;
+			border: none;
+		}
+	}
+}
+
 // for javascript
 
 .active {
@@ -441,6 +468,11 @@ p.game-timer {
 	}
 }
 
+.letter-unavailable {
+  color: red;
+  pointer-events: none;
+}
+
 // for smaller screens
 
 @media (max-width: 400px) {
@@ -455,9 +487,8 @@ p.game-timer {
 		}
 	}
 }
-@media (max-width: 280px) {
-	
-}
+// @media (max-width: 280px) {
+// }
 
 // for larger screens
 

@@ -388,6 +388,32 @@ p.game-timer {
   margin-bottom: 1rem;
 }
 
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  position: absolute;
+  bottom: 0;
+  z-index: 99;
+  background-color: darkslategray;
+  width: 100vw;
+  padding: 2rem 0;
+}
+.keyboard .letter-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+.keyboard .letter-row .key {
+  width: 4.5rem;
+  height: 5.8rem;
+  font-size: 3.25rem;
+  padding: 0.5rem;
+  background-color: gray;
+  color: white;
+  border: none;
+}
+
 .active {
   color: #fdf7ff;
   border: 2px solid #fdf7ff;
@@ -411,6 +437,11 @@ p.game-timer {
     transform: scale(1.5);
   }
 }
+.letter-unavailable {
+  color: red;
+  pointer-events: none;
+}
+
 @media (max-width: 400px) {
   .game-mode-group,
   .timer-wrapper {
