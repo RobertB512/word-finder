@@ -155,17 +155,23 @@ const getWordFromUser = async () => {
 
 const checkIfRealWord = async (userWord) => {
 	if (userWord.length >= 3) {
-		const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${userWord}`;
+		const url = `https://freedictionaryapi.com/api/v1/entries/en/${userWord}`;
 		try {
 			const response = await fetch(url);
 			if (response.ok) {
 				const data = await response.json();
-				const theWord = await data[0].word;
-				gameMode(theWord.toUpperCase());
-			} else {
-				console.log("ERROR: might not be a real word");
-				displayErrorMsg(`${userWord.toUpperCase()} may not be a word`);
-			}
+        if (data.entries.length >= 1) {
+          const theWord = await data.word;
+					gameMode(theWord.toUpperCase());
+        } else if (data.entries.length === 0) {
+          displayErrorMsg(`${userWord.toUpperCase()} may not be a real word.`)
+        }
+				
+			} 
+      // else {
+			// 	console.log("ERROR: might not be a real word");
+			// 	displayErrorMsg(`${userWord.toUpperCase()} may not be a word`);
+			// }
 		} catch (error) {
 			console.log("failed fetch:", error);
 		}
