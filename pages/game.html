@@ -9,74 +9,77 @@
 	</head>
 	<body>
 		<section class="game-wrapper">
-			<article class="game-info-wrapper">
+      <section class="main-game-area">
+        <article class="game-info-wrapper">
 
-        <h2 class="game-message">Ready?</h2>
+          <h2 class="game-message">Ready?</h2>
 
-        <article class="game-controls-wrapper">
-					<article class="game-word-display-wrapper">
-            <p>Your word is...</p>
-					  <h3 class="game-word"></h3>
-          </article>
-					<article class="wordbtn-timer-wraper">
-            <button class="get-new-word-btn btns-and-links">Get new word</button>
-          
-            <article class="timer-wrapper">
-                <p class="timer-lbl">Timer:</p>
-                <p class="game-timer"></p>
+          <article class="game-controls-wrapper">
+            <article class="game-word-display-wrapper">
+              <p>Your word is...</p>
+              <h3 class="game-word"></h3>
+            </article>
+            <article class="wordbtn-timer-wraper">
+              <button class="get-new-word-btn btns-and-links">Get new word</button>
+            
+              <article class="timer-wrapper">
+                  <p class="timer-lbl">Timer:</p>
+                  <p class="game-timer"></p>
+              </article>
+            </article>
+
+            <article class="input-area">
+              <form class="word-entry-form" action="">
+                <label class="word-entry-lbl" for="word-entry"
+                  >Enter a word</label
+                >
+                <div class="input-group">
+                  <input
+                    class="word-entry-input"
+                    id="word-entry"
+                    type="text"
+                    autocomplete="off"
+                    minlength="3"
+                    placeholder="Enter a word"
+                    required />
+                  <dev class="form-btn-wrapper">
+                    <button class="submit-word-btn btns-and-links">Submit</button>
+                    <button class="erase-letter-btn btns-and-links">&larr;</button>
+                  </dev>
+                </div>
+              </form>
+              <div class="error-area">
+                <p class="error-msg-lbl"></p>
+              </div>
             </article>
           </article>
+          <section class="start-game-wrapper"> <!-- was play-btn-wrapper -->
+            <article class="level-select-wrapper">
+              <p>Choose your level</p>
+              <select name="level-select" class="level-select" id="level-select">
+                <option value="easy">Easy (level 1)</option>
+                <option value="normal" selected="selected">Normal (level 2)</option>
+              </select>
+            </article>
 
-					<article class="input-area">
-						<form class="word-entry-form" action="">
-							<label class="word-entry-lbl" for="word-entry"
-								>Enter a word</label
-							>
-							<div class="input-group">
-								<input
-									class="word-entry-input"
-									id="word-entry"
-									type="text"
-									autocomplete="off"
-                  minlength="3"
-                  placeholder="Enter a word"
-									required />
-								<dev class="form-btn-wrapper">
-                  <button class="submit-word-btn btns-and-links">Submit</button>
-                  <button class="erase-letter-btn btns-and-links">&larr;</button>
-                </dev>
-							</div>
-						</form>
-						<div class="error-area">
-							<p class="error-msg-lbl"></p>
-						</div>
-					</article>
-				</article>
-				<section class="start-game-wrapper"> <!-- was play-btn-wrapper -->
-          <article class="level-select-wrapper">
-            <p>Choose your level</p>
-            <select name="level-select" class="level-select" id="level-select">
-              <option value="easy">Easy (level 1)</option>
-              <option value="normal" selected="selected">Normal (level 2)</option>
-            </select>
-          </article>
+            <button class="start-game-btn btns-and-links">Play</button>
+          </section>
+          
+        </article>
 
-					<button class="start-game-btn btns-and-links">Play</button>
-				</section>
-				
-			</article>
-
-			<article class="found-words-wrapper">
-				<div class="score-wrapper">
-          <p class="game-progress">
-            Words found: <span class="total-words-found">0</span>
-          </p>
-          <p class="game-progress">
-            Points: <span class="total-points">0</span>
-          </p>
-        </div>
-				<article class="guessed-words-section"></article>
-			</article>
+        <article class="found-words-wrapper">
+          <div class="score-wrapper">
+            <p class="game-progress">
+              Words found: <span class="total-words-found">0</span>
+            </p>
+            <p class="game-progress">
+              Points: <span class="total-points">0</span>
+            </p>
+          </div>
+          <article class="guessed-words-section"></article>
+        </article>
+      
+      </section>
       
       <div class="keyboard">
         <div class="letter-row row-1">

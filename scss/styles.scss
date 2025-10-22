@@ -11,6 +11,12 @@ $tertiary-color: #1e1926;
 
 html {
 	font-size: 62.5%;
+	// height: 100vh;
+	// overflow: scroll;
+}
+
+body {
+	height: 100vh;
 }
 
 p,
@@ -203,12 +209,24 @@ button {
 
 // game area styles
 
+.game-wrapper {
+	display: flex;
+	flex-direction: column;
+  height: 100vh;
+}
+
+.main-game-area {
+	display: flex;
+	flex-direction: column;
+  flex-grow: 1;
+}
+
 .game-info-wrapper {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-
+	// height: fit-content;
 	form {
 		width: 100%;
 	}
@@ -390,8 +408,12 @@ p.game-timer {
 }
 
 .found-words-wrapper {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 	color: $primary-color;
 	padding: 2rem;
+	height: 40vh;
 
 	p {
 		font-size: 2.5rem;
@@ -411,18 +433,21 @@ p.game-timer {
 
 .guessed-words-section {
 	margin-bottom: 1rem;
+	// height: 10vh;
+	overflow-y: scroll;
 }
 
 .keyboard {
 	display: flex;
 	flex-direction: column;
 	gap: 0.25rem;
-	position: absolute;
-	bottom: 0;
-	z-index: 99;
+	// position: absolute;
+	// bottom: 0;
+	// z-index: 99;
 	background-color: darkslategray;
 	width: 100vw;
 	padding: 2rem 0;
+	height: fit-content;
 
 	.letter-row {
 		display: flex;
@@ -430,9 +455,9 @@ p.game-timer {
 		gap: 0.25rem;
 
 		.key {
-      width: clamp(2.4rem, 4.5rem, 5.9rem);
-      height: clamp(5rem, 5.8rem, 7.7rem);
-      font-size: clamp(2.25rem, 3.25rem, 4rem);
+			width: clamp(2.4rem, 4.5rem, 5.9rem);
+			height: clamp(5rem, 5.8rem, 7.7rem);
+			font-size: clamp(2.25rem, 3.25rem, 4rem);
 			padding: 0.5rem;
 			background-color: gray;
 			color: white;
@@ -469,8 +494,8 @@ p.game-timer {
 }
 
 .letter-unavailable {
-  color: red;
-  pointer-events: none;
+	color: red;
+	pointer-events: none;
 }
 
 // for smaller screens
@@ -507,10 +532,10 @@ p.game-timer {
 	.game-wrapper {
 		display: flex;
 	}
-	.game-info-wrapper,
-	.found-words-wrapper {
-		height: 100vh;
-	}
+	// .game-info-wrapper,
+	// .found-words-wrapper {
+	// 	height: 100vh;
+	// }
 	.game-info-wrapper {
 		justify-content: flex-start;
 		flex: 1;
