@@ -1,0 +1,17 @@
+### This file is just a list of ideas for this site/game ###
+
+- Remake this site from the ground up in React
+-- NOTE: some ideas I may only add if I do this first one --
+- Add a sandbox mode for levels 1 and 2 where there is no timer 
+and no points are given
+- Finish keyboard addition
+- Add a word API to gnerate a random word for the user instead of 
+having hard coded words that are randomly selected from 
+for the user
+- If possible, find an API to find all the possible words in 
+a word given to the user
+- Far fetched idea that may be hard to implement, turn this 
+into a full blown game with upgrades, and possibly ag goal, 
+such as building a city somehow
+
+
