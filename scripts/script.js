@@ -131,7 +131,7 @@ const preventFormReload = async (e) => {
 	e.preventDefault();
 	wordEntryInput.value.toUpperCase() === gameWord
 		? displayErrorMsg(`${gameWord} doesn't count...`)
-		: checkIfRealWord(wordEntryInput.value);
+		: checkIfRealWord(wordEntryInput.value.toLowerCase());
 
 	wordEntryInput.value = "";
 };
