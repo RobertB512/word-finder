@@ -42,18 +42,17 @@ const handleKeyboardEntry = () => {
 	const keyboardLetters = document.querySelectorAll(".letter");
 	const wordInput = document.querySelector(".word-entry-input");
 	const deleteKey = document.querySelector(".keyboard-delete");
-	const submitWordBtn = document.querySelector(".submit-word-btn");
 	const keyboardSubmit = document.querySelector(".keyboard-submit");
 
 	keyboard.classList.remove("d-none");
 
 	keyboardLetters.forEach((letter) => {
-		letter.removeEventListener("click", (e) => handleLetterPress(e, letter));
-		letter.addEventListener("click", (e) => handleLetterPress(e, letter));
+		letter.removeEventListener("click", handleLetterPress);
+		letter.addEventListener("click", handleLetterPress);
 	});
 
-	deleteKey.removeEventListener("click", (e) => handleBackSpaceBtnPress(e));
-	deleteKey.addEventListener("click", (e) => handleBackSpaceBtnPress(e));
+	deleteKey.removeEventListener("click", handleBackSpaceBtnPress);
+	deleteKey.addEventListener("click", handleBackSpaceBtnPress);
 
 	keyboardSubmit.removeEventListener("click", preventFormReload);
 	keyboardSubmit.addEventListener("click", preventFormReload);
@@ -62,16 +61,15 @@ const handleKeyboardEntry = () => {
 	// submitWordBtn.addEventListener("click", (e) => handleSubmitBtnPress(e));
 };
 
-const handleLetterPress = (e, letter) => {
+const handleLetterPress = (e) => {
 	const wordInput = document.querySelector(".word-entry-input");
-	// const keyboardLetter = document.querySelectorAll(".letter");
 
-	wordInput.value += letter.textContent;
-	console.log("was letter added");
+	wordInput.value += e.target.textContent;
+	console.log("Was letter added?");
 };
 
-const handleBackSpaceBtnPress = (e) => {
-	const deleteKey = document.querySelector(".keyboard-delete");
+const handleBackSpaceBtnPress = () => {
+	// const deleteKey = document.querySelector(".keyboard-delete");
 	const wordInput = document.querySelector(".word-entry-input");
 	// if (wordInput.value)
 	const currentFieldValue = wordInput.value;
@@ -487,6 +485,10 @@ const handleGameOver = () => {
 	const wordEntryForm = document.querySelector(".word-entry-form");
 	const wordEntryInput = document.querySelector(".word-entry-input");
 	const eraseLastLetterBtn = document.querySelector(".erase-letter-btn");
+	const keyboardSubmit = document.querySelector(".keyboard-submit");
+	const deleteKey = document.querySelector(".keyboard-delete");
+	const keyboardLetters = document.querySelectorAll(".letter");
+
 	gameMessage.classList.remove("d-none");
 	gameMessage.textContent = "GAME OVER";
 
@@ -494,6 +496,11 @@ const handleGameOver = () => {
 	wordEntryInput.removeEventListener("input", allowOnlyAlphabetChars);
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
 	eraseLastLetterBtn.removeEventListener("click", eraseLastLetter);
+	keyboardSubmit.removeEventListener("click", preventFormReload);
+	deleteKey.removeEventListener("click", handleBackSpaceBtnPress);
+	keyboardLetters.forEach((letter) => {
+		letter.removeEventListener("click", handleLetterPress);
+	});
 
 	showGameOverScreen();
 };
