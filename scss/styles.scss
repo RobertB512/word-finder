@@ -12,7 +12,11 @@ $tertiary-color: #1e1926;
 html {
 	font-size: 62.5%;
 	// height: 100vh;
-	// overflow: scroll;
+	// fallback for older browsers, content may not fit that well
+	height: 100vh;
+	// preferred height for, if available
+	height: 100dvh;
+	overflow: scroll;
 }
 
 body {
