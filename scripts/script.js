@@ -438,6 +438,7 @@ const handleTimer = () => {
 const focusOnInput = () => {
 	const wordEntryInput = document.querySelector(".word-entry-input");
 	wordEntryInput.focus();
+	wordEntryInput.inputMode = "none";
 };
 
 const displayErrorMsg = async (errorMsg) => {
