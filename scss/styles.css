@@ -11,6 +11,7 @@ html {
 
 body {
   height: 100vh;
+  height: 100dvh;
 }
 
 p,
@@ -64,6 +65,7 @@ button:focus {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  height: 100dvh;
 }
 
 header {
@@ -200,6 +202,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  height: 100dvh;
 }
 
 .main-game-area {
@@ -388,6 +391,7 @@ p.game-timer {
   color: #0000ff;
   padding: 2rem;
   height: 40vh;
+  height: 40dvh;
 }
 .found-words-wrapper p {
   font-size: 2.5rem;

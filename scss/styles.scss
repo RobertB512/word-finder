@@ -16,7 +16,10 @@ html {
 }
 
 body {
+	// fallback for older browsers, content may not fit that well
 	height: 100vh;
+	// preferred height for, if available
+	height: 100dvh;
 }
 
 p,
@@ -68,7 +71,10 @@ button:focus {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	// fallback for older browsers, content may not fit that well
 	height: 100vh;
+	// preferred height for, if available
+	height: 100dvh;
 }
 header {
 	text-align: center;
@@ -212,7 +218,10 @@ button {
 .game-wrapper {
 	display: flex;
 	flex-direction: column;
+	// fallback for older browsers, content may not fit that well
 	height: 100vh;
+	// preferred height for, if available
+	height: 100dvh;
 }
 
 .main-game-area {
@@ -413,7 +422,11 @@ p.game-timer {
 	flex-grow: 1;
 	color: $primary-color;
 	padding: 2rem;
+	// fallback for older browsers, content may not fit that well
 	height: 40vh;
+	// preferred height for, if available
+	height: 40dvh;
+	// WAS ORIGINALLY JUST 40vh
 
 	p {
 		font-size: 2.5rem;
