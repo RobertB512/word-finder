@@ -6,11 +6,12 @@ let gameMode;
 const toggleVisibleAndPlay = async () => {
 	const startGameWrapper = document.querySelector(".start-game-wrapper");
 	const gameControlsWrapper = document.querySelector(".game-controls-wrapper");
-  const gameMessage = document.querySelector(".game-message")
-  const inputArea = document.querySelector(".input-area");
+	const gameMessage = document.querySelector(".game-message");
+	const inputArea = document.querySelector(".input-area");
 	const timerWrapper = document.querySelector(".timer-wrapper");
 	const getNewWordBtn = document.querySelector(".get-new-word-btn");
 	const levelSelector = document.querySelector(".level-select");
+	const keyboard = document.querySelector(".keyboard");
 	let selectedLevel = "";
 
 	if (levelSelector.value === "easy") {
@@ -25,25 +26,80 @@ const toggleVisibleAndPlay = async () => {
 
 	gameControlsWrapper.classList.remove("d-none");
 	startGameWrapper.classList.add("d-none");
-  gameMessage.classList.add("d-none")
-  inputArea.classList.remove("d-none");
+	gameMessage.classList.add("d-none");
+	inputArea.classList.remove("d-none");
 	timerWrapper.classList.remove("d-none");
 	getNewWordBtn.classList.remove("d-none");
+	// keyboard.classList.remove(".d-none");
+	// keyboard.classList.add(".d-none");
+
 	resetGame();
 	playGame(selectedLevel);
-}
+};
+
+const handleKeyboardEntry = () => {
+	const keyboard = document.querySelector(".keyboard");
+	const keyboardLetters = document.querySelectorAll(".letter");
+	const wordInput = document.querySelector(".word-entry-input");
+	const deleteKey = document.querySelector(".keyboard-delete");
+	const submitWordBtn = document.querySelector(".submit-word-btn");
+	const keyboardSubmit = document.querySelector(".keyboard-submit");
+
+	keyboard.classList.remove("d-none");
+
+	keyboardLetters.forEach((letter) => {
+		letter.removeEventListener("click", (e) => handleLetterPress(e, letter));
+		letter.addEventListener("click", (e) => handleLetterPress(e, letter));
+	});
+
+	deleteKey.removeEventListener("click", (e) => handleBackSpaceBtnPress(e));
+	deleteKey.addEventListener("click", (e) => handleBackSpaceBtnPress(e));
+
+	keyboardSubmit.removeEventListener("click", preventFormReload);
+	keyboardSubmit.addEventListener("click", preventFormReload);
+
+	// submitWordBtn.removeEventListener("click", (e) => handleSubmitBtnPress(e));
+	// submitWordBtn.addEventListener("click", (e) => handleSubmitBtnPress(e));
+};
+
+const handleLetterPress = (e, letter) => {
+	const wordInput = document.querySelector(".word-entry-input");
+	// const keyboardLetter = document.querySelectorAll(".letter");
+
+	wordInput.value += letter.textContent;
+	console.log("was letter added");
+};
+
+const handleBackSpaceBtnPress = (e) => {
+	const deleteKey = document.querySelector(".keyboard-delete");
+	const wordInput = document.querySelector(".word-entry-input");
+	// if (wordInput.value)
+	const currentFieldValue = wordInput.value;
+	wordInput.value = currentFieldValue.slice(0, -1);
+};
+
+// const handleKeyboardSubmitPress = () => {
+// 	const keyboardSubmit = document.querySelector(".keyboard-submit");
+
+// 	keyboardSubmit.removeEventListener("submit", preventFormReload);
+// 	keyboardSubmit.addEventListener("submit", preventFormReload);
+// };
 
 const prepOnPageLoad = async () => {
 	const startGameWrapper = document.querySelector(".start-game-wrapper");
 	const startGameBtn = document.querySelector(".start-game-btn");
 	const gameControlsWrapper = document.querySelector(".game-controls-wrapper");
 	const normalLevel = document.querySelector(".normal-level");
+	const keyboard = document.querySelector(".keyboard");
 
 	gameControlsWrapper.classList.add("d-none");
 	startGameWrapper.classList.remove("d-none");
 
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
 	startGameBtn.addEventListener("click", toggleVisibleAndPlay);
+
+	keyboard.classList.remove("d-none");
+	keyboard.classList.add("d-none");
 };
 
 const playGame = async (selectedLevel) => {
@@ -54,7 +110,8 @@ const playGame = async (selectedLevel) => {
 	getWordFromUser();
 	handleLevelSelection("", selectedLevel);
 	getNewWord();
-  handleErasingLetters()
+	handleErasingLetters();
+	handleKeyboardEntry();
 };
 
 const generateRandomWord = async () => {
@@ -77,7 +134,7 @@ const preventFormReload = async (e) => {
 		: checkIfRealWord(wordEntryInput.value);
 
 	wordEntryInput.value = "";
-}
+};
 
 const listenForInput = async () => {
 	const wordEntryInput = document.querySelector(".word-entry-input");
@@ -115,40 +172,38 @@ const receiveInputFromLetterTap = async () => {
 };
 
 const addLetterFromTap = async (e, wrapper) => {
-  const wordInput = document.querySelector(".word-entry-input")
-  e.stopPropagation()
+	const wordInput = document.querySelector(".word-entry-input");
+	e.stopPropagation();
 	console.log("entered add letter function");
 	const inputField = document.querySelector(".word-entry-input");
 	inputField.value = inputField.value + wrapper.textContent;
 };
 
-
 const handleErasingLetters = async () => {
-  const eraseLastLetterBtn = document.querySelector(".erase-letter-btn")
+	const eraseLastLetterBtn = document.querySelector(".erase-letter-btn");
 
-  eraseLastLetterBtn.removeEventListener("click", eraseLastLetter);
-  eraseLastLetterBtn.addEventListener("click", eraseLastLetter)
-}
+	eraseLastLetterBtn.removeEventListener("click", eraseLastLetter);
+	eraseLastLetterBtn.addEventListener("click", eraseLastLetter);
+};
 
 const eraseLastLetter = async (e) => {
-  const inputField = document.querySelector(".word-entry-input")
-  const submitWordBtn = document.querySelector(".submit-word-btn")
+	const inputField = document.querySelector(".word-entry-input");
+	const submitWordBtn = document.querySelector(".submit-word-btn");
 
-  e.preventDefault()
+	e.preventDefault();
 
-  if (inputField.value) {
-    inputField.value = inputField.value.slice(0, -1) 
-  } else {
-    console.log("error eraseing letter");
-  }
+	if (inputField.value) {
+		inputField.value = inputField.value.slice(0, -1);
+	} else {
+		console.log("error eraseing letter");
+	}
 
-  submitWordBtn.focus()
-
-}
+	submitWordBtn.focus();
+};
 
 const getWordFromUser = async () => {
 	const wordEntryForm = document.querySelector(".word-entry-form");
-  
+
 	wordEntryForm.removeEventListener("submit", preventFormReload);
 	wordEntryForm.addEventListener("submit", preventFormReload);
 };
@@ -160,15 +215,14 @@ const checkIfRealWord = async (userWord) => {
 			const response = await fetch(url);
 			if (response.ok) {
 				const data = await response.json();
-        if (data.entries.length >= 1) {
-          const theWord = await data.word;
+				if (data.entries.length >= 1) {
+					const theWord = await data.word;
 					gameMode(theWord.toUpperCase());
-        } else if (data.entries.length === 0) {
-          displayErrorMsg(`${userWord.toUpperCase()} may not be a real word.`)
-        }
-				
-			} 
-      // else {
+				} else if (data.entries.length === 0) {
+					displayErrorMsg(`${userWord.toUpperCase()} may not be a real word.`);
+				}
+			}
+			// else {
 			// 	console.log("ERROR: might not be a real word");
 			// 	displayErrorMsg(`${userWord.toUpperCase()} may not be a word`);
 			// }
@@ -267,8 +321,8 @@ const handleWordStatus = async (wordStatus, userWord, errorMsg) =>
 
 const getWordPoints = async (userWord) => {
 	const totalPointsOutput = document.querySelector(".total-points");
-  let wordPoints = 0;
-  let totalPoints = parseInt(totalPointsOutput.textContent)
+	let wordPoints = 0;
+	let totalPoints = parseInt(totalPointsOutput.textContent);
 
 	// points are same as scrabble points
 	const letterPointSystem = [
@@ -300,19 +354,19 @@ const getWordPoints = async (userWord) => {
 		{ letter: "z", points: 10 },
 	];
 
-  for (let userLetter of userWord) {
-    console.log("enter point loop 1");
-    console.log("letter :", userLetter);
-    letterPointSystem.forEach(letter => {
-      if (userLetter.toLowerCase() === letter.letter.toLowerCase()) {
-        console.log("enter point loop 2");
-        wordPoints += letter.points
-      }
-    })
-  }
+	for (let userLetter of userWord) {
+		console.log("enter point loop 1");
+		console.log("letter :", userLetter);
+		letterPointSystem.forEach((letter) => {
+			if (userLetter.toLowerCase() === letter.letter.toLowerCase()) {
+				console.log("enter point loop 2");
+				wordPoints += letter.points;
+			}
+		});
+	}
 
-  totalPoints += wordPoints
-  totalPointsOutput.textContent = totalPoints.toString()
+	totalPoints += wordPoints;
+	totalPointsOutput.textContent = totalPoints.toString();
 };
 
 const addUserWord = async (userWord) => {
@@ -323,7 +377,7 @@ const addUserWord = async (userWord) => {
 		console.log("valid word");
 		wordList.push(userWord);
 
-    getWordPoints(userWord)
+		getWordPoints(userWord);
 
 		let goodWord = document.createElement("p");
 		goodWord.classList.add("good-word");
@@ -401,7 +455,8 @@ const resetGame = () => {
 	document.querySelector(".word-entry-input").value = "";
 	document.querySelector(".guessed-words-section").textContent = "";
 	document.querySelector(".total-words-found").textContent = "0";
-  document.querySelector(".total-points").textContent = "0"
+	document.querySelector(".total-points").textContent = "0";
+	document.querySelector(".keyboard").classList.remove(".d-none");
 
 	wordList = [];
 	generateRandomWord();
@@ -410,8 +465,8 @@ const resetGame = () => {
 
 const showGameOverScreen = () => {
 	const startGameWrapper = document.querySelector(".start-game-wrapper");
-  const startGameBtn = document.querySelector(".start-game-btn");
-  const inputArea = document.querySelector(".input-area");
+	const startGameBtn = document.querySelector(".start-game-btn");
+	const inputArea = document.querySelector(".input-area");
 	const timerWrapper = document.querySelector(".timer-wrapper");
 	const getNewWordBtn = document.querySelector(".get-new-word-btn");
 
@@ -429,15 +484,15 @@ const handleGameOver = () => {
 	const gameMessage = document.querySelector(".game-message");
 	const startGameBtn = document.querySelector(".start-game-btn");
 	const wordEntryForm = document.querySelector(".word-entry-form");
-  const wordEntryInput = document.querySelector(".word-entry-input")
-  const eraseLastLetterBtn = document.querySelector(".erase-letter-btn")
-  gameMessage.classList.remove("d-none")
+	const wordEntryInput = document.querySelector(".word-entry-input");
+	const eraseLastLetterBtn = document.querySelector(".erase-letter-btn");
+	gameMessage.classList.remove("d-none");
 	gameMessage.textContent = "GAME OVER";
 
 	wordEntryForm.removeEventListener("submit", preventFormReload);
 	wordEntryInput.removeEventListener("input", allowOnlyAlphabetChars);
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
-  eraseLastLetterBtn.removeEventListener("click", eraseLastLetter);
+	eraseLastLetterBtn.removeEventListener("click", eraseLastLetter);
 
 	showGameOverScreen();
 };
