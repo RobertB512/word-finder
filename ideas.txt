@@ -11,7 +11,7 @@ for the user
 - If possible, find an API to find all the possible words in 
 a word given to the user
 - Far fetched idea that may be hard to implement, turn this 
-into a full blown game with upgrades, and possibly ag goal, 
+into a full blown game with upgrades, and possibly a goal, 
 such as building a city somehow
 
 
