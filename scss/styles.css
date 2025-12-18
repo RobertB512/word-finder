@@ -418,6 +418,7 @@ p.game-timer {
   padding: 2rem 0;
   height: -moz-fit-content;
   height: fit-content;
+  touch-action: manipulation;
 }
 .keyboard .letter-row {
   display: flex;
@@ -432,6 +433,10 @@ p.game-timer {
   background-color: gray;
   color: white;
   border: none;
+}
+.keyboard .letter-row .key:active {
+  background-color: white;
+  color: black;
 }
 
 .active {

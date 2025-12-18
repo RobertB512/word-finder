@@ -212,13 +212,13 @@ button {
 .game-wrapper {
 	display: flex;
 	flex-direction: column;
-  height: 100vh;
+	height: 100vh;
 }
 
 .main-game-area {
 	display: flex;
 	flex-direction: column;
-  flex-grow: 1;
+	flex-grow: 1;
 }
 
 .game-info-wrapper {
@@ -448,6 +448,7 @@ p.game-timer {
 	width: 100vw;
 	padding: 2rem 0;
 	height: fit-content;
+	touch-action: manipulation;
 
 	.letter-row {
 		display: flex;
@@ -462,6 +463,11 @@ p.game-timer {
 			background-color: gray;
 			color: white;
 			border: none;
+
+			&:active {
+				background-color: white;
+				color: black;
+			}
 		}
 	}
 }
@@ -497,7 +503,6 @@ p.game-timer {
 	color: red;
 	pointer-events: none;
 }
-
 
 // for smaller screens
 
