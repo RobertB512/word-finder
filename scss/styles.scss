@@ -16,7 +16,7 @@ html {
 	height: 100vh;
 	// preferred height for, if available
 	height: 100dvh;
-	overflow: scroll;
+	overflow-y: scroll;
 }
 
 body {
@@ -473,9 +473,9 @@ p.game-timer {
 		gap: 0.25rem;
 
 		.key {
-			width: clamp(2.4rem, 4.5rem, 5.9rem);
-			height: clamp(5rem, 5.8rem, 7.7rem);
-			font-size: clamp(2.25rem, 3.25rem, 4rem);
+			width: clamp(2rem, 4rem, 5rem);
+			height: clamp(2.5rem, 4.5rem, 5.5rem);
+			font-size: clamp(1.2rem, 2rem, 2.5rem);
 			padding: 0.5rem;
 			background-color: gray;
 			color: white;

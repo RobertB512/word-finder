@@ -9,7 +9,7 @@ html {
   font-size: 62.5%;
   height: 100vh;
   height: 100dvh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 body {
@@ -433,9 +433,9 @@ p.game-timer {
   gap: 0.25rem;
 }
 .keyboard .letter-row .key {
-  width: 4.5rem;
-  height: 5.8rem;
-  font-size: 3.25rem;
+  width: 4rem;
+  height: 4.5rem;
+  font-size: 2rem;
   padding: 0.5rem;
   background-color: gray;
   color: white;
