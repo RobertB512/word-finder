@@ -1,7 +1,7 @@
 ##### Things to Fix #####
 - Add visual effect when keyboard key on custom keyboard is pressed 
-(not appearing to work on mobile)
-- Make site size take up viewable size, not phone hight 
+(not appearing to work on mobile) | DONE
+- Make site size take up viewable size, not phone height 
 (between top and bottom bars).
 - Change custom keyboard key color in level 2 if that letter is the user's word 
 and in the game word so the user knows they cannot use it againg in their word.
