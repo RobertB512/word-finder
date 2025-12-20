@@ -561,10 +561,16 @@ p.game-timer {
 	.game-wrapper {
 		display: flex;
 	}
-	// .game-info-wrapper,
-	// .found-words-wrapper {
-	// 	height: 100vh;
-	// }
+
+	.main-game-area {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.found-words-wrapper {
+		height: 100%;
+	}
+
 	.game-info-wrapper {
 		justify-content: flex-start;
 		flex: 1;
