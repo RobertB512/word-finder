@@ -10,6 +10,9 @@ html {
   height: 100vh;
   height: 100dvh;
   overflow-y: scroll;
+  scrollbar-color: #fdf7ff #0000ff;
+  -webkit-scrollbar-track: #0000ff;
+  -webkit-scrollbar-thumb: #fdf7ff;
 }
 
 body {
@@ -414,6 +417,9 @@ p.game-timer {
 .guessed-words-section {
   margin-bottom: 1rem;
   overflow-y: scroll;
+  scrollbar-color: #0000ff #fdf7ff;
+  -webkit-scrollbar-track: #fdf7ff;
+  -webkit-scrollbar-thumb: #0000ff;
 }
 
 .keyboard {

@@ -17,6 +17,9 @@ html {
 	// preferred height for, if available
 	height: 100dvh;
 	overflow-y: scroll;
+	scrollbar-color: $secondary-color $primary-color;
+	-webkit-scrollbar-track: $primary-color;
+	-webkit-scrollbar-thumb: $secondary-color;
 }
 
 body {
@@ -452,6 +455,9 @@ p.game-timer {
 	margin-bottom: 1rem;
 	// height: 10vh;
 	overflow-y: scroll;
+	scrollbar-color: $primary-color $secondary-color;
+	-webkit-scrollbar-track: $secondary-color;
+	-webkit-scrollbar-thumb: $primary-color;
 }
 
 .keyboard {
