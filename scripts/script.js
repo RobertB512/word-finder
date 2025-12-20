@@ -468,12 +468,14 @@ const showGameOverScreen = () => {
 	const inputArea = document.querySelector(".input-area");
 	const timerWrapper = document.querySelector(".timer-wrapper");
 	const getNewWordBtn = document.querySelector(".get-new-word-btn");
+	const keyboard = document.querySelector(".keyboard");
 
 	startGameWrapper.classList.remove("d-none");
 
 	getNewWordBtn.classList.add("d-none");
 	inputArea.classList.add("d-none");
 	timerWrapper.classList.add("d-none");
+	keyboard.classList.add("d-none");
 
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
 	startGameBtn.addEventListener("click", toggleVisibleAndPlay);
