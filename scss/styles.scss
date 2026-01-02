@@ -330,6 +330,12 @@ form {
 	label {
 		text-align: left;
 	}
+
+	.input-group {
+		display: flex;
+		width: 100%;
+	}
+
 	input {
 		border: none;
 		width: 100%;
@@ -350,17 +356,26 @@ form {
 	}
 
 	.submit-word-btn {
-		flex: 2;
+		font-size: 2.5rem;
+		width: fit-content;
+		padding: 1.5rem;
 	}
 
 	.erase-letter-btn {
-		flex: 1;
+		font-size: 2.5rem;
+		width: fit-content;
+		padding: 1.5rem;
 	}
 }
 
 p.error-msg-lbl {
-	font-size: 2.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	height: 7ch;
 	max-width: 50rem;
+	margin-bottom: 0;
 }
 
 .wordbtn-timer-wraper {
@@ -430,9 +445,10 @@ p.game-timer {
 	color: $primary-color;
 	padding: 2rem;
 	// fallback for older browsers, content may not fit that well
-	height: 40vh;
+	// height: 40vh;
+	height: 100%;
 	// preferred height for, if available
-	height: 40dvh;
+	// height: 40dvh;
 	// WAS ORIGINALLY JUST 40vh
 
 	p {
@@ -469,7 +485,7 @@ p.game-timer {
 	// z-index: 99;
 	background-color: darkslategray;
 	width: 100vw;
-	padding: 2rem 0;
+	padding: 2rem 2rem 4rem 2rem;
 	height: fit-content;
 	touch-action: manipulation;
 

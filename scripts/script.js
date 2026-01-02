@@ -57,8 +57,8 @@ const handleKeyboardEntry = () => {
 	keyboardSubmit.removeEventListener("click", preventFormReload);
 	keyboardSubmit.addEventListener("click", preventFormReload);
 
-	// submitWordBtn.removeEventListener("click", (e) => handleSubmitBtnPress(e));
-	// submitWordBtn.addEventListener("click", (e) => handleSubmitBtnPress(e));
+	submitWordBtn.removeEventListener("click", (e) => handleSubmitBtnPress(e));
+	submitWordBtn.addEventListener("click", (e) => handleSubmitBtnPress(e));
 };
 
 const handleLetterPress = (e) => {
@@ -76,12 +76,12 @@ const handleBackSpaceBtnPress = () => {
 	wordInput.value = currentFieldValue.slice(0, -1);
 };
 
-// const handleKeyboardSubmitPress = () => {
-// 	const keyboardSubmit = document.querySelector(".keyboard-submit");
+const handleKeyboardSubmitPress = () => {
+	const keyboardSubmit = document.querySelector(".keyboard-submit");
 
-// 	keyboardSubmit.removeEventListener("submit", preventFormReload);
-// 	keyboardSubmit.addEventListener("submit", preventFormReload);
-// };
+	keyboardSubmit.removeEventListener("submit", preventFormReload);
+	keyboardSubmit.addEventListener("submit", preventFormReload);
+};
 
 const prepOnPageLoad = async () => {
 	const startGameWrapper = document.querySelector(".start-game-wrapper");
@@ -108,7 +108,7 @@ const playGame = async (selectedLevel) => {
 	getWordFromUser();
 	handleLevelSelection("", selectedLevel);
 	getNewWord();
-	// handleErasingLetters();
+	handleErasingLetters();
 	handleKeyboardEntry();
 };
 
@@ -132,6 +132,7 @@ const preventFormReload = async (e) => {
 		: checkIfRealWord(wordEntryInput.value.toLowerCase());
 
 	wordEntryInput.value = "";
+	wordEntryInput.focus();
 };
 
 const listenForInput = async () => {
@@ -177,16 +178,16 @@ const addLetterFromTap = async (e, wrapper) => {
 	inputField.value = inputField.value + wrapper.textContent;
 };
 
-// const handleErasingLetters = async () => {
-// 	const eraseLastLetterBtn = document.querySelector(".erase-letter-btn");
+const handleErasingLetters = async () => {
+	const eraseLastLetterBtn = document.querySelector(".erase-letter-btn");
 
-// 	eraseLastLetterBtn.removeEventListener("click", eraseLastLetter);
-// 	eraseLastLetterBtn.addEventListener("click", eraseLastLetter);
-// };
+	eraseLastLetterBtn.removeEventListener("click", eraseLastLetter);
+	eraseLastLetterBtn.addEventListener("click", eraseLastLetter);
+};
 
 const eraseLastLetter = async (e) => {
 	const inputField = document.querySelector(".word-entry-input");
-	// const submitWordBtn = document.querySelector(".submit-word-btn");
+	const submitWordBtn = document.querySelector(".submit-word-btn");
 
 	e.preventDefault();
 
@@ -196,7 +197,7 @@ const eraseLastLetter = async (e) => {
 		console.log("error eraseing letter");
 	}
 
-	// submitWordBtn.focus();
+	inputField.focus();
 };
 
 const getWordFromUser = async () => {
@@ -274,7 +275,7 @@ const strictCheckWordInGameWord = async (userWord) => {
 		}
 	}
 
-	const errorMsg = `One or more letters in ${userWord} aren't in ${gameWord}, or you used some letters too much`;
+	const errorMsg = `Some letters in ${userWord} aren't in ${gameWord}, or some letters are used too much`;
 	handleWordStatus(wordStatus, userWord, errorMsg);
 };
 
@@ -486,7 +487,7 @@ const handleGameOver = () => {
 	const startGameBtn = document.querySelector(".start-game-btn");
 	const wordEntryForm = document.querySelector(".word-entry-form");
 	const wordEntryInput = document.querySelector(".word-entry-input");
-	// const eraseLastLetterBtn = document.querySelector(".erase-letter-btn");
+	const eraseLastLetterBtn = document.querySelector(".erase-letter-btn");
 	const keyboardSubmit = document.querySelector(".keyboard-submit");
 	const deleteKey = document.querySelector(".keyboard-delete");
 	const keyboardLetters = document.querySelectorAll(".letter");
@@ -497,7 +498,7 @@ const handleGameOver = () => {
 	wordEntryForm.removeEventListener("submit", preventFormReload);
 	wordEntryInput.removeEventListener("input", allowOnlyAlphabetChars);
 	startGameBtn.removeEventListener("click", toggleVisibleAndPlay);
-	// eraseLastLetterBtn.removeEventListener("click", eraseLastLetter);
+	eraseLastLetterBtn.removeEventListener("click", eraseLastLetter);
 	keyboardSubmit.removeEventListener("click", preventFormReload);
 	deleteKey.removeEventListener("click", handleBackSpaceBtnPress);
 	keyboardLetters.forEach((letter) => {

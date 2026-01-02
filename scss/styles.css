@@ -302,6 +302,10 @@ form {
 form label {
   text-align: left;
 }
+form .input-group {
+  display: flex;
+  width: 100%;
+}
 form input {
   border: none;
   width: 100%;
@@ -319,15 +323,26 @@ form button.btns-and-links {
   border-radius: 0 0 0.5rem 0.5rem;
 }
 form .submit-word-btn {
-  flex: 2;
+  font-size: 2.5rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1.5rem;
 }
 form .erase-letter-btn {
-  flex: 1;
+  font-size: 2.5rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1.5rem;
 }
 
 p.error-msg-lbl {
-  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  height: 7ch;
   max-width: 50rem;
+  margin-bottom: 0;
 }
 
 .wordbtn-timer-wraper {
@@ -396,8 +411,7 @@ p.game-timer {
   flex-grow: 1;
   color: #0000ff;
   padding: 2rem;
-  height: 40vh;
-  height: 40dvh;
+  height: 100%;
 }
 .found-words-wrapper p {
   font-size: 2.5rem;
@@ -428,7 +442,7 @@ p.game-timer {
   gap: 0.25rem;
   background-color: darkslategray;
   width: 100vw;
-  padding: 2rem 0;
+  padding: 2rem 2rem 4rem 2rem;
   height: -moz-fit-content;
   height: fit-content;
   touch-action: manipulation;
