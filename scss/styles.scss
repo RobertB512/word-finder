@@ -460,10 +460,10 @@ p.game-timer {
 	color: $primary-color;
 	padding: 0.5rem;
 	// fallback for older browsers, content may not fit that well
-	height: 40vh;
+	height: 30vh;
 	// height: 100%;
 	// preferred height for, if available
-	height: 40dvh;
+	height: 30dvh;
 
 	p {
 		font-size: 2.5rem;
