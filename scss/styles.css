@@ -292,6 +292,9 @@ button:hover {
 }
 
 .input-area {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   max-width: 95vw;
 }
 
@@ -311,7 +314,7 @@ form input {
   width: 100%;
   padding: 0.5rem 1rem;
   text-align: center;
-  border-radius: 0.5rem 0.5rem 0 0;
+  border-radius: 0.5rem 0rem 0rem 0.5;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -319,30 +322,40 @@ form .form-btn-wrapper {
   display: flex;
   gap: 0.25rem;
 }
-form button.btns-and-links {
-  border-radius: 0 0 0.5rem 0.5rem;
-}
 form .submit-word-btn {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   width: -moz-fit-content;
   width: fit-content;
   padding: 1.5rem;
+  border-radius: 0rem;
+  height: 100%;
 }
 form .erase-letter-btn {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   width: -moz-fit-content;
   width: fit-content;
   padding: 1.5rem;
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
+  height: 100%;
+}
+
+.error-area {
+  max-height: 0;
+  transition: max-height 0.25s ease-out;
+  justify-content: center;
+  position: absolute;
+  bottom: -1rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-width: 50rem;
+  margin-bottom: 0;
 }
 
 p.error-msg-lbl {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 2rem;
-  height: 7ch;
-  max-width: 50rem;
-  margin-bottom: 0;
+  background-color: #0000ff;
+  color: white;
+  padding: 0.5rem;
 }
 
 .wordbtn-timer-wraper {
@@ -410,8 +423,9 @@ p.game-timer {
   flex-direction: column;
   flex-grow: 1;
   color: #0000ff;
-  padding: 2rem;
-  height: 100%;
+  padding: 0.5rem;
+  height: 40vh;
+  height: 40dvh;
 }
 .found-words-wrapper p {
   font-size: 2.5rem;
@@ -425,7 +439,7 @@ p.game-timer {
 
 .game-progress {
   border-bottom: 2px solid;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .guessed-words-section {
@@ -492,6 +506,10 @@ p.game-timer {
 .letter-unavailable {
   color: red;
   pointer-events: none;
+}
+
+.error-area.expanded {
+  max-height: 7ch;
 }
 
 @media (max-width: 400px) {

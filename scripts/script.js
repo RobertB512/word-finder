@@ -57,8 +57,10 @@ const handleKeyboardEntry = () => {
 	keyboardSubmit.removeEventListener("click", preventFormReload);
 	keyboardSubmit.addEventListener("click", preventFormReload);
 
-	submitWordBtn.removeEventListener("click", (e) => handleSubmitBtnPress(e));
-	submitWordBtn.addEventListener("click", (e) => handleSubmitBtnPress(e));
+	keyboardSubmit.removeEventListener("click", (e) =>
+		handleKeyboardSubmitPress(e)
+	);
+	keyboardSubmit.addEventListener("click", (e) => handleKeyboardSubmitPress(e));
 };
 
 const handleLetterPress = (e) => {
@@ -442,12 +444,16 @@ const focusOnInput = () => {
 
 const displayErrorMsg = async (errorMsg) => {
 	const errorLbl = document.querySelector(".error-msg-lbl");
+	const errorArea = document.querySelector(".error-area");
 
+  // if there's an error, show it in the error.
+	errorArea.classList.toggle("expanded");
 	errorMsg && (errorLbl.textContent = errorMsg);
 
 	setTimeout(() => {
 		errorLbl.textContent = "";
 	}, 5000);
+
 };
 
 const resetGame = () => {
